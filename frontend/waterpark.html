@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrCream Water Park - Where Every Drop is a Splash of Joy!</title>
+    <meta name="description" content="Experience the ultimate destination for families and thrill-seekers at MrCream Water Park. Swimming pools, kids zone, rides, and unforgettable fun in Lagos, Nigeria.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/waterpark.css">
+</head>
+<body class="theme-waterpark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+    <div class="container">
+
+    <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            
+            <img src="images/logo/Logo.png" alt="MrCream Logo" style="height: 40px;" />
+            <span class="brand-logo">MrCream</span>
+        </a>
+    
+
+    <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="yoghurt.html">
+                    <i class="bi bi-cup-straw me-1"></i>Yoghurt Drinks
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="waterpark.html">
+                    <i class="bi bi-water me-1"></i>Water Park
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="liqueur.html">
+                    <i class="bi bi-cup me-1"></i>Premium Liqueur
+                    <span class="badge bg-danger ms-1" style="font-size: 0.6rem;">18+</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+
+        </div>
+    </nav>
+
+    <!-- Water Park Hero Section -->
+    <section class="waterpark-hero-modern">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <!-- Left Content -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="hero-content-waterpark">
+                        <!-- Badge -->
+                        <div class="hero-badge waterpark-badge">
+                            <i class="bi bi-waves me-2"></i>
+                            Lagos's Premier Water Adventure
+                        </div>
+                        
+                        <!-- Main Heading -->
+                        <h1 class="hero-title-waterpark">
+                            MrCream Water Park
+                            <span class="highlight-text-waterpark">Where Every Drop is a Splash of Joy!</span>
+                        </h1>
+                        
+                        <!-- Description -->
+                        <p class="hero-description-waterpark">
+                            Step into a world of adventure, excitement, and non-stop fun! Our water park combines 
+                            refreshing attractions, vibrant scenery, and the unmistakable spirit of MrCream brand 
+                            for families, friends, and thrill-seekers of all ages.
+                        </p>
+                        
+                        <!-- Quick Info -->
+                        <div class="quick-info-row">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div class="info-content">
+                                    <strong>Open Daily</strong>
+                                    <small>Mon-Fri: 10am-6pm<br>Weekends: 9am-7pm</small>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <strong>Lagos Location</strong>
+                                    <small>Badagry Expressway<br>Free Parking</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="hero-cta-group">
+                            <button class="btn btn-primary-waterpark btn-lg" onclick="showTicketModal()">
+                                <i class="bi bi-ticket-perforated me-2"></i>
+                                Book Tickets Now
+                            </button>
+                            <button class="btn btn-outline-waterpark btn-lg" onclick="checkCapacity()">
+                                <i class="bi bi-people me-2"></i>
+                                Check Live Capacity
+                            </button>
+                        </div>
+                        
+                        <!-- Live Stats -->
+                        <div class="live-stats">
+                            <div class="stat-item-live">
+                                <span class="live-indicator"></span>
+                                <strong id="current-visitors">Loading...</strong>
+                                <small>Visitors Today</small>
+                            </div>
+                            <div class="stat-item-live">
+                                <span class="status-indicator open"></span>
+                                <strong>Open Now</strong>
+                                <small>All Attractions</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Visual -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="hero-visual-waterpark">
+                        <!-- Live Capacity Card -->
+                        <div class="capacity-card">
+                            <div class="capacity-header">
+                                <h4>Live Capacity</h4>
+                                <span class="live-badge">LIVE</span>
+                            </div>
+                            <div class="capacity-meter">
+                                <div class="capacity-fill" id="capacity-fill" style="width: 65%"></div>
+                            </div>
+                            <div class="capacity-info">
+                                <span id="capacity-text">335 / 500 visitors</span>
+                                <span class="capacity-status safe">Safe Levels</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Attraction Cards -->
+                        <div class="floating-attraction-card adult-pool">
+                            <div class="attraction-icon">🏊‍♂️</div>
+                            <h5>Adult Swimming Pool</h5>
+                            <p>Wave Pool Experience</p>
+                            <div class="attraction-status">
+                                <span class="status-dot open"></span>
+                                <small>Open • No Wait</small>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-attraction-card kids-zone">
+                            <div class="attraction-icon">🎠</div>
+                            <h5>Kids Splash Zone</h5>
+                            <p>Safe & Supervised</p>
+                            <div class="attraction-status">
+                                <span class="status-dot open"></span>
+                                <small>Open • No Wait</small>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-attraction-card vip-pool">
+                            <div class="attraction-icon">👑</div>
+                            <h5>VIP Pool</h5>
+                            <p>Private Experience</p>
+                            <div class="attraction-status">
+                                <span class="status-dot available"></span>
+                                <small>Available</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Background Water Animation -->
+                        <div class="water-animation">
+                            <div class="wave wave1"></div>
+                            <div class="wave wave2"></div>
+                            <div class="wave wave3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section class="attractions-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Top Attractions</h2>
+                    <p class="section-subtitle">Discover our exciting water attractions designed for every age and thrill level</p>
+                </div>
+            </div>
+            
+            <div id="attractions-grid" class="row">
+                <!-- Attractions will be loaded here via JavaScript -->
+                <div class="col-12">
+                    <div class="loading-container text-center py-5">
+                        <div class="spinner-border text-info mb-3" role="status">
+                            <span class="visually-hidden">Loading attractions...</span>
+                        </div>
+                        <p class="text-muted">Loading exciting attractions...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets & Pricing Section -->
+    <section class="tickets-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Tickets & Pricing</h2>
+                    <p class="section-subtitle">Choose the perfect ticket for your water park adventure</p>
+                </div>
+            </div>
+            
+            <div id="tickets-grid" class="row">
+                <!-- Tickets will be loaded here via JavaScript -->
+                <div class="col-12">
+                    <div class="loading-container text-center py-3">
+                        <div class="spinner-border text-info mb-2" role="status">
+                            <span class="visually-hidden">Loading tickets...</span>
+                        </div>
+                        <p class="text-muted">Loading ticket options...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety & Facilities Section -->
+    <section class="safety-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="section-title">Safety First - Always</h2>
+                    <p class="section-subtitle">Your safety is our top priority. We operate with strict health and safety protocols.</p>
+                    
+                    <div class="safety-features">
+                        <div class="safety-item">
+                            <div class="safety-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="safety-content">
+                                <h5>Certified Lifeguards</h5>
+                                <p>Professional lifeguards stationed at every water attraction with emergency response training.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="safety-item">
+                            <div class="safety-icon">
+                                <i class="bi bi-droplet-fill"></i>
+                            </div>
+                            <div class="safety-content">
+                                <h5>Water Quality Monitoring</h5>
+                                <p>Constant water quality checks and filtration systems to ensure crystal-clear, safe water.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="safety-item">
+                            <div class="safety-icon">
+                                <i class="bi bi-heart-pulse"></i>
+                            </div>
+                            <div class="safety-content">
+                                <h5>Medical Support</h5>
+                                <p>First aid stations with trained medical personnel on-site at all times.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="safety-item">
+                            <div class="safety-icon">
+                                <i class="bi bi-life-preserver"></i>
+                            </div>
+                            <div class="safety-content">
+                                <h5>Safety Equipment</h5>
+                                <p>Life jackets, flotation devices, and safety equipment available for all guests.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h3>Park Facilities</h3>
+                    <div class="facilities-grid">
+                        <div class="facility-item">
+                            <i class="bi bi-car-front"></i>
+                            <span>Free & Secure Parking</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-door-open"></i>
+                            <span>Changing Rooms</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-lock"></i>
+                            <span>Secure Lockers</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-cup-hot"></i>
+                            <span>Food Court</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-wifi"></i>
+                            <span>Free WiFi</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-umbrella"></i>
+                            <span>Shaded Areas</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-gift"></i>
+                            <span>Gift Shop</span>
+                        </div>
+                        <div class="facility-item">
+                            <i class="bi bi-cup-straw"></i>
+                            <span>MrCream Yoghurt Bar</span>
+                        </div>
+                    </div>
+                    
+                    <div class="what-to-bring mt-4">
+                        <h4>What to Bring</h4>
+                        <ul class="bring-list">
+                            <li><i class="bi bi-check-circle text-success"></i> Swimsuits (modest swimwear required)</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Towels</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Sunscreen</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Water shoes (optional)</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Lots of smiles!</li>
+                        </ul>
+                        <p class="text-muted small">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Rentals available for swimwear, lockers, and tubes
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Parties Section -->
+    <section class="events-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Events, Parties & Group Packages</h2>
+                    <p class="section-subtitle">Make your special occasions unforgettable at MrCream Water Park</p>
+                </div>
+            </div>
+            
+            <div id="events-grid" class="row">
+                <!-- Event packages will be loaded here -->
+                <div class="col-12">
+                    <div class="loading-container text-center py-3">
+                        <div class="spinner-border text-info mb-2" role="status">
+                            <span class="visually-hidden">Loading events...</span>
+                        </div>
+                        <p class="text-muted">Loading event packages...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="contact-event-team">
+                        <h4>Ready to Plan Your Event?</h4>
+                        <p>Contact our Event Team for custom packages and exclusive arrangements</p>
+                        <div class="contact-methods">
+                            <a href="tel:+234XXXXXXXXX" class="btn btn-primary me-3">
+                                <i class="bi bi-telephone me-2"></i>Call Event Team
+                            </a>
+                            <a href="mailto:events@mrcreamwaterpark.com" class="btn btn-outline-primary">
+                                <i class="bi bi-envelope me-2"></i>Email Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="location-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Visit Us</h2>
+                    <div class="location-details">
+                        <div class="location-item-detailed">
+                            <i class="bi bi-geo-alt-fill text-info"></i>
+                            <div>
+                                <h5>Main Location</h5>
+                                <p>18-26 Dauda Ayorinde Street Adaloko<br>
+                                Afromedia, off Badagry Expressway<br>
+                                Lagos State, Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="location-item-detailed">
+                            <i class="bi bi-signpost-2-fill text-info"></i>
+                            <div>
+                                <h5>Alternative Route</h5>
+                                <p>Check Point Bus Stop<br>
+                                LASU Igando Road<br>
+                                Ijegun, Lagos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="location-item-detailed">
+                            <i class="bi bi-telephone-fill text-info"></i>
+                            <div>
+                                <h5>Contact</h5>
+                                <p>Phone: +234 XXX XXX XXXX<br>
+                                Email: info@mrcreamwaterpark.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="location-item-detailed">
+                            <i class="bi bi-clock-fill text-info"></i>
+                            <div>
+                                <h5>Operating Hours</h5>
+                                <p>Monday – Friday: 10am – 6pm<br>
+                                Saturday – Sunday & Public Holidays: 9am – 7pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="bi bi-map"></i>
+                            <h4>Interactive Map</h4>
+                            <p>Detailed directions and navigation coming soon</p>
+                            <button class="btn btn-outline-info">
+                                <i class="bi bi-navigation me-2"></i>Get Directions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">MrCream Water Park</h5>
+                    <p>Where Every Drop is a Splash of Joy! More than just a place to cool off — it's a celebration of joy, laughter, and unforgettable moments.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Instagram @MrCreamWaterPark">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Facebook /MrCreamWaterPark">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" title="TikTok @SplashWithMrCream">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#attractions">Attractions</a></li>
+                        <li><a href="#tickets">Tickets & Pricing</a></li>
+                        <li><a href="#safety">Safety Guidelines</a></li>
+                        <li><a href="#events">Events & Parties</a></li>
+                        <li><a href="yoghurt.html">MrCream Yoghurt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <div class="contact-info">
+                        <p><i class="bi bi-geo-alt me-2"></i>Badagry Expressway, Lagos</p>
+                        <p><i class="bi bi-telephone me-2"></i>+234 XXX XXX XXXX</p>
+                        <p><i class="bi bi-envelope me-2"></i>info@mrcreamwaterpark.com</p>
+                        <p><i class="bi bi-clock me-2"></i>Mon-Fri: 10am-6pm</p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 MrCream Water Park. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>🇳🇬 Proudly Nigerian | #SplashWithMrCream</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ticket Booking Modal -->
+    <div class="modal fade" id="ticketModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-ticket-perforated me-2"></i>
+                        Book Your Water Park Tickets
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="ticket-booking-content">
+                        <!-- Booking form will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/waterpark.js"></script>
+</body>
+</html>

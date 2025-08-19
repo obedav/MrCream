@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbo Cream Liqueur - MrCream Premium | Taste the Soul of Africa</title>
+    <meta name="description" content="Experience Turbo Cream Liqueur - Where African luxury meets creamy perfection. Premium aged spirits blended with rich dairy cream and authentic African botanicals.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700;900&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/liqueur.css">
+</head>
+<body class="theme-liqueur">
+    <!-- Age Gate Overlay -->
+    <div id="ageGate" class="age-gate-overlay">
+        <div class="age-gate-content">
+            <div class="age-gate-logo">
+                <h2 class="brand-logo-age">MrCream</h2>
+                <p class="brand-subtitle">Premium Liqueur Collection</p>
+            </div>
+            
+            <div class="age-gate-icon">
+                <i class="bi bi-shield-check"></i>
+            </div>
+            
+            <h3 class="age-gate-title">Age Verification Required</h3>
+            <p class="age-gate-text">
+                You must be 18 years or older to enter this site.<br>
+                Please confirm you are of legal drinking age in your country.
+            </p>
+            
+            <div class="age-gate-buttons">
+                <button class="btn btn-age-confirm" onclick="confirmAge()">
+                    <i class="bi bi-check-circle me-2"></i>
+                    Yes, I am 18 or older
+                </button>
+                <button class="btn btn-age-deny" onclick="denyAge()">
+                    <i class="bi bi-x-circle me-2"></i>
+                    No, I am under 18
+                </button>
+            </div>
+            
+            <p class="age-gate-disclaimer">
+                By entering this site, you agree to our Terms & Conditions and Privacy Policy.<br>
+                Please drink responsibly.
+            </p>
+        </div>
+    </div>   
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top liqueur-nav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-logo">MrCream</span>
+                <span class="brand-badge-premium">Premium</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="yoghurt.html">
+                            <i class="bi bi-cup-straw me-1"></i>Yoghurt Drinks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="waterpark.html">
+                            <i class="bi bi-water me-1"></i>Water Park
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="liqueur.html">
+                            <i class="bi bi-gem me-1"></i>Premium Liqueur
+                            <span class="age-badge">18+</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="liqueur-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+        
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content-liqueur">
+                        <!-- Heritage Badge -->
+                        <div class="heritage-badge">
+                            <i class="bi bi-gem me-2"></i>
+                            African Luxury Redefined
+                            <span class="age-indicator">18+</span>
+                        </div>
+                        
+                        <!-- Main Title -->
+                        <h1 class="hero-title-liqueur">
+                            Turbo Cream Liqueur
+                            <span class="subtitle-text">Where African Heritage Meets Creamy Perfection</span>
+                        </h1>
+                        
+                        <!-- Tagline -->
+                        <p class="hero-tagline">
+                            Pour the Pride. Sip the Soul. <span class="highlight">Taste Africa.</span>
+                        </p>
+                        
+                        <!-- Description -->
+                        <p class="hero-description-liqueur">
+                            A masterful blend of rich velvety dairy cream, premium aged spirits, and carefully 
+                            selected African botanicals. Every bottle reflects the complexity and warmth of our 
+                            continent — from golden savannas to lush cocoa fields and vibrant spice markets.
+                        </p>
+                        
+                        <!-- Features -->
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <i class="bi bi-award-fill"></i>
+                                <span>18% ABV Premium</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-globe-africa"></i>
+                                <span>100% African Heritage</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-patch-check-fill"></i>
+                                <span>Ethically Sourced</span>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="hero-cta-group">
+                            <button class="btn btn-luxury-primary" onclick="scrollToProducts()">
+                                <i class="bi bi-basket3 me-2"></i>
+                                Explore Collection
+                            </button>
+                            <button class="btn btn-luxury-outline" onclick="showCocktailRecipes()">
+                                <i class="bi bi-cup-straw me-2"></i>
+                                Cocktail Recipes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-visual-liqueur">
+                        <!-- Floating Bottle Display -->
+                        <div class="bottle-showcase">
+                            <div class="bottle-glow"></div>
+                            <div class="bottle-main">
+                                <img src="images/liqueur/TurboCream-bottle-01.png" alt="Turbo Cream Liqueur" class="bottle-image">
+                            </div>
+                            
+                            <!-- Floating Elements -->
+                            <div class="floating-ingredient ingredient-1">
+                                <i class="bi bi-flower1"></i>
+                                <span>Vanilla Bean</span>
+                            </div>
+                            <div class="floating-ingredient ingredient-2">
+                                <i class="bi bi-tree"></i>
+                                <span>Baobab</span>
+                            </div>
+                            <div class="floating-ingredient ingredient-3">
+                                <i class="bi bi-fire"></i>
+                                <span>African Ginger</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Tasting Notes -->
+                        <div class="tasting-notes-card">
+                            <h4>Tasting Notes</h4>
+                            <div class="notes-grid">
+                                <div class="note-item">
+                                    <i class="bi bi-droplet-fill"></i>
+                                    <span>Silky Smooth</span>
+                                </div>
+                                <div class="note-item">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>Rich Cocoa</span>
+                                </div>
+                                <div class="note-item">
+                                    <i class="bi bi-heart-fill"></i>
+                                    <span>Warm Spice</span>
+                                </div>
+                                <div class="note-item">
+                                    <i class="bi bi-gem"></i>
+                                    <span>Caramel Finish</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Wave -->
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,50 C150,20 350,80 600,50 C850,20 1050,80 1440,50 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- The Turbo Story Section -->
+    <section class="story-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="story-image-wrapper">
+                        <div class="story-image-frame">
+                            <img src="images/liqueur/TurboCream-bottle-01.png" alt="African Heritage" class="story-image">
+                        </div>
+                        <div class="story-badge">
+                            <i class="bi bi-globe-africa"></i>
+                            <span>Proudly African</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="story-content">
+                        <h2 class="section-title-luxury">
+                            <span class="title-accent">The Turbo Story</span>
+                            Born of Culture. Blended with Soul.
+                        </h2>
+                        
+                        <p class="story-text">
+                            At the heart of Africa's vibrant cultures, warm hospitality, and rich natural 
+                            resources lies a tradition of sharing — of coming together to celebrate life, 
+                            love, and legacy. Turbo Cream Liqueur was born out of this spirit.
+                        </p>
+                        
+                        <p class="story-text">
+                            We work closely with farmers and producers across the continent to source 
+                            ethically-grown, high-quality ingredients that carry the spirit of our people 
+                            and land. Every batch is carefully crafted in small quantities to ensure 
+                            consistency, richness, and authenticity.
+                        </p>
+                        
+                        <div class="story-stats">
+                            <div class="stat-box">
+                                <i class="bi bi-people-fill"></i>
+                                <h4>500+</h4>
+                                <p>Local Farmers Supported</p>
+                            </div>
+                            <div class="stat-box">
+                                <i class="bi bi-award-fill"></i>
+                                <h4>100%</h4>
+                                <p>Natural Ingredients</p>
+                            </div>
+                            <div class="stat-box">
+                                <i class="bi bi-heart-fill"></i>
+                                <h4>1M+</h4>
+                                <p>Bottles Enjoyed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Collection -->
+    <section class="products-section py-5" id="products">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury">
+                    <span class="title-accent">Our Collection</span>
+                    Premium African-Infused Cream Liqueurs
+                </h2>
+                <p class="section-subtitle-luxury">
+                    Each variant tells a unique story of African excellence
+                </p>
+            </div>
+            
+            <div class="row">
+                <!-- Turbo Original -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="product-card premium">
+                        <div class="product-badge">Signature Blend</div>
+                        
+                        <div class="product-image">
+                            <div class="bottle-container">
+                                <div class="bottle-shadow"></div>
+                                <img src="images/turbo-original.png" alt="Turbo Original" class="bottle">
+                            </div>
+                        </div>
+                        
+                        <div class="product-info">
+                            <h3 class="product-name">Turbo Original</h3>
+                            <p class="product-tagline">The Heart of Our Brand</p>
+                            
+                            <p class="product-description">
+                                Silky-smooth cream liqueur with premium fresh dairy cream, refined spirits, 
+                                and unique African ingredients like roasted cocoa, caramel spice, and 
+                                West African vanilla bean.
+                            </p>
+                            
+                            <div class="product-details">
+                                <div class="detail-item">
+                                    <i class="bi bi-droplet"></i>
+                                    <span>250ml / 750ml</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="bi bi-speedometer"></i>
+                                    <span>18% ABV</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flavor-notes">
+                                <span class="note">Cocoa</span>
+                                <span class="note">Vanilla</span>
+                                <span class="note">Caramel</span>
+                            </div>
+                            
+                            <div class="product-price">
+                                <span class="currency">₦</span>
+                                <span class="amount">8,500</span>
+                                <span class="volume">/ 250ml</span>
+                            </div>
+                            
+                            <button class="btn btn-product-buy" onclick="showPurchaseModal('Turbo Original')">
+                                <i class="bi bi-basket3 me-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Turbo Gold -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="product-card gold">
+                        <div class="product-badge">Premium Reserve</div>
+                        
+                        <div class="product-image">
+                            <div class="bottle-container">
+                                <div class="bottle-shadow"></div>
+                                <img src="images/turbo-gold.png" alt="Turbo Gold" class="bottle">
+                            </div>
+                        </div>
+                        
+                        <div class="product-info">
+                            <h3 class="product-name">Turbo Gold Reserve</h3>
+                            <p class="product-tagline">The Pinnacle of Luxury</p>
+                            
+                            <p class="product-description">
+                                An elevated experience featuring aged spirits, Madagascar vanilla, 
+                                Ethiopian coffee notes, and a hint of kola nut. Finished with 
+                                24-karat gold flakes for ultimate indulgence.
+                            </p>
+                            
+                            <div class="product-details">
+                                <div class="detail-item">
+                                    <i class="bi bi-droplet"></i>
+                                    <span>750ml Only</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="bi bi-speedometer"></i>
+                                    <span>20% ABV</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flavor-notes">
+                                <span class="note">Coffee</span>
+                                <span class="note">Kola Nut</span>
+                                <span class="note">Gold</span>
+                            </div>
+                            
+                            <div class="product-price">
+                                <span class="currency">₦</span>
+                                <span class="amount">25,000</span>
+                                <span class="volume">/ 750ml</span>
+                            </div>
+                            
+                            <button class="btn btn-product-buy gold" onclick="showPurchaseModal('Turbo Gold Reserve')">
+                                <i class="bi bi-gem me-2"></i>
+                                Reserve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Turbo Limited Edition -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="product-card limited">
+                        <div class="product-badge">Coming Soon</div>
+                        
+                        <div class="product-image">
+                            <div class="bottle-container">
+                                <div class="bottle-shadow"></div>
+                                <div class="coming-soon-overlay">
+                                    <i class="bi bi-hourglass-split"></i>
+                                    <p>Launching 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-info">
+                            <h3 class="product-name">Turbo Limited Edition</h3>
+                            <p class="product-tagline">Seasonal Masterpiece</p>
+                            
+                            <p class="product-description">
+                                A rotating collection celebrating Africa's diverse flavors. Each edition 
+                                features unique regional ingredients and limited production runs for 
+                                collectors and connoisseurs.
+                            </p>
+                            
+                            <div class="product-details">
+                                <div class="detail-item">
+                                    <i class="bi bi-droplet"></i>
+                                    <span>500ml Special</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="bi bi-speedometer"></i>
+                                    <span>Variable ABV</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flavor-notes">
+                                <span class="note">Mystery</span>
+                                <span class="note">Exclusive</span>
+                                <span class="note">Limited</span>
+                            </div>
+                            
+                            <div class="product-price">
+                                <span class="currency">₦</span>
+                                <span class="amount">TBA</span>
+                                <span class="volume">/ bottle</span>
+                            </div>
+                            
+                            <button class="btn btn-product-notify" onclick="showNotifyModal()">
+                                <i class="bi bi-bell me-2"></i>
+                                Notify Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Enjoy Section -->
+    <section class="enjoy-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury">
+                    <span class="title-accent">Savor Turbo</span>
+                    Your Way
+                </h2>
+                <p class="section-subtitle-luxury">
+                    Versatile, sophisticated, and unforgettable in every form
+                </p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="enjoy-card">
+                        <div class="enjoy-icon">
+                            <i class="bi bi-snow"></i>
+                        </div>
+                        <h4>Over Ice</h4>
+                        <p>Pour over crushed ice for a smooth, creamy experience that awakens all flavors</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="enjoy-card">
+                        <div class="enjoy-icon">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <h4>In Coffee</h4>
+                        <p>Transform your brew into a luxurious African coffee experience</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="enjoy-card">
+                        <div class="enjoy-icon">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <h4>Cocktails</h4>
+                        <p>Create signature drinks like Turbo Espresso Martini or Baobab White Russian</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="enjoy-card">
+                        <div class="enjoy-icon">
+                            <i class="bi bi-cake2"></i>
+                        </div>
+                        <h4>With Desserts</h4>
+                        <p>Drizzle over ice cream, cakes, or fresh fruit for decadent indulgence</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Signature Cocktail -->
+            <div class="signature-cocktail-section mt-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="cocktail-recipe-card">
+                            <h3 class="cocktail-title">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                Signature Recipe: Turbo Espresso Martini
+                            </h3>
+                            
+                            <div class="ingredients-list">
+                                <h5>Ingredients:</h5>
+                                <ul>
+                                    <li>60ml Turbo Cream Liqueur</li>
+                                    <li>30ml Vodka</li>
+                                    <li>30ml Fresh Espresso</li>
+                                    <li>Coffee beans for garnish</li>
+                                    <li>Ice</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="method-list">
+                                <h5>Method:</h5>
+                                <ol>
+                                    <li>Add all ingredients to cocktail shaker with ice</li>
+                                    <li>Shake vigorously for 15 seconds</li>
+                                    <li>Double strain into chilled martini glass</li>
+                                    <li>Garnish with 3 coffee beans</li>
+                                </ol>
+                            </div>
+                            
+                            <button class="btn btn-view-recipes" onclick="showCocktailRecipes()">
+                                <i class="bi bi-book me-2"></i>
+                                View All Recipes
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="cocktail-visual">
+                            <img src="images/turbo-martini.jpg" alt="Turbo Espresso Martini" class="cocktail-image">
+                            <div class="cocktail-badge">
+                                <i class="bi bi-award"></i>
+                                Customer Favorite
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- African Heritage Section -->
+    <section class="heritage-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury">
+                    <span class="title-accent">African Excellence</span>
+                    In Every Drop
+                </h2>
+                <p class="section-subtitle-luxury">
+                    Supporting local communities while creating world-class liqueur
+                </p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="heritage-card">
+                        <div class="heritage-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Community Impact</h4>
+                        <p>
+                            We partner with over 500 local farmers across Africa, ensuring fair trade 
+                            practices and sustainable livelihoods for communities.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="heritage-card">
+                        <div class="heritage-icon">
+                            <i class="bi bi-leaf"></i>
+                        </div>
+                        <h4>Ethical Sourcing</h4>
+                        <p>
+                            Every ingredient is carefully selected from sustainable sources, supporting 
+                            biodiversity and environmental conservation across the continent.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="heritage-card">
+                        <div class="heritage-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <h4>African Pride</h4>
+                        <p>
+                            Turbo represents African excellence on the global stage, showcasing our 
+                            rich flavors, craftsmanship, and heritage to the world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ingredients Map -->
+            <div class="ingredients-showcase mt-5">
+                <h3 class="text-center mb-4">Our African Ingredients Journey</h3>
+                <div class="ingredients-grid">
+                    <div class="ingredient-item">
+                        <img src="images/vanilla-bean.jpg" alt="Vanilla Bean">
+                        <h5>Madagascar Vanilla</h5>
+                        <p>Premium vanilla beans from Madagascar's finest plantations</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <img src="images/cocoa.jpg" alt="Cocoa">
+                        <h5>West African Cocoa</h5>
+                        <p>Rich cocoa from Ghana and Ivory Coast</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <img src="images/baobab.jpg" alt="Baobab">
+                        <h5>Baobab Fruit</h5>
+                        <p>Superfruit from ancient baobab trees</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <img src="images/kola-nut.jpg" alt="Kola Nut">
+                        <h5>Nigerian Kola Nut</h5>
+                        <p>Traditional kola nut for authentic African flavor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury">
+                    <span class="title-accent">What People Say</span>
+                    Join the Turbo Movement
+                </h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Turbo Cream Liqueur is the smoothest I've ever had — the African flavors 
+                            give it a whole new dimension. Proudly sharing it with everyone I know."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Tunde A.</strong>
+                            <span>Lagos, Nigeria</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Turbo Gold is my new favorite. The kola nut twist is genius! Perfect for 
+                            special occasions and impressing guests."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Nandi K.</strong>
+                            <span>Johannesburg, SA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Finally, a premium liqueur that celebrates African heritage! The quality 
+                            rivals any international brand. Absolutely love it!"
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Amara O.</strong>
+                            <span>Accra, Ghana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where to Buy Section -->
+    <section class="stockists-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury">
+                    <span class="title-accent">Find Turbo</span>
+                    Available Nationwide
+                </h2>
+                <p class="section-subtitle-luxury">
+                    Purchase at select liquor stores or order online for delivery
+                </p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="stockist-card">
+                        <h4><i class="bi bi-shop me-2"></i>Retail Partners</h4>
+                        <div class="stockist-list">
+                            <div class="stockist-item">
+                                <strong>Premium Wine & Spirits Lagos</strong>
+                                <p>Victoria Island, Lekki, Ikoyi</p>
+                            </div>
+                            <div class="stockist-item">
+                                <strong>Shoprite Liquor Stores</strong>
+                                <p>All major locations nationwide</p>
+                            </div>
+                            <div class="stockist-item">
+                                <strong>The Wine Shop</strong>
+                                <p>Lagos, Abuja, Port Harcourt</p>
+                            </div>
+                            <div class="stockist-item">
+                                <strong>Drinks.ng</strong>
+                                <p>Online delivery across Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-find-store" onclick="showStoreLocator()">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            Find Nearest Store
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="stockist-card">
+                        <h4><i class="bi bi-truck me-2"></i>Online Delivery</h4>
+                        <p class="mb-4">
+                            Order Turbo Cream Liqueur online and have it delivered to your doorstep. 
+                            Available for customers 18+ with valid ID verification.
+                        </p>
+                        
+                        <div class="delivery-features">
+                            <div class="delivery-item">
+                                <i class="bi bi-clock-fill"></i>
+                                <span>Same-day delivery in Lagos</span>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Secure packaging</span>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="bi bi-credit-card"></i>
+                                <span>Multiple payment options</span>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="bi bi-geo"></i>
+                                <span>Nationwide coverage</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-order-online" onclick="showOnlineOrder()">
+                            <i class="bi bi-cart3 me-2"></i>
+                            Order Online Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wholesale Inquiries -->
+            <div class="wholesale-section mt-5">
+                <div class="wholesale-card text-center">
+                    <i class="bi bi-building" style="font-size: 3rem; color: var(--gold);"></i>
+                    <h3 class="mt-3">Wholesale & Corporate Orders</h3>
+                    <p>For bars, restaurants, hotels, and corporate events</p>
+                    <div class="contact-info-wholesale">
+                        <a href="tel:+2348032354952" class="btn btn-luxury-outline me-3">
+                            <i class="bi bi-telephone me-2"></i>
+                            Call Sales Team
+                        </a>
+                        <a href="mailto:wholesale@turbocream.com" class="btn btn-luxury-primary">
+                            <i class="bi bi-envelope me-2"></i>
+                            Email Inquiry
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join the Movement Section -->
+    <section class="movement-section py-5">
+        <div class="container">
+            <div class="movement-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="movement-title">
+                            Be Part of the <span class="highlight">Turbo Lifestyle</span>
+                        </h2>
+                        <p class="movement-text">
+                            Join thousands who've discovered the perfect blend of African heritage and 
+                            modern luxury. Subscribe for exclusive offers, new product launches, cocktail 
+                            recipes, and cultural spotlights.
+                        </p>
+                        
+                        <form class="movement-form" id="movementForm">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email" required>
+                                <button class="btn btn-movement-submit" type="submit">
+                                    <i class="bi bi-arrow-right"></i>
+                                    Join Now
+                                </button>
+                            </div>
+                            <small class="form-text">
+                                <i class="bi bi-shield-check me-1"></i>
+                                Must be 18+. We respect your privacy.
+                            </small>
+                        </form>
+                        
+                        <div class="social-movement mt-4">
+                            <p>Follow the Turbo Movement:</p>
+                            <div class="social-links-luxury">
+                                <a href="#" class="social-link-lux">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link-lux">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="#" class="social-link-lux">
+                                    <i class="bi bi-twitter-x"></i>
+                                </a>
+                                <a href="#" class="social-link-lux">
+                                    <i class="bi bi-tiktok"></i>
+                                </a>
+                                <a href="#" class="social-link-lux">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </div>
+                            <p class="hashtag">#TasteWithTurbo #PourThePride</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="movement-visual">
+                            <img src="images/turbo-lifestyle.jpg" alt="Turbo Lifestyle" class="movement-image">
+                            <div class="movement-quote">
+                                "Because great taste begins with great roots"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-luxury">
+        <div class="container">
+            <div class="row">
+                <!-- Brand Column -->
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand-luxury">
+                        <h3 class="footer-logo">Turbo Cream Liqueur</h3>
+                        <p class="footer-tagline">Pour the Pride. Sip the Soul. Taste Africa.</p>
+                        <p class="footer-description">
+                            A premium African cream liqueur celebrating our heritage through 
+                            exceptional taste and quality. Crafted with passion, enjoyed with pride.
+                        </p>
+                        
+                        <div class="age-warning-footer">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <strong>18+ Only</strong> | Please Drink Responsibly
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title-luxury">Explore</h5>
+                    <ul class="footer-links-luxury">
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#story">The Turbo Story</a></li>
+                        <li><a href="#heritage">African Heritage</a></li>
+                        <li><a href="#recipes">Cocktail Recipes</a></li>
+                        <li><a href="#stockists">Where to Buy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title-luxury">Company</h5>
+                    <ul class="footer-links-luxury">
+                        <li><a href="index.html">MrCream Home</a></li>
+                        <li><a href="yoghurt.html">Yoghurt Drinks</a></li>
+                        <li><a href="waterpark.html">Water Park</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title-luxury">Legal</h5>
+                    <ul class="footer-links-luxury">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#responsible">Responsible Drinking</a></li>
+                        <li><a href="#age">Age Verification</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title-luxury">Contact</h5>
+                    <div class="footer-contact-luxury">
+                        <p>
+                            <i class="bi bi-geo-alt me-2"></i>
+                            Lagos, Nigeria
+                        </p>
+                        <p>
+                            <i class="bi bi-telephone me-2"></i>
+                            <a href="tel:+2348032354952">+234 803 235 4952</a>
+                        </p>
+                        <p>
+                            <i class="bi bi-envelope me-2"></i>
+                            <a href="mailto:info@turbocream.com">info@turbocream.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider-luxury">
+            
+            <!-- Bottom Footer -->
+            <div class="footer-bottom-luxury">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-luxury">
+                            © 2025 Turbo Cream Liqueur by MrCream. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="made-in-africa">
+                            🌍 Proudly Made in Africa | 🇳🇬 Nigerian Excellence
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    
+    <!-- Purchase Modal -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-basket3 me-2"></i>
+                        Purchase Turbo Cream Liqueur
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Purchase form will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cocktail Recipes Modal -->
+    <div class="modal fade" id="cocktailModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-cup-straw me-2"></i>
+                        Turbo Cocktail Recipes
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Cocktail recipes will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notify Modal -->
+    <div class="modal fade" id="notifyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-bell me-2"></i>
+                        Get Notified
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Be the first to know when our Limited Edition launches!</p>
+                    <form id="notifyForm">
+                        <div class="mb-3">
+                            <label for="notifyEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="notifyEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="notifyPhone" class="form-label">Phone Number (Optional)</label>
+                            <input type="tel" class="form-control" id="notifyPhone">
+                        </div>
+                        <button type="submit" class="btn btn-luxury-primary w-100">
+                            <i class="bi bi-bell-fill me-2"></i>
+                            Notify Me
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top-luxury" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/liqueur.js"></script>
+</body>
+</html>

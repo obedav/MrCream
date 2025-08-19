@@ -1,0 +1,1511 @@
+/* Water Park CSS - Complete Styles */
+
+/* Water Park Theme Variables */
+:root {
+  --soft-blue: #A8DADC;
+  --water-gradient: linear-gradient(135deg, #A8DADC 0%, #48D1CC 50%, #20B2AA 100%);
+  --mrcream-primary: #F4E4BC;
+  --mrcream-secondary: rgba(244, 228, 188, 0.3);
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --cream-white: #FFF8DC;
+  --light-gray: #F8FAFC;
+  --gold-accent: #F7DC6F;
+  --success: #2527a0;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --shadow-strong: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Water Park Theme */
+.theme-waterpark {
+  --primary-color: var(--soft-blue);
+  --accent-color: var(--mrcream-primary);
+  --gradient: var(--water-gradient);
+  --secondary-color: #48D1CC;
+}
+
+/* Water Park Hero Section */
+.waterpark-hero-modern {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    var(--cream-white) 0%, 
+    rgba(190, 6, 147, 0.2) 30%, 
+    rgba(26, 5, 213, 0.3) 70%, 
+    var(--soft-blue) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 100px 0 50px;
+}
+
+.waterpark-hero-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23A8DADC' fill-opacity='0.1'%3E%3Cpath d='M40 40m-20 0a20 20 0 1 1 40 0a20 20 0 1 1 -40 0'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.hero-content-waterpark {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 0;
+}
+
+.waterpark-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--soft-blue);
+  border: 1px solid var(--soft-blue);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(168, 218, 220, 0.2);
+  backdrop-filter: blur(15px);
+  animation: slideInDown 1s ease-out;
+}
+
+.hero-title-waterpark {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.highlight-text-waterpark {
+  background: var(--water-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-text-waterpark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--soft-blue);
+  border-radius: 2px;
+  opacity: 0.6;
+  animation: expandWidth 1s ease-out 1.5s both;
+}
+
+.hero-description-waterpark {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 90%;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* Quick Info Row */
+.quick-info-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1.2s ease-out 0.6s both;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(168, 218, 220, 0.3);
+  border: 1px solid rgba(168, 218, 220, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(168, 218, 220, 0.4);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: var(--soft-blue);
+  min-width: 40px;
+  text-align: center;
+}
+
+.info-content strong {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+}
+
+.info-content small {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Water Park Buttons */
+.btn-primary-waterpark {
+  background: var(--water-gradient);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 25px rgba(168, 218, 220, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-primary-waterpark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2d26e4 0%, #eca8d9 100%);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-primary-waterpark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(168, 218, 220, 0.6);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-primary-waterpark:hover::before {
+  left: 0;
+}
+
+.btn-outline-waterpark {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--soft-blue);
+  color: var(--soft-blue);
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline-waterpark:hover {
+  background: var(--soft-blue);
+  border-color: var(--soft-blue);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(168, 218, 220, 0.4);
+  text-decoration: none;
+}
+
+/* Live Stats */
+.live-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1.6s ease-out 1s both;
+}
+
+.stat-item-live {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(168, 218, 220, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.live-indicator {
+  width: 12px;
+  height: 12px;
+  background: #FF4757;
+  border-radius: 50%;
+  animation: pulse-red 2s infinite;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-indicator.open {
+  background: #2527a0;
+}
+
+.stat-item-live strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.stat-item-live small {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Hero Visual Section */
+.hero-visual-waterpark {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Live Capacity Card */
+.capacity-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(168, 218, 220, 0.3);
+  min-width: 250px;
+  animation: slideInRight 1s ease-out 1.5s both;
+}
+
+.capacity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.capacity-header h4 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.live-badge {
+  background: #FF4757;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  animation: pulse-red 2s infinite;
+  text-transform: uppercase;
+}
+
+.capacity-meter {
+  width: 100%;
+  height: 10px;
+  background: #E0E0E0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.capacity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2527a0 0%, #FFA502 70%, #FF4757 90%);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  width: 65%; /* Current capacity */
+}
+
+.capacity-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.capacity-status.safe {
+  color: #2527a0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.capacity-count {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Floating Attraction Cards */
+.floating-attraction-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(168, 218, 220, 0.3);
+  transition: all 0.4s ease;
+  min-width: 160px;
+  text-align: center;
+}
+
+.floating-attraction-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.adult-pool {
+  top: 15%;
+  left: 10%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.kids-zone {
+  bottom: 25%;
+  left: 5%;
+  animation: float 4s ease-in-out infinite 2s;
+}
+
+.vip-pool {
+  top: 50%;
+  left: 35%;
+  animation: float 4s ease-in-out infinite 1s;
+}
+
+.attraction-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.floating-attraction-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.floating-attraction-card p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.attraction-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.open {
+  background: #2527a0;
+}
+
+.status-dot.available {
+  background: #FFA502;
+}
+
+.attraction-status small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Water Animation Background */
+.water-animation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: -1;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: var(--soft-blue);
+  opacity: 0.1;
+  border-radius: 50%;
+  animation: wave 10s linear infinite;
+}
+
+.wave1 {
+  animation-delay: 0s;
+}
+
+.wave2 {
+  animation-delay: -5s;
+  opacity: 0.05;
+}
+
+.wave3 {
+  animation-delay: -2.5s;
+  opacity: 0.08;
+}
+
+/* Section Styles */
+.section-waterpark {
+  padding: 4rem 0;
+}
+
+.section-title-waterpark {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle-waterpark {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+/* Attraction Cards */
+.attraction-card {
+  background: var(--cream-white);
+  border: 1px solid var(--mrcream-secondary);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.attraction-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--soft-blue);
+}
+
+.attraction-image {
+  height: 200px;
+  background: var(--water-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  position: relative;
+}
+
+.attraction-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.attraction-info {
+  padding: 2rem;
+}
+
+.attraction-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.attraction-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.attraction-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.attraction-features li {
+  padding: 0.4rem 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.attraction-features i {
+  color: var(--soft-blue);
+  margin-right: 0.5rem;
+  width: 16px;
+}
+
+.attraction-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--mrcream-secondary);
+}
+
+.age-restriction {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.capacity-info-card {
+  color: var(--soft-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Ticket Cards */
+.ticket-card {
+  background: var(--cream-white);
+  border: 2px solid var(--mrcream-secondary);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--soft-blue);
+}
+
+.ticket-card.featured {
+  border-color: var(--gold-accent);
+  background: linear-gradient(135deg, var(--cream-white) 0%, rgba(247, 220, 111, 0.1) 100%);
+}
+
+.ticket-card.featured::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: var(--gold-accent);
+  color: white;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.ticket-icon {
+  font-size: 3rem;
+  color: var(--soft-blue);
+  margin-bottom: 1rem;
+}
+
+.ticket-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ticket-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ticket-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--water-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.ticket-validity {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.ticket-includes {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.ticket-includes li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.ticket-includes i {
+  color: var(--success);
+  margin-right: 0.8rem;
+  font-size: 0.9rem;
+  width: 16px;
+}
+
+.btn-book-ticket {
+  background: var(--water-gradient);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-book-ticket:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 218, 220, 0.4);
+  color: white;
+}
+
+/* Safety Section */
+.safety-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--cream-white);
+  border-radius: 15px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.safety-item:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-medium);
+}
+
+.safety-icon {
+  font-size: 2.5rem;
+  color: var(--soft-blue);
+  min-width: 60px;
+}
+
+.safety-content h5 {
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.safety-content p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Facilities Grid */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.facility-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: var(--cream-white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.facility-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.facility-item i {
+  font-size: 1.5rem;
+  color: var(--soft-blue);
+}
+
+.facility-item span {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* What to Bring */
+.bring-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bring-list li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+}
+
+.bring-list i {
+  margin-right: 0.8rem;
+  color: var(--soft-blue);
+  width: 20px;
+}
+
+/* Event Cards */
+.event-card {
+  background: var(--cream-white);
+  border: 1px solid var(--mrcream-secondary);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--soft-blue);
+}
+
+.event-icon {
+  font-size: 3rem;
+  color: var(--soft-blue);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: block;
+}
+
+.event-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.event-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.event-details {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.event-detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.event-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.event-detail-row strong {
+  color: var(--text-primary);
+}
+
+.event-detail-row span {
+  color: var(--text-secondary);
+}
+
+.event-includes {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.event-includes li {
+  padding: 0.4rem 0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.event-includes i {
+  color: var(--success);
+  margin-right: 0.8rem;
+  width: 16px;
+}
+
+.event-price {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--water-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Contact Event Team */
+.contact-event-team {
+  background: var(--cream-white);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.contact-methods {
+  margin-top: 2rem;
+}
+
+.contact-methods .btn {
+  margin: 0.5rem;
+}
+
+/* Location Section */
+.location-item-detailed {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: var(--cream-white);
+  border-radius: 15px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.location-item-detailed:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-medium);
+}
+
+.location-item-detailed i {
+  font-size: 1.8rem;
+  margin-top: 0.2rem;
+  color: var(--soft-blue);
+}
+
+.location-item-detailed h5 {
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.location-item-detailed p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Map Container */
+.map-container {
+  height: 100%;
+  min-height: 400px;
+}
+
+.map-placeholder {
+  background: var(--light-gray);
+  border: 2px dashed var(--soft-blue);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-placeholder i {
+  font-size: 4rem;
+  color: var(--soft-blue);
+  margin-bottom: 1rem;
+}
+
+.map-placeholder h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes pulse-red {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes wave {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(-25%); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-title-waterpark {
+    font-size: 3rem;
+  }
+  
+  .hero-visual-waterpark {
+    height: 500px;
+  }
+  
+  .capacity-card {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 992px) {
+  .waterpark-hero-modern {
+    padding: 120px 0 60px;
+  }
+  
+  .hero-title-waterpark {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  
+  .hero-description-waterpark {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .waterpark-badge {
+    display: block;
+    text-align: center;
+    margin: 0 auto 2rem;
+    max-width: fit-content;
+  }
+  
+  .quick-info-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .info-item {
+    justify-content: center;
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .live-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .hero-visual-waterpark {
+    height: 400px;
+    margin-top: 2rem;
+  }
+  
+  .capacity-card {
+    position: static;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .floating-attraction-card {
+    position: static;
+    margin-bottom: 1rem;
+    animation: none;
+    max-width: 250px;
+  }
+  
+  .facilities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  
+  .section-title-waterpark {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle-waterpark {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .waterpark-hero-modern {
+    min-height: auto;
+    padding: 100px 0 50px;
+  }
+  
+  .hero-title-waterpark {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description-waterpark {
+    font-size: 1.1rem;
+  }
+  
+  .btn-primary-waterpark,
+  .btn-outline-waterpark {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+  
+  .quick-info-row {
+    gap: 0.8rem;
+  }
+  
+  .info-item {
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .info-icon {
+    min-width: auto;
+  }
+  
+  .live-stats {
+    gap: 0.8rem;
+  }
+  
+  .stat-item-live {
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .hero-visual-waterpark {
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .section-waterpark {
+    padding: 3rem 0;
+  }
+  
+  .section-title-waterpark {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle-waterpark {
+    font-size: 1rem;
+  }
+  
+  .attraction-info,
+  .ticket-card,
+  .event-card {
+    padding: 1.5rem;
+  }
+  
+  .attraction-image {
+    height: 150px;
+    font-size: 3rem;
+  }
+  
+  .ticket-price {
+    font-size: 2rem;
+  }
+  
+  .event-price {
+    font-size: 1.8rem;
+  }
+  
+  .safety-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .safety-icon {
+    min-width: auto;
+  }
+  
+  .facilities-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .facility-item {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .location-item-detailed {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .map-placeholder {
+    padding: 2rem 1rem;
+    min-height: 250px;
+  }
+  
+  .map-placeholder i {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .waterpark-hero-modern {
+    padding: 90px 0 40px;
+  }
+  
+  .hero-title-waterpark {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  
+  .hero-description-waterpark {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .waterpark-badge {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+  
+  .info-item,
+  .stat-item-live {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .info-content strong,
+  .stat-item-live strong {
+    font-size: 0.85rem;
+  }
+  
+  .info-content small,
+  .stat-item-live small {
+    font-size: 0.8rem;
+  }
+  
+  .capacity-card {
+    padding: 1.5rem;
+  }
+  
+  .floating-attraction-card {
+    padding: 1rem;
+    min-width: 140px;
+  }
+  
+  .attraction-icon {
+    font-size: 2rem;
+  }
+  
+  .floating-attraction-card h5 {
+    font-size: 0.9rem;
+  }
+  
+  .floating-attraction-card p {
+    font-size: 0.8rem;
+  }
+  
+  .section-title-waterpark {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle-waterpark {
+    font-size: 0.95rem;
+  }
+  
+  .attraction-name {
+    font-size: 1.2rem;
+  }
+  
+  .ticket-name {
+    font-size: 1.1rem;
+  }
+  
+  .event-name {
+    font-size: 1.2rem;
+  }
+  
+  .btn-primary-waterpark,
+  .btn-outline-waterpark {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .btn-book-ticket {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .waterpark-hero-modern {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 2rem 0;
+  }
+  
+  .hero-visual-waterpark,
+  .capacity-card,
+  .floating-attraction-card,
+  .water-animation {
+    display: none !important;
+  }
+  
+  .waterpark-hero-modern::before {
+    display: none;
+  }
+  
+  .hero-title-waterpark {
+    font-size: 2rem;
+    color: #000;
+  }
+  
+  .hero-description-waterpark {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .section-waterpark {
+    padding: 1.5rem 0;
+  }
+  
+  .attraction-card,
+  .ticket-card,
+  .event-card,
+  .safety-item {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+  
+  .btn-primary-waterpark,
+  .btn-outline-waterpark,
+  .btn-book-ticket {
+    display: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .waterpark-hero-modern {
+    background: #fff;
+  }
+  
+  .hero-title-waterpark,
+  .section-title-waterpark {
+    color: #000;
+  }
+  
+  .hero-description-waterpark,
+  .section-subtitle-waterpark {
+    color: #333;
+  }
+  
+  .info-item,
+  .stat-item-live,
+  .capacity-card,
+  .floating-attraction-card {
+    background: #fff;
+    border: 2px solid #000;
+  }
+  
+  .btn-primary-waterpark {
+    background: #000;
+    color: #fff;
+  }
+  
+  .btn-outline-waterpark {
+    background: #fff;
+    border-color: #000;
+    color: #000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .waterpark-badge,
+  .hero-title-waterpark,
+  .hero-description-waterpark,
+  .quick-info-row,
+  .live-stats,
+  .capacity-card,
+  .floating-attraction-card {
+    animation: none !important;
+  }
+  
+  .live-indicator,
+  .live-badge {
+    animation: none !important;
+  }
+  
+  .wave {
+    animation: none !important;
+  }
+  
+  .highlight-text-waterpark::after {
+    animation: none !important;
+    width: 100%;
+  }
+  
+  .floating-attraction-card:hover,
+  .attraction-card:hover,
+  .ticket-card:hover,
+  .event-card:hover,
+  .safety-item:hover,
+  .facility-item:hover {
+    transform: none !important;
+  }
+}
+
+/* Loading States */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.capacity-card.loading .capacity-fill {
+  background: #e0e0e0;
+  width: 100%;
+}
+
+.floating-attraction-card.loading .attraction-icon {
+  background: #e0e0e0;
+  border-radius: 4px;
+  color: transparent;
+}
+
+/* Focus States for Accessibility */
+.btn-primary-waterpark:focus,
+.btn-outline-waterpark:focus,
+.btn-book-ticket:focus {
+  outline: 3px solid var(--soft-blue);
+  outline-offset: 2px;
+}
+
+.attraction-card:focus-within,
+.ticket-card:focus-within,
+.event-card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--soft-blue);
+}
+
+/* Custom Scrollbar */
+.capacity-card::-webkit-scrollbar,
+.attraction-info::-webkit-scrollbar {
+  width: 4px;
+}
+
+.capacity-card::-webkit-scrollbar-track,
+.attraction-info::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.capacity-card::-webkit-scrollbar-thumb,
+.attraction-info::-webkit-scrollbar-thumb {
+  background: var(--soft-blue);
+  border-radius: 2px;
+}
+
+.capacity-card::-webkit-scrollbar-thumb:hover,
+.attraction-info::-webkit-scrollbar-thumb:hover {
+  background: #2527a0;
+}
