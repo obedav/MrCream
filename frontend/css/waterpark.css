@@ -1,57 +1,355 @@
-/* Water Park CSS - Complete Styles */
+/* Enhanced Distinctive Water Park CSS Design */
 
-/* Water Park Theme Variables */
+/* Advanced CSS Variables */
 :root {
-  --soft-blue: #A8DADC;
-  --water-gradient: linear-gradient(135deg, #A8DADC 0%, #48D1CC 50%, #20B2AA 100%);
-  --mrcream-primary: #F4E4BC;
-  --mrcream-secondary: rgba(244, 228, 188, 0.3);
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
-  --text-muted: #9CA3AF;
-  --cream-white: #FFF8DC;
-  --light-gray: #F8FAFC;
-  --gold-accent: #F7DC6F;
-  --success: #2527a0;
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
-  --shadow-strong: 0 15px 50px rgba(0, 0, 0, 0.2);
+  /* Distinctive Color Palette */
+  --primary-gradient: linear-gradient(135deg, #00f5ff 0%, #0099ff 25%, #0066ff 50%, #3366ff 75%, #6633ff 100%);
+  --water-flow: linear-gradient(45deg, #40e0d0 0%, #48d1cc 25%, #00ced1 50%, #1e90ff 75%, #4169e1 100%);
+  --cream-gradient: linear-gradient(135deg, #f4e4bc 0%, #fef9e7 50%, #fff5d6 100%);
+  --glass-morphism: rgba(255, 255, 255, 0.15);
+  --dark-water: #003d5c;
+  --bright-splash: #00ffff;
+  --glow-blue: #00bfff;
+  --ripple-effect: radial-gradient(circle, transparent 20%, rgba(0, 255, 255, 0.1) 21%, rgba(0, 255, 255, 0.1) 34%, transparent 35%);
+  
+  /* Enhanced Shadows */
+  --depth-shadow: 0 25px 50px rgba(0, 191, 255, 0.3);
+  --glow-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+  --inset-glow: inset 0 0 30px rgba(0, 191, 255, 0.2);
+  
+  /* Typography */
+  --title-font: 'Orbitron', monospace;
+  --accent-font: 'Righteous', cursive;
+  --body-font: 'Inter', sans-serif;
 }
 
-/* Water Park Theme */
-.theme-waterpark {
-  --primary-color: var(--soft-blue);
-  --accent-color: var(--mrcream-primary);
-  --gradient: var(--water-gradient);
-  --secondary-color: #48D1CC;
+/* Global Resets & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Water Park Hero Section */
+body {
+  font-family: var(--body-font);
+  background: linear-gradient(180deg, #001122 0%, #003d5c 100%);
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated Background Effects */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(64, 224, 208, 0.08) 0%, transparent 50%),
+    var(--ripple-effect);
+  animation: backgroundFlow 20s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes backgroundFlow {
+  0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.6; transform: scale(1.1) rotate(180deg); }
+}
+
+/* Enhanced Navigation */
+.navbar {
+  background: rgba(0, 17, 34, 0.9) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--glass-morphism);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  opacity: 0.8;
+}
+
+.navbar-brand {
+  font-family: var(--accent-font);
+  font-size: 1.8rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 6px;
+  height: 6px;
+  background: var(--bright-splash);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--bright-splash);
+  animation: pulse-glow 2s infinite;
+  transform: translateY(-50%);
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 0.5rem;
+  padding: 0.8rem 1.2rem !important;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--water-flow);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 80%;
+}
+
+.nav-link:hover {
+  color: var(--bright-splash) !important;
+  text-shadow: 0 0 10px var(--glow-blue);
+  transform: translateY(-2px);
+}
+
+/* Revolutionary Hero Section */
 .waterpark-hero-modern {
   min-height: 100vh;
-  background: linear-gradient(135deg, 
-    var(--cream-white) 0%, 
-    rgba(190, 6, 147, 0.2) 30%, 
-    rgba(26, 5, 213, 0.3) 70%, 
-    var(--soft-blue) 100%);
+  background: 
+    radial-gradient(ellipse at center top, rgba(0, 191, 255, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, var(--dark-water) 0%, #001122 100%);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 100px 0 50px;
+  padding: 120px 0 80px;
 }
 
-.waterpark-hero-modern::before {
+/* 3D Floating Elements */
+.hero-visual-waterpark {
+  position: relative;
+  height: 600px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Glass Morphism Capacity Card */
+.capacity-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2rem;
+  min-width: 280px;
+  box-shadow: 
+    var(--depth-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: float3D 6s ease-in-out infinite;
+  transform: rotateX(5deg) rotateY(-5deg);
+}
+
+@keyframes float3D {
+  0%, 100% { 
+    transform: rotateX(5deg) rotateY(-5deg) translateY(0px);
+  }
+  50% { 
+    transform: rotateX(2deg) rotateY(-2deg) translateY(-15px);
+  }
+}
+
+.capacity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.capacity-header h4 {
+  font-family: var(--title-font);
+  font-weight: 700;
+  background: var(--cream-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.live-badge {
+  background: linear-gradient(45deg, #ff0080, #ff8000);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: pulse-live 2s infinite;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+}
+
+@keyframes pulse-live {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 128, 0.8);
+  }
+}
+
+/* Enhanced Capacity Meter */
+.capacity-meter {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+  box-shadow: var(--inset-glow);
+}
+
+.capacity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--glow-blue) 0%, 
+    var(--bright-splash) 50%, 
+    #00ff80 100%);
+  border-radius: 6px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.capacity-fill::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23A8DADC' fill-opacity='0.1'%3E%3Cpath d='M40 40m-20 0a20 20 0 1 1 40 0a20 20 0 1 1 -40 0'/%3E%3C/g%3E%3C/svg%3E");
-  z-index: 1;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  animation: shimmer 2s infinite;
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* 3D Floating Attraction Cards */
+.floating-attraction-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.8rem;
+  min-width: 180px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.floating-attraction-card:hover {
+  transform: translateY(-20px) rotateX(10deg) rotateY(5deg) scale(1.05);
+  box-shadow: 
+    0 25px 50px rgba(0, 191, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.2);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.adult-pool {
+  top: 15%;
+  left: 10%;
+  animation: orbit1 8s linear infinite;
+}
+
+.kids-zone {
+  bottom: 25%;
+  left: 5%;
+  animation: orbit2 10s linear infinite;
+}
+
+.vip-pool {
+  top: 50%;
+  left: 35%;
+  animation: orbit3 12s linear infinite;
+}
+
+@keyframes orbit1 {
+  0% { transform: rotateZ(0deg) translateX(20px) rotateZ(0deg); }
+  100% { transform: rotateZ(360deg) translateX(20px) rotateZ(-360deg); }
+}
+
+@keyframes orbit2 {
+  0% { transform: rotateZ(0deg) translateX(15px) rotateZ(0deg); }
+  100% { transform: rotateZ(-360deg) translateX(15px) rotateZ(360deg); }
+}
+
+@keyframes orbit3 {
+  0% { transform: rotateZ(0deg) translateX(25px) rotateZ(0deg); }
+  100% { transform: rotateZ(360deg) translateX(25px) rotateZ(-360deg); }
+}
+
+.attraction-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  animation: iconGlow 3s ease-in-out infinite;
+}
+
+@keyframes iconGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+    transform: scale(1.1);
+  }
+}
+
+/* Enhanced Hero Content */
 .hero-content-waterpark {
   position: relative;
   z-index: 2;
@@ -61,122 +359,91 @@
 .waterpark-badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--soft-blue);
-  border: 1px solid var(--soft-blue);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--bright-splash);
   padding: 12px 24px;
   border-radius: 50px;
   font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  box-shadow: 0 8px 32px rgba(168, 218, 220, 0.2);
-  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 8px 32px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   animation: slideInDown 1s ease-out;
+  position: relative;
+}
+
+.waterpark-badge::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  background: var(--bright-splash);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--bright-splash);
+  animation: pulse-glow 2s infinite;
+  transform: translateY(-50%);
 }
 
 .hero-title-waterpark {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-
-.highlight-text-waterpark {
-  background: var(--water-gradient);
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: var(--title-font);
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  text-shadow: 0 0 40px rgba(0, 191, 255, 0.3);
   position: relative;
-  display: inline-block;
 }
 
-.highlight-text-waterpark::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--soft-blue);
-  border-radius: 2px;
-  opacity: 0.6;
-  animation: expandWidth 1s ease-out 1.5s both;
-}
-
-.hero-description-waterpark {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  max-width: 90%;
-  animation: fadeInUp 1s ease-out 0.4s both;
-}
-
-/* Quick Info Row */
-.quick-info-row {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-  animation: fadeInUp 1.2s ease-out 0.6s both;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(168, 218, 220, 0.3);
-  border: 1px solid rgba(168, 218, 220, 0.5);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.info-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(168, 218, 220, 0.4);
-}
-
-.info-icon {
-  font-size: 1.5rem;
-  color: var(--soft-blue);
-  min-width: 40px;
-  text-align: center;
-}
-
-.info-content strong {
+.highlight-text-waterpark {
   display: block;
-  color: var(--text-primary);
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-  font-size: 0.95rem;
+  font-family: var(--accent-font);
+  background: var(--cream-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 0.7em;
+  margin-top: 0.5rem;
+  position: relative;
+  animation: textGlow 4s ease-in-out infinite;
 }
 
-.info-content small {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.4;
+@keyframes textGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px rgba(244, 228, 188, 0.5));
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px rgba(244, 228, 188, 0.8));
+  }
 }
 
-/* Water Park Buttons */
+/* Enhanced Buttons */
 .btn-primary-waterpark {
-  background: var(--water-gradient);
+  background: var(--primary-gradient);
   border: none;
   color: white;
-  padding: 15px 30px;
+  padding: 18px 36px;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 0 8px 25px rgba(168, 218, 220, 0.4);
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 30px rgba(0, 191, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary-waterpark::before {
@@ -186,47 +453,75 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #2d26e4 0%, #eca8d9 100%);
-  transition: left 0.4s ease;
-  z-index: -1;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 100%);
+  transition: left 0.6s ease;
 }
 
 .btn-primary-waterpark:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(168, 218, 220, 0.6);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 191, 255, 0.6),
+    0 0 40px rgba(0, 255, 255, 0.4);
   color: white;
   text-decoration: none;
 }
 
 .btn-primary-waterpark:hover::before {
-  left: 0;
+  left: 100%;
 }
 
 .btn-outline-waterpark {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid var(--soft-blue);
-  color: var(--soft-blue);
-  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  color: var(--bright-splash);
+  padding: 16px 32px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-waterpark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--water-flow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .btn-outline-waterpark:hover {
-  background: var(--soft-blue);
-  border-color: var(--soft-blue);
+  transform: translateY(-5px) scale(1.05);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(168, 218, 220, 0.4);
+  border-color: var(--bright-splash);
+  box-shadow: 
+    0 15px 35px rgba(0, 255, 255, 0.4),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
   text-decoration: none;
 }
 
-/* Live Stats */
+.btn-outline-waterpark:hover::before {
+  opacity: 1;
+}
+
+.btn-outline-waterpark span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced Live Stats */
 .live-stats {
   display: flex;
   gap: 2rem;
@@ -235,295 +530,225 @@
 }
 
 .stat-item-live {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.2rem 1.8rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(168, 218, 220, 0.2);
-  backdrop-filter: blur(10px);
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.stat-item-live:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 35px rgba(0, 191, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .live-indicator {
   width: 12px;
   height: 12px;
-  background: #FF4757;
+  background: #ff4757;
   border-radius: 50%;
   animation: pulse-red 2s infinite;
+  box-shadow: 0 0 15px #ff4757;
 }
 
-.status-indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+@keyframes pulse-red {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 15px #ff4757;
+  }
+  50% { 
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #ff4757;
+  }
 }
 
 .status-indicator.open {
-  background: #2527a0;
+  background: #2ecc71;
+  box-shadow: 0 0 15px #2ecc71;
+  animation: pulse-green 2s infinite;
 }
 
-.stat-item-live strong {
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.9rem;
+@keyframes pulse-green {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 15px #2ecc71;
+  }
+  50% { 
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #2ecc71;
+  }
 }
 
-.stat-item-live small {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-/* Hero Visual Section */
-.hero-visual-waterpark {
-  position: relative;
-  height: 600px;
+/* Enhanced Quick Info */
+.quick-info-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1.2s ease-out 0.6s both;
 }
 
-/* Live Capacity Card */
-.capacity-card {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  padding: 2rem;
+.info-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(168, 218, 220, 0.3);
-  min-width: 250px;
-  animation: slideInRight 1s ease-out 1.5s both;
-}
-
-.capacity-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-}
-
-.capacity-header h4 {
-  margin: 0;
-  color: var(--text-primary);
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.live-badge {
-  background: #FF4757;
-  color: white;
-  padding: 3px 8px;
-  border-radius: 8px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  animation: pulse-red 2s infinite;
-  text-transform: uppercase;
-}
-
-.capacity-meter {
-  width: 100%;
-  height: 10px;
-  background: #E0E0E0;
-  border-radius: 5px;
+  gap: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
   overflow: hidden;
-  margin-bottom: 1rem;
 }
 
-.capacity-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #2527a0 0%, #FFA502 70%, #FF4757 90%);
-  border-radius: 5px;
-  transition: width 0.5s ease;
-  width: 65%; /* Current capacity */
-}
-
-.capacity-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.capacity-status.safe {
-  color: #2527a0;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.capacity-count {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-/* Floating Attraction Cards */
-.floating-attraction-card {
+.info-item::before {
+  content: '';
   position: absolute;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(168, 218, 220, 0.3);
-  transition: all 0.4s ease;
-  min-width: 160px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--water-flow);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 191, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.info-item:hover::before {
+  transform: translateX(0);
+}
+
+.info-icon {
+  font-size: 2rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 50px;
   text-align: center;
 }
 
-.floating-attraction-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.adult-pool {
-  top: 15%;
-  left: 10%;
-  animation: float 4s ease-in-out infinite;
-}
-
-.kids-zone {
-  bottom: 25%;
-  left: 5%;
-  animation: float 4s ease-in-out infinite 2s;
-}
-
-.vip-pool {
-  top: 50%;
-  left: 35%;
-  animation: float 4s ease-in-out infinite 1s;
-}
-
-.attraction-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.floating-attraction-card h5 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.floating-attraction-card p {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
-
-.attraction-status {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.status-dot.open {
-  background: #2527a0;
-}
-
-.status-dot.available {
-  background: #FFA502;
-}
-
-.attraction-status small {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-/* Water Animation Background */
-.water-animation {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: -1;
-}
-
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%;
-  height: 100px;
-  background: var(--soft-blue);
-  opacity: 0.1;
-  border-radius: 50%;
-  animation: wave 10s linear infinite;
-}
-
-.wave1 {
-  animation-delay: 0s;
-}
-
-.wave2 {
-  animation-delay: -5s;
-  opacity: 0.05;
-}
-
-.wave3 {
-  animation-delay: -2.5s;
-  opacity: 0.08;
-}
-
-/* Section Styles */
-.section-waterpark {
-  padding: 4rem 0;
-}
-
-.section-title-waterpark {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
+/* Enhanced Sections */
+.section-title {
+  font-family: var(--title-font);
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
   margin-bottom: 1rem;
+  position: relative;
 }
 
-.section-subtitle-waterpark {
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--water-flow);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
-  color: var(--text-secondary);
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 4rem;
   line-height: 1.6;
 }
 
-/* Attraction Cards */
+/* Enhanced Attraction Cards */
 .attraction-card {
-  background: var(--cream-white);
-  border: 1px solid var(--mrcream-secondary);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
+  position: relative;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.attraction-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .attraction-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-strong);
-  border-color: var(--soft-blue);
+  transform: translateY(-15px) rotateX(5deg);
+  box-shadow: 
+    0 30px 60px rgba(0, 191, 255, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.attraction-card:hover::before {
+  opacity: 1;
 }
 
 .attraction-image {
   height: 200px;
-  background: var(--water-gradient);
+  background: var(--water-flow);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
   color: white;
   position: relative;
+  overflow: hidden;
+}
+
+.attraction-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+  animation: attractionShimmer 4s ease-in-out infinite;
+}
+
+@keyframes attractionShimmer {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
 }
 
 .attraction-badge {
@@ -531,26 +756,32 @@
   top: 15px;
   right: 15px;
   background: rgba(255, 255, 255, 0.9);
-  color: var(--text-primary);
-  padding: 5px 12px;
-  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  color: var(--dark-water);
+  padding: 6px 16px;
+  border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .attraction-info {
-  padding: 2rem;
+  padding: 2.5rem;
+  position: relative;
 }
 
 .attraction-name {
-  font-size: 1.4rem;
+  font-family: var(--title-font);
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.8rem;
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .attraction-description {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -558,112 +789,105 @@
 .attraction-features {
   list-style: none;
   padding: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .attraction-features li {
-  padding: 0.4rem 0;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  padding: 0.6rem 0;
+  color: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
+  font-size: 0.95rem;
 }
 
 .attraction-features i {
-  color: var(--soft-blue);
-  margin-right: 0.5rem;
-  width: 16px;
+  color: var(--bright-splash);
+  margin-right: 0.8rem;
+  width: 18px;
+  filter: drop-shadow(0 0 5px var(--glow-blue));
 }
 
-.attraction-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 1rem;
-  border-top: 1px solid var(--mrcream-secondary);
-}
-
-.age-restriction {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.capacity-info-card {
-  color: var(--soft-blue);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* Ticket Cards */
+/* Enhanced Ticket Cards */
 .ticket-card {
-  background: var(--cream-white);
-  border: 2px solid var(--mrcream-secondary);
-  border-radius: 20px;
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 2.5rem;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   position: relative;
   overflow: hidden;
-}
-
-.ticket-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-strong);
-  border-color: var(--soft-blue);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .ticket-card.featured {
-  border-color: var(--gold-accent);
-  background: linear-gradient(135deg, var(--cream-white) 0%, rgba(247, 220, 111, 0.1) 100%);
+  border-color: rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 215, 0, 0.1) 100%);
+  box-shadow: 
+    0 20px 40px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .ticket-card.featured::before {
   content: 'Most Popular';
   position: absolute;
   top: 20px;
-  right: -30px;
-  background: var(--gold-accent);
+  right: -35px;
+  background: linear-gradient(45deg, #ff6b6b, #ffd700);
   color: white;
-  padding: 5px 40px;
+  padding: 8px 50px;
   transform: rotate(45deg);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.ticket-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  border-color: rgba(0, 255, 255, 0.6);
+  box-shadow: 
+    0 25px 50px rgba(0, 191, 255, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2);
 }
 
 .ticket-icon {
-  font-size: 3rem;
-  color: var(--soft-blue);
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+  animation: ticketIconFloat 3s ease-in-out infinite;
+}
+
+@keyframes ticketIconFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.1); }
 }
 
 .ticket-name {
-  font-size: 1.3rem;
+  font-family: var(--title-font);
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.ticket-description {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .ticket-price {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: var(--water-gradient);
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-family: var(--title-font);
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.5rem;
-}
-
-.ticket-validity {
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
 }
 
 .ticket-includes {
@@ -674,319 +898,429 @@
 }
 
 .ticket-includes li {
-  padding: 0.5rem 0;
-  color: var(--text-secondary);
+  padding: 0.7rem 0;
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
 }
 
 .ticket-includes i {
-  color: var(--success);
-  margin-right: 0.8rem;
-  font-size: 0.9rem;
-  width: 16px;
+  color: #2ecc71;
+  margin-right: 1rem;
+  font-size: 1rem;
+  width: 20px;
+  filter: drop-shadow(0 0 5px #2ecc71);
 }
 
 .btn-book-ticket {
-  background: var(--water-gradient);
+  background: var(--water-flow);
   border: none;
   color: white;
-  padding: 12px 30px;
+  padding: 15px 30px;
   border-radius: 25px;
-  font-weight: 600;
+  font-weight: 700;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 25px rgba(0, 191, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-book-ticket::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  transition: left 0.6s ease;
 }
 
 .btn-book-ticket:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(168, 218, 220, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 15px 35px rgba(0, 191, 255, 0.5),
+    0 0 30px rgba(0, 255, 255, 0.3);
   color: white;
 }
 
-/* Safety Section */
+.btn-book-ticket:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Safety Section */
+.safety-section {
+  background: linear-gradient(135deg, 
+    rgba(0, 17, 34, 0.9) 0%, 
+    rgba(0, 61, 92, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .safety-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--cream-white);
-  border-radius: 15px;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .safety-item:hover {
-  transform: translateX(10px);
-  box-shadow: var(--shadow-medium);
+  transform: translateX(15px) translateY(-5px);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 
+    0 20px 40px rgba(0, 191, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .safety-icon {
-  font-size: 2.5rem;
-  color: var(--soft-blue);
-  min-width: 60px;
+  font-size: 3rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 70px;
+  filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.3));
 }
 
 .safety-content h5 {
-  color: var(--text-primary);
-  margin-bottom: 0.8rem;
-  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: var(--title-font);
 }
 
 .safety-content p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* Facilities Grid */
+/* Enhanced Facilities Grid */
 .facilities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .facility-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 15px;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 1rem;
-  background: var(--cream-white);
-  border-radius: 10px;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s ease;
+  gap: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .facility-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 
+    0 15px 35px rgba(0, 191, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .facility-item i {
-  font-size: 1.5rem;
-  color: var(--soft-blue);
+  font-size: 2rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.3));
 }
 
 .facility-item span {
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-/* What to Bring */
-.bring-list {
-  list-style: none;
-  padding: 0;
-}
-
-.bring-list li {
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  color: var(--text-secondary);
-}
-
-.bring-list i {
-  margin-right: 0.8rem;
-  color: var(--soft-blue);
-  width: 20px;
-}
-
-/* Event Cards */
+/* Enhanced Event Cards */
 .event-card {
-  background: var(--cream-white);
-  border: 1px solid var(--mrcream-secondary);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .event-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-strong);
-  border-color: var(--soft-blue);
+  transform: translateY(-15px) rotateX(5deg);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 
+    0 30px 60px rgba(0, 191, 255, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2);
+}
+
+.event-card:hover::before {
+  opacity: 1;
 }
 
 .event-icon {
-  font-size: 3rem;
-  color: var(--soft-blue);
-  margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
   text-align: center;
   display: block;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+  animation: eventIconPulse 4s ease-in-out infinite;
+}
+
+@keyframes eventIconPulse {
+  0%, 100% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+  }
+  50% { 
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8));
+  }
 }
 
 .event-name {
-  font-size: 1.4rem;
+  font-family: var(--title-font);
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 1.2rem;
   text-align: center;
 }
 
-.event-description {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.event-details {
-  background: var(--light-gray);
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-
-.event-detail-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.event-detail-row:last-child {
-  margin-bottom: 0;
-}
-
-.event-detail-row strong {
-  color: var(--text-primary);
-}
-
-.event-detail-row span {
-  color: var(--text-secondary);
-}
-
-.event-includes {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.event-includes li {
-  padding: 0.4rem 0;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-}
-
-.event-includes i {
-  color: var(--success);
-  margin-right: 0.8rem;
-  width: 16px;
-}
-
 .event-price {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  background: var(--water-gradient);
+  font-family: var(--title-font);
+  background: var(--cream-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 15px rgba(244, 228, 188, 0.3));
 }
 
-/* Contact Event Team */
-.contact-event-team {
-  background: var(--cream-white);
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow-soft);
-  text-align: center;
-}
-
-.contact-methods {
-  margin-top: 2rem;
-}
-
-.contact-methods .btn {
-  margin: 0.5rem;
-}
-
-/* Location Section */
+/* Enhanced Location Section */
 .location-item-detailed {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
-  padding: 1.5rem;
-  background: var(--cream-white);
-  border-radius: 15px;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .location-item-detailed:hover {
-  transform: translateX(10px);
-  box-shadow: var(--shadow-medium);
+  transform: translateX(15px) translateY(-5px);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 
+    0 20px 40px rgba(0, 191, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .location-item-detailed i {
-  font-size: 1.8rem;
-  margin-top: 0.2rem;
-  color: var(--soft-blue);
+  font-size: 2.2rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.3));
 }
 
 .location-item-detailed h5 {
-  color: var(--text-primary);
-  margin-bottom: 0.8rem;
-  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: var(--title-font);
 }
 
 .location-item-detailed p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* Map Container */
+/* Enhanced Map Container */
 .map-container {
   height: 100%;
-  min-height: 400px;
+  min-height: 450px;
 }
 
 .map-placeholder {
-  background: var(--light-gray);
-  border: 2px dashed var(--soft-blue);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 2px dashed rgba(0, 255, 255, 0.4);
+  border-radius: 25px;
   padding: 4rem 2rem;
   text-align: center;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.map-placeholder:hover::before {
+  opacity: 1;
 }
 
 .map-placeholder i {
-  font-size: 4rem;
-  color: var(--soft-blue);
-  margin-bottom: 1rem;
+  font-size: 4.5rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.3));
 }
 
 .map-placeholder h4 {
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-family: var(--title-font);
 }
 
-/* Animations */
-@keyframes pulse-red {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+/* Enhanced Footer */
+.footer {
+  background: linear-gradient(135deg, 
+    rgba(0, 17, 34, 0.95) 0%, 
+    rgba(0, 61, 92, 0.95) 100%) !important;
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
-@keyframes wave {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(-25%); }
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  opacity: 0.6;
+}
+
+.footer-title {
+  font-family: var(--title-font);
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--bright-splash);
+  font-size: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: var(--water-flow);
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 191, 255, 0.4);
+  text-decoration: none;
+}
+
+/* Animation Keyframes */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -994,42 +1328,21 @@
   }
 }
 
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
+@keyframes pulse-glow {
+  0%, 100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
   }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes expandWidth {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-
-/* Responsive Design */
+/* Enhanced Responsive Design */
 @media (max-width: 1200px) {
   .hero-title-waterpark {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   
   .hero-visual-waterpark {
@@ -1037,386 +1350,168 @@
   }
   
   .capacity-card {
-    min-width: 220px;
+    min-width: 250px;
+  }
+  
+  .floating-attraction-card {
+    min-width: 160px;
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 992px) {
   .waterpark-hero-modern {
-    padding: 120px 0 60px;
+    padding: 140px 0 80px;
   }
   
   .hero-title-waterpark {
-    font-size: 2.8rem;
+    font-size: 3rem;
     text-align: center;
-  }
-  
-  .hero-description-waterpark {
-    text-align: center;
-    max-width: 100%;
-  }
-  
-  .waterpark-badge {
-    display: block;
-    text-align: center;
-    margin: 0 auto 2rem;
-    max-width: fit-content;
   }
   
   .quick-info-row {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
-  }
-  
-  .info-item {
-    justify-content: center;
-    text-align: center;
-    max-width: 300px;
   }
   
   .live-stats {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
   }
   
   .hero-visual-waterpark {
-    height: 400px;
-    margin-top: 2rem;
+    height: auto;
+    margin-top: 3rem;
+    flex-direction: column;
+    gap: 2rem;
   }
   
   .capacity-card {
     position: static;
-    margin-bottom: 2rem;
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
   }
   
   .floating-attraction-card {
     position: static;
-    margin-bottom: 1rem;
     animation: none;
-    max-width: 250px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 1.5rem;
   }
   
   .facilities-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-  
-  .section-title-waterpark {
-    font-size: 2.2rem;
-  }
-  
-  .section-subtitle-waterpark {
-    font-size: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .waterpark-hero-modern {
-    min-height: auto;
-    padding: 100px 0 50px;
-  }
-  
   .hero-title-waterpark {
     font-size: 2.5rem;
-  }
-  
-  .hero-description-waterpark {
-    font-size: 1.1rem;
   }
   
   .btn-primary-waterpark,
   .btn-outline-waterpark {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
     margin-bottom: 1rem;
     justify-content: center;
   }
   
-  .quick-info-row {
-    gap: 0.8rem;
-  }
-  
-  .info-item {
-    padding: 0.8rem 1rem;
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  
-  .info-icon {
-    min-width: auto;
-  }
-  
-  .live-stats {
-    gap: 0.8rem;
-  }
-  
+  .info-item,
   .stat-item-live {
-    padding: 0.8rem 1rem;
     flex-direction: column;
-    gap: 0.5rem;
     text-align: center;
-  }
-  
-  .hero-visual-waterpark {
-    height: auto;
-    flex-direction: column;
     gap: 1rem;
-    padding: 1rem 0;
   }
   
-  .section-waterpark {
-    padding: 3rem 0;
+  .safety-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
   }
   
-  .section-title-waterpark {
+  .location-item-detailed {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .facilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title-waterpark {
     font-size: 2rem;
   }
   
-  .section-subtitle-waterpark {
-    font-size: 1rem;
+  .waterpark-badge {
+    font-size: 0.85rem;
+    padding: 10px 20px;
   }
   
+  .capacity-card,
   .attraction-info,
   .ticket-card,
   .event-card {
     padding: 1.5rem;
   }
   
-  .attraction-image {
-    height: 150px;
-    font-size: 3rem;
+  .section-title {
+    font-size: 2rem;
   }
   
   .ticket-price {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
   .event-price {
     font-size: 1.8rem;
   }
-  
-  .safety-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .safety-icon {
-    min-width: auto;
-  }
-  
-  .facilities-grid {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-  
-  .facility-item {
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .location-item-detailed {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .map-placeholder {
-    padding: 2rem 1rem;
-    min-height: 250px;
-  }
-  
-  .map-placeholder i {
-    font-size: 3rem;
-  }
 }
 
-@media (max-width: 576px) {
-  .waterpark-hero-modern {
-    padding: 90px 0 40px;
-  }
-  
-  .hero-title-waterpark {
-    font-size: 2rem;
-    line-height: 1.3;
-  }
-  
-  .hero-description-waterpark {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  .waterpark-badge {
-    padding: 10px 18px;
-    font-size: 0.85rem;
-  }
-  
-  .info-item,
-  .stat-item-live {
-    padding: 0.6rem 0.8rem;
-  }
-  
-  .info-content strong,
-  .stat-item-live strong {
-    font-size: 0.85rem;
-  }
-  
-  .info-content small,
-  .stat-item-live small {
-    font-size: 0.8rem;
-  }
-  
-  .capacity-card {
-    padding: 1.5rem;
-  }
-  
-  .floating-attraction-card {
-    padding: 1rem;
-    min-width: 140px;
-  }
-  
-  .attraction-icon {
-    font-size: 2rem;
-  }
-  
-  .floating-attraction-card h5 {
-    font-size: 0.9rem;
-  }
-  
-  .floating-attraction-card p {
-    font-size: 0.8rem;
-  }
-  
-  .section-title-waterpark {
-    font-size: 1.8rem;
-  }
-  
-  .section-subtitle-waterpark {
-    font-size: 0.95rem;
-  }
-  
-  .attraction-name {
-    font-size: 1.2rem;
-  }
-  
-  .ticket-name {
-    font-size: 1.1rem;
-  }
-  
-  .event-name {
-    font-size: 1.2rem;
-  }
-  
-  .btn-primary-waterpark,
-  .btn-outline-waterpark {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-  
-  .btn-book-ticket {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .waterpark-hero-modern {
-    height: auto !important;
-    min-height: auto !important;
-    padding: 2rem 0;
-  }
-  
-  .hero-visual-waterpark,
-  .capacity-card,
-  .floating-attraction-card,
-  .water-animation {
-    display: none !important;
-  }
-  
-  .waterpark-hero-modern::before {
-    display: none;
-  }
-  
-  .hero-title-waterpark {
-    font-size: 2rem;
-    color: #000;
-  }
-  
-  .hero-description-waterpark {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .section-waterpark {
-    padding: 1.5rem 0;
-  }
-  
-  .attraction-card,
-  .ticket-card,
-  .event-card,
-  .safety-item {
-    box-shadow: none;
-    border: 1px solid #ccc;
-    break-inside: avoid;
-  }
-  
-  .btn-primary-waterpark,
-  .btn-outline-waterpark,
-  .btn-book-ticket {
-    display: none !important;
-  }
-}
-
-/* High Contrast Mode */
+/* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   .waterpark-hero-modern {
-    background: #fff;
+    background: #000;
   }
   
   .hero-title-waterpark,
-  .section-title-waterpark {
-    color: #000;
-  }
-  
-  .hero-description-waterpark,
-  .section-subtitle-waterpark {
-    color: #333;
-  }
-  
-  .info-item,
-  .stat-item-live,
-  .capacity-card,
-  .floating-attraction-card {
-    background: #fff;
-    border: 2px solid #000;
+  .section-title {
+    color: #fff;
   }
   
   .btn-primary-waterpark {
-    background: #000;
+    background: #0066ff;
     color: #fff;
   }
   
   .btn-outline-waterpark {
     background: #fff;
-    border-color: #000;
-    color: #000;
+    border-color: #0066ff;
+    color: #0066ff;
   }
 }
 
-/* Reduced Motion */
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .waterpark-badge,
-  .hero-title-waterpark,
-  .hero-description-waterpark,
-  .quick-info-row,
-  .live-stats,
-  .capacity-card,
-  .floating-attraction-card {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .floating-attraction-card,
+  .capacity-card {
     animation: none !important;
   }
   
@@ -1424,88 +1519,6 @@
   .live-badge {
     animation: none !important;
   }
-  
-  .wave {
-    animation: none !important;
-  }
-  
-  .highlight-text-waterpark::after {
-    animation: none !important;
-    width: 100%;
-  }
-  
-  .floating-attraction-card:hover,
-  .attraction-card:hover,
-  .ticket-card:hover,
-  .event-card:hover,
-  .safety-item:hover,
-  .facility-item:hover {
-    transform: none !important;
-  }
 }
 
-/* Loading States */
-.loading-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
 
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-.capacity-card.loading .capacity-fill {
-  background: #e0e0e0;
-  width: 100%;
-}
-
-.floating-attraction-card.loading .attraction-icon {
-  background: #e0e0e0;
-  border-radius: 4px;
-  color: transparent;
-}
-
-/* Focus States for Accessibility */
-.btn-primary-waterpark:focus,
-.btn-outline-waterpark:focus,
-.btn-book-ticket:focus {
-  outline: 3px solid var(--soft-blue);
-  outline-offset: 2px;
-}
-
-.attraction-card:focus-within,
-.ticket-card:focus-within,
-.event-card:focus-within {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-medium);
-  border-color: var(--soft-blue);
-}
-
-/* Custom Scrollbar */
-.capacity-card::-webkit-scrollbar,
-.attraction-info::-webkit-scrollbar {
-  width: 4px;
-}
-
-.capacity-card::-webkit-scrollbar-track,
-.attraction-info::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 2px;
-}
-
-.capacity-card::-webkit-scrollbar-thumb,
-.attraction-info::-webkit-scrollbar-thumb {
-  background: var(--soft-blue);
-  border-radius: 2px;
-}
-
-.capacity-card::-webkit-scrollbar-thumb:hover,
-.attraction-info::-webkit-scrollbar-thumb:hover {
-  background: #2527a0;
-}
