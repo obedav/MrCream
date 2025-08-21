@@ -15,11 +15,5 @@ Premium Nigerian hospitality experience featuring:
 ## 🛠️ Technology Stack
 - **Frontend:** HTML5, CSS3, JavaScript
 - **Backend:** .NET Core
-- **Database:** [Your database here]
+- **Database:** 
 
-## 📍 Locations
-- **Head Office:** Lagos, Nigeria
-- **Water Park:** Ijegun, Lagos
-
----
-🇳🇬 Proudly Nigerian | Drink Responsibly - 18+ Only for Alcoholic Products
