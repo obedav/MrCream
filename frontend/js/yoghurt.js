@@ -379,7 +379,7 @@ createFloatingParticles() {
                         <div class="splash-drop"></div>
                         <div class="splash-drop"></div>
                     </div>
-                    <h3>Preparing Your Creamy Experience...</h3>
+                    
                     <div class="loading-bar">
                         <div class="loading-progress"></div>
                     </div>
@@ -397,7 +397,7 @@ createFloatingParticles() {
                 justify-content: center;
                 z-index: 9999;
                 opacity: 1;
-                transition: opacity 0.5s ease;
+                transition: opacity 0.1s ease;
             `;
             
             document.body.appendChild(loader);
