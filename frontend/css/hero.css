@@ -467,9 +467,9 @@
 .slide-yoghurt .floating-element.element-3 {
     width: 360px;
     height: 460px;
-    bottom: 5%;
+    top: 20%;
     left: 50%;
-    /* transform: translateX(-50%); */
+    transform: translateX(-50%);
     background: linear-gradient(135deg, 
         hsla(240, 20%, 99%, 0.96) 0%,
         hsla(330, 65%, 52%, 0.12) 25%,
@@ -1076,8 +1076,9 @@
 .floating-element.element-3 {
     width: 320px;
     height: 320px;
-    bottom: 8%;
+    top: 25%;
     left: 50%;
+    transform: translateX(-50%);
     animation: magneticFloat3 14s ease-in-out infinite 6s;
 }
 
@@ -1332,7 +1333,7 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        margin-bottom: -50rem;
+        margin-bottom: 2rem;
     }
     
     .floating-element {

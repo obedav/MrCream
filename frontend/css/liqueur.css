@@ -884,6 +884,205 @@ body.theme-liqueur {
   color: var(--white);
 }
 
+/* Product Specs - New Design */
+.product-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spec-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(212, 175, 55, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.spec-badge:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+.spec-badge i {
+  font-size: 1.5rem;
+  color: var(--gold-dark);
+  min-width: 30px;
+}
+
+.spec-badge strong {
+  display: block;
+  color: var(--black);
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.spec-badge small {
+  display: block;
+  color: var(--gray-medium);
+  font-size: 0.75rem;
+}
+
+.spec-badge.gold-spec {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.spec-badge.gold-spec i {
+  color: #FFD700;
+}
+
+.spec-badge.limited-spec {
+  background: rgba(158, 158, 158, 0.1);
+  border-color: rgba(158, 158, 158, 0.3);
+}
+
+.spec-badge.limited-spec i {
+  color: var(--gray-medium);
+}
+
+/* Enhanced Product Badges */
+.product-badge.gold-badge {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: var(--black);
+  font-weight: 700;
+}
+
+.product-badge.limited-badge {
+  background: var(--gray-medium);
+  color: var(--white);
+}
+
+/* Enhanced Flavor Notes */
+.flavor-notes.gold-notes .note {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+  color: #B8941F;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.flavor-notes.gold-notes .note i {
+  color: #FFD700;
+  font-size: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.flavor-notes.limited-notes .note {
+  background: rgba(158, 158, 158, 0.2);
+  color: var(--dark-brown);
+  border: 1px solid rgba(158, 158, 158, 0.3);
+}
+
+.flavor-notes.limited-notes .note i {
+  color: var(--gray-medium);
+  font-size: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.flavor-notes .note i {
+  color: var(--gold-dark);
+  font-size: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+/* Gold Shadow Effect */
+.bottle-shadow.gold-shadow {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Collection Features */
+.collection-features {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.feature-box {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.feature-box:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+  border-color: var(--gold);
+}
+
+.feature-box i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-box h5 {
+  color: var(--dark-brown);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+  color: var(--gray-medium);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Wholesale CTA Enhancements */
+.product-wholesale-cta .btn-wholesale-inquiry {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: var(--luxury-gradient);
+  color: var(--white);
+  border: 2px solid transparent;
+}
+
+.product-wholesale-cta .btn-wholesale-inquiry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+  color: var(--white);
+}
+
+.product-wholesale-cta .btn-wholesale-inquiry.gold {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: var(--black);
+}
+
+.product-wholesale-cta .btn-wholesale-inquiry.gold:hover {
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+  color: var(--black);
+}
+
+.product-wholesale-cta .btn-wholesale-inquiry.limited {
+  background: transparent;
+  color: var(--dark-brown);
+  border-color: var(--gray-medium);
+}
+
+.product-wholesale-cta .btn-wholesale-inquiry.limited:hover {
+  background: var(--gray-medium);
+  color: var(--white);
+  border-color: var(--gray-medium);
+}
+
 /* Enjoy Section */
 .enjoy-section {
   background: var(--black);

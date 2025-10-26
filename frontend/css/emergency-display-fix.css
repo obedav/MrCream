@@ -1,0 +1,97 @@
+/* Emergency Display Fix - Force all hero content to show */
+
+/* CRITICAL: Force visibility for text elements only */
+.swiper-slide,
+.hero-content,
+.hero-badge,
+.hero-title,
+.hero-description,
+.hero-benefits,
+.hero-stats,
+.hero-cta {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Floating elements need special handling to preserve positioning */
+.floating-element {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    /* DO NOT override transform or animation for floating elements */
+}
+
+/* Specific display fixes */
+.hero-benefits {
+    display: block !important;
+}
+
+.benefit-item {
+    display: flex !important;
+}
+
+.hero-stats {
+    display: flex !important;
+}
+
+.hero-cta {
+    display: flex !important;
+}
+
+.floating-element {
+    display: block !important;
+}
+
+/* Remove any negative margins or positioning that might hide content */
+.hero-content {
+    position: relative !important;
+    z-index: 100 !important;
+    margin: 0 !important;
+    padding: 2rem 0 !important;
+}
+
+/* Ensure swiper slides are visible */
+.swiper-slide {
+    opacity: 1 !important;
+    position: relative !important;
+    display: block !important;
+}
+
+.swiper-slide-active {
+    opacity: 1 !important;
+    display: block !important;
+}
+
+/* Force text to be visible */
+.hero-title,
+.hero-description {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+}
+
+/* Ensure buttons are clickable and visible */
+.btn-hero-primary,
+.btn-hero-secondary,
+.btn-hero-tertiary {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+    .hero-content {
+        text-align: center !important;
+    }
+
+    .floating-element {
+        position: static !important;
+        margin: 1rem auto !important;
+        width: 200px !important;
+        height: 200px !important;
+    }
+}

@@ -19,48 +19,96 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/enhanced-navigation.css">
+    <link rel="stylesheet" href="css/enhanced-forms.css">
+    <link rel="stylesheet" href="css/neural-enhancements.css">
+    <link rel="stylesheet" href="css/performance-optimizations.css">
+    <link rel="stylesheet" href="css/loading-enhancements.css">
+    <link rel="stylesheet" href="css/hero-ux-enhancements.css">
 
+    <!-- OLD Hero Styles (DISABLED FOR NEW DESIGN) -->
+    <!-- <link rel="stylesheet" href="hero.css?v=5"> -->
+    <!-- <link rel="stylesheet" href="main.css?v=5"> -->
+    <!-- <link rel="stylesheet" href="css/hero-redesign.css"> -->
 
-    <link rel="stylesheet" href="hero.css?v=5">
-<link rel="stylesheet" href="main.css?v=5">
+    <!-- NEW: Modern Hero with Background Images (2025 Redesign - MUST BE LAST) -->
+    <link rel="stylesheet" href="css/modern-hero-bg.css?v=2025.7">
+
+    <!-- NEW: Modern Site-Wide Enhancements (2025 Redesign) -->
+    <link rel="stylesheet" href="css/modern-site-enhancements.css?v=2025.4">
 <script src="api.js?v=5"></script>
 
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+    <!-- Enhanced Navigation with Best Practice UI/UX -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="images/logo/Logo.png" alt="MrCream Logo" style="height: 40px;" />
+            <!-- Enhanced Logo with Loading State -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html" 
+               aria-label="MrCream - Go to homepage">
+                <div class="logo-container">
+                    <img src="images/logo/Logo.png" alt="MrCream Logo" 
+                         style="height: 40px;" loading="lazy" />
+                    <div class="logo-loader" aria-hidden="true"></div>
+                </div>
                 <span class="brand-logo">MrCream</span>
             </a>
 
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Enhanced Mobile Toggle with Accessibility -->
+            <button class="navbar-toggler enhanced-toggle" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon">
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                </span>
+                <span class="sr-only">Menu</span>
             </button>
 
-            <!-- Navigation Links -->
+            <!-- Enhanced Navigation Links with Accessibility -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="yoghurt.html">
-                            <i class="bi bi-cup-straw me-1"></i>Yoghurt Drinks
+                <ul class="navbar-nav ms-auto" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link active enhanced-nav-link" 
+                           href="index.html" 
+                           role="menuitem"
+                           aria-current="page">
+                            <span class="nav-text">Home</span>
+                            <span class="nav-indicator" aria-hidden="true"></span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="waterpark.html">
-                            <i class="bi bi-water me-1"></i>Water Park
+                    <li class="nav-item" role="none">
+                        <a class="nav-link enhanced-nav-link" 
+                           href="yoghurt.html" 
+                           role="menuitem">
+                            <i class="bi bi-cup-straw me-2" aria-hidden="true"></i>
+                            <span class="nav-text">Yoghurt Drinks</span>
+                            <span class="nav-indicator" aria-hidden="true"></span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="liqueur.html">
-                            <i class="bi bi-cup me-1"></i>Premium Liqueur
-                            <span class="badge bg-danger ms-1" style="font-size: 0.6rem;">18+</span>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link enhanced-nav-link" 
+                           href="waterpark.html" 
+                           role="menuitem">
+                            <i class="bi bi-water me-2" aria-hidden="true"></i>
+                            <span class="nav-text">Water Park</span>
+                            <span class="nav-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link enhanced-nav-link" 
+                           href="liqueur.html" 
+                           role="menuitem">
+                            <i class="bi bi-cup me-2" aria-hidden="true"></i>
+                            <span class="nav-text">Premium Liqueur</span>
+                            <span class="badge bg-danger ms-2 age-badge" 
+                                  aria-label="18 years or older required">18+</span>
+                            <span class="nav-indicator" aria-hidden="true"></span>
                         </a>
                     </li>
                 </ul>
@@ -69,8 +117,8 @@
     </nav>
 
     <!-- Hero Swiper -->
-    <div class="swiper hero-swiper">
-        <div class="swiper-wrapper">
+    <main class="swiper hero-swiper" role="main" aria-label="MrCream product showcase">
+        <div class="swiper-wrapper" role="region" aria-live="polite" aria-label="Product slides">
             <!-- Slide 1 - Yoghurt -->
             <div class="swiper-slide slide-yoghurt">
                 <div class="geometric-bg">
@@ -81,22 +129,25 @@
                 
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="hero-content">
-                               <!--  <div class="hero-badge">
-                                    <i class="bi bi-award-fill"></i>
-                                    Nigeria's #1 Premium Yoghurt
-                                </div> -->
-                                
-                                <h1 class="hero-title">
-                                    Taste the Joy of 
+                        <!-- Hero Content - Right Side -->
+                        <div class="col-lg-12 offset-lg-6 col-md-10 offset-md-2">
+                            <div class="hero-content yogurt-content">
+                                <div class="hero-badge" role="banner">
+                                    <i class="bi bi-award-fill" aria-hidden="true"></i>
+                                    <span>Nigeria's #1 Premium Yoghurt</span>
+                                </div>
+
+                                <h1 class="hero-title" id="main-heading">
+                                    Taste the Joy of
                                     <span class="highlight-text">Real Yoghurt</span>
                                 </h1>
-                                
-                                <p class="hero-description">
-                                    Experience the smooth, creamy delight of MrCream Yoghurt Drinks. Made with real cultured milk and bursting with natural flavors that refresh your body and satisfy your taste buds.
+
+                                <p class="hero-description" id="hero-description">
+                                    Transform your daily routine with Nigeria's most loved yoghurt drinks.
+                                    <strong>100% natural ingredients</strong>, no artificial preservatives,
+                                    and packed with live cultures that boost your health while delighting your taste buds.
                                 </p>
-                                
+
                                 <div class="hero-stats">
                                     <div class="stat-item">
                                         <div class="stat-number">500K+</div>
@@ -111,32 +162,33 @@
                                         <div class="stat-label">Delicious Flavors</div>
                                     </div>
                                 </div>
-                                
-                          <!--       <div class="hero-cta">
-                                    <a href="yoghurt.html" class="btn btn-hero-primary">
-                                        <i class="bi bi-cup-straw me-2"></i>
-                                        Try Our Flavors
+
+                                <div class="hero-cta" role="group" aria-label="Product actions">
+                                    <a href="yoghurt.html"
+                                       class="btn btn-hero-primary"
+                                       aria-describedby="hero-description"
+                                       data-analytics="cta-yoghurt-primary">
+                                        <i class="bi bi-cup-straw me-2" aria-hidden="true"></i>
+                                        <span class="btn-text">Shop Yoghurt Drinks</span>
                                     </a>
-                                    <button class="btn btn-hero-secondary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                                        <i class="bi bi-play-circle me-2"></i>
-                                        Watch Story
-                                    </button>
-                                </div> -->
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6">
-                            <div class="hero-visual">
-                                <div class="floating-element element-1">
-                                    <img src="images/yoghurt/MrCream-Strawberry-SKU.jpg" alt="Strawberry Yoghurt" class="product-image-full">
-                                </div>
-                                
-                              <!--   <div class="floating-element element-2">
-                                    <img src="" alt="Vanilla Yoghurt" class="product-image-full">
-                                </div> -->
-                                
-                                <div class="floating-element element-3">
-                                    <img src="images/yoghurt/MrCream-Vanilla-SKU.jpg" alt="Featured Yoghurt" class="product-image-full">
+
+                                    <div class="secondary-actions">
+                                        <button class="btn btn-hero-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#videoModal"
+                                                aria-label="Watch our brand story video"
+                                                data-analytics="cta-video-secondary">
+                                            <i class="bi bi-play-circle me-2" aria-hidden="true"></i>
+                                            <span>Watch Our Story</span>
+                                        </button>
+
+                                        <a href="#testimonials"
+                                           class="btn btn-hero-tertiary"
+                                           aria-label="Read customer reviews">
+                                            <i class="bi bi-people me-2" aria-hidden="true"></i>
+                                            <span>Customer Reviews</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -151,24 +203,54 @@
                     <div class="shape shape-2"></div>
                     <div class="shape shape-3"></div>
                 </div>
-                
+
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6">
+                        <!-- Product Showcase - LEFT SIDE (Single Product) -->
+                        <div class="col-lg-5">
+                            <div class="hero-visual">
+                                <div class="product-showcase">
+                                    <!-- <div class="product-card featured">
+                                        <img src="images/waterpark/Image_fx(14).jpg" alt="Adult Swimming Pool Area" class="product-image">
+                                        <div class="product-title">Adult Pool Area</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Content - RIGHT SIDE -->
+                        <div class="col-lg-12">
                             <div class="hero-content">
-                               <!--  <div class="hero-badge">
-                                    <i class="bi bi-water"></i>
-                                    Ultimate Family Adventure
-                                </div> -->
-                                
-                                <h1 class="hero-title">
-                                    Where Every Drop is a 
+                                <div class="hero-badge" role="banner">
+                                    <i class="bi bi-water" aria-hidden="true"></i>
+                                    <span>Lagos' Premier Family Water Park</span>
+                                </div>
+
+                                <h1 class="hero-title" id="waterpark-heading">
+                                    Where Every Drop is a
                                     <span class="highlight-text">Splash of Joy!</span>
                                 </h1>
-                                
-                                <p class="hero-description">
-                                    Step into a world of adventure and non-stop fun at MrCream Water Park. Exciting attractions for all ages with the perfect blend of refreshing water activities and vibrant entertainment.
+
+                                <p class="hero-description" id="waterpark-description">
+                                    Create unforgettable memories at Lagos' most exciting water park.
+                                    <strong>Safe, clean, and fun for all ages</strong> - from toddler splash zones
+                                    to thrilling slides that will get your heart racing.
                                 </p>
+
+                               <!--  <ul class="hero-benefits" aria-labelledby="waterpark-heading">
+                                    <li class="benefit-item">
+                                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                        <span>World-class safety standards</span>
+                                    </li>
+                                    <li class="benefit-item">
+                                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                        <span>Activities for ages 2-80</span>
+                                    </li>
+                                    <li class="benefit-item">
+                                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                        <span>Clean facilities & fresh water daily</span>
+                                    </li>
+                                </ul> -->
                                 
                                 <div class="hero-stats">
                                     <div class="stat-item">
@@ -184,32 +266,32 @@
                                         <div class="stat-label">Days Open</div>
                                     </div>
                                 </div>
-                                
-                              <!--   <div class="hero-cta">
-                                    <a href="waterpark.html" class="btn btn-hero-primary">
-                                        <i class="bi bi-ticket-perforated me-2"></i>
-                                        Book Your Visit
+
+                                <div class="hero-cta" role="group" aria-label="Water park booking actions">
+                                    <a href="waterpark.html"
+                                       class="btn btn-hero-primary"
+                                       aria-describedby="waterpark-description"
+                                       data-analytics="cta-waterpark-primary">
+                                        <i class="bi bi-ticket-perforated me-2" aria-hidden="true"></i>
+                                        <span class="btn-text">Buy Day Pass</span>
                                     </a>
-                                    <a href="waterpark.html#events" class="btn btn-hero-secondary">
-                                        <i class="bi bi-calendar-event me-2"></i>
-                                        Plan Event
-                                    </a>
-                                </div> -->
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6">
-                            <div class="hero-visual">
-                                <div class="floating-element element-1">
-                                    <img src="images/waterpark/Image_fx(14).jpg" alt="Adult Pool" class="product-image-full">
-                                </div>
-                                
-                                <div class="floating-element element-2">
-                                    <img src="images/waterpark/Image_fx(15).jpg" alt="VIP Pool" class="product-image-full">
-                                </div>
-                                
-                                <div class="floating-element element-3">
-                                    <img src="images/waterpark/Image_fx(12).jpg" alt="Merry-go-round" class="product-image-full">
+
+                                    <div class="secondary-actions">
+                                        <a href="waterpark.html#events"
+                                           class="btn btn-hero-secondary"
+                                           aria-label="Plan a private event at our water park"
+                                           data-analytics="cta-events-secondary">
+                                            <i class="bi bi-calendar-event me-2" aria-hidden="true"></i>
+                                            <span>Plan Private Event</span>
+                                        </a>
+
+                                        <a href="waterpark.html#gallery"
+                                           class="btn btn-hero-tertiary"
+                                           aria-label="View water park photo gallery">
+                                            <i class="bi bi-images me-2" aria-hidden="true"></i>
+                                            <span>View Gallery</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -229,19 +311,37 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="hero-content">
-                                <!-- <div class="hero-badge">
-                                    <i class="bi bi-gem"></i>
-                                    African Luxury Redefined <span class="badge bg-danger ms-2">18+</span>
-                                </div> -->
-                                
-                                <h1 class="hero-title">
-                                    Taste the Soul of 
+                                <div class="hero-badge" role="banner">
+                                    <i class="bi bi-gem" aria-hidden="true"></i>
+                                    <span>Premium African Luxury</span>
+                                    <span class="badge bg-danger ms-2" aria-label="18 years and older only">18+</span>
+                                </div>
+
+                                <h1 class="hero-title" id="liqueur-heading">
+                                    Taste the Soul of
                                     <span class="highlight-text">Premium Africa</span>
                                 </h1>
-                                
-                                <p class="hero-description">
-                                    Discover Turbo Cream Liqueur - a luxurious blend of rich dairy cream, premium aged spirits, and authentic African botanicals. Experience indulgence that celebrates our heritage with every sip.
+
+                                <p class="hero-description" id="liqueur-description">
+                                    Indulge in Nigeria's finest cream liqueur, crafted from
+                                    <strong>authentic African botanicals and premium aged spirits</strong>.
+                                    Each bottle celebrates our rich heritage with uncompromising quality and luxury.
                                 </p>
+
+                                <!-- <ul class="hero-benefits" aria-labelledby="liqueur-heading">
+                                    <li class="benefit-item">
+                                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                        <span>Authentic African botanicals & spices</span>
+                                    </li>
+                                    <li class="benefit-item">
+                                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                        <span>Premium aged spirits (18% ABV)</span>
+                                    </li>
+                                    <li class="benefit-item">
+                                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                        <span>Small-batch artisanal production</span>
+                                    </li>
+                                </ul> -->
                                 
                                 <div class="hero-stats">
                                     <div class="stat-item">
@@ -257,32 +357,52 @@
                                         <div class="stat-label">Premium Variants</div>
                                     </div>
                                 </div>
-                                
-                             <!--    <div class="hero-cta">
-                                    <button class="btn btn-hero-primary" onclick="showAgeVerification()">
-                                        <i class="bi bi-gem me-2"></i>
-                                        Discover Luxury
+
+                                <div class="hero-cta" role="group" aria-label="Premium liqueur actions">
+                                    <button class="btn btn-hero-primary"
+                                            onclick="showAgeVerification()"
+                                            aria-describedby="liqueur-description"
+                                            data-analytics="cta-liqueur-primary">
+                                        <i class="bi bi-gem me-2" aria-hidden="true"></i>
+                                        <span class="btn-text">Shop Premium Liqueur</span>
+                                        <span class="btn-subtext">Must be 18+ to purchase</span>
                                     </button>
-                                    <button class="btn btn-hero-secondary" onclick="showAgeVerification()">
-                                        <i class="bi bi-shield-check me-2"></i>
-                                        Age Verification
-                                    </button>
-                                </div> -->
+
+                                    <div class="secondary-actions">
+                                        <a href="liqueur.html#tasting-notes"
+                                           class="btn btn-hero-secondary"
+                                           aria-label="Learn about our liqueur flavors and tasting notes"
+                                           data-analytics="cta-tasting-secondary">
+                                            <i class="bi bi-cup me-2" aria-hidden="true"></i>
+                                            <span>Tasting Notes</span>
+                                        </a>
+
+                                        <a href="liqueur.html#heritage"
+                                           class="btn btn-hero-tertiary"
+                                           aria-label="Discover our African heritage and craftsmanship">
+                                            <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+                                            <span>Our Heritage</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="col-lg-6">
                             <div class="hero-visual">
-                                <div class="floating-element element-1">
-                                    <img src="images/liqueur/TurboCream-bottle-01.png" alt="Turbo Original" class="product-image-full">
-                                </div>
-                                
-                                <div class="floating-element element-2">
-                                    <img src="images/liqueur/TurboCream-bottle-01.png" alt="Gold Reserve" class="product-image-full">
-                                </div>
-                                
-                                <div class="floating-element element-3">
-                                    <img src="images/liqueur/TurboCream-bottle-01.png" alt="Limited Edition" class="product-image-full">
+                                <div class="product-showcase">
+                                    <div class="product-card featured">
+                                        <img src="images/liqueur/TurboCream-bottle-01.png" alt="Premium Turbo Cream Liqueur" class="product-image">
+                                        <div class="product-title">Turbo Cream Original</div>
+                                    </div>
+                                    <div class="product-card">
+                                        <img src="images/liqueur/TurboCream-bottle-01.png" alt="Gold Reserve Edition" class="product-image">
+                                        <div class="product-title">Gold Reserve</div>
+                                    </div>
+                                    <div class="product-card">
+                                        <img src="images/liqueur/TurboCream-bottle-01.png" alt="Limited Edition Collection" class="product-image">
+                                        <div class="product-title">Limited Edition</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -290,21 +410,21 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Custom Pagination -->
-        <div class="swiper-pagination"></div>
-        
+        <div class="swiper-pagination" role="tablist" aria-label="Product slide navigation"></div>
+
         <!-- Custom Navigation -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        
+        <div class="swiper-button-next" role="button" aria-label="Next product slide" tabindex="0"></div>
+        <div class="swiper-button-prev" role="button" aria-label="Previous product slide" tabindex="0"></div>
+
         <!-- Slide Indicators -->
-        <div class="slide-indicator">
-            <div class="indicator-dot active" data-slide="0"></div>
-            <div class="indicator-dot" data-slide="1"></div>
-            <div class="indicator-dot" data-slide="2"></div>
+        <div class="slide-indicator" role="tablist" aria-label="Slide indicators">
+            <button class="indicator-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Yoghurt products slide"></button>
+            <button class="indicator-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Water park slide"></button>
+            <button class="indicator-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Premium liqueur slide"></button>
         </div>
-    </div>
+    </main>
 
     <!-- Video Modal -->
     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -345,34 +465,111 @@
 
     <!-- Footer -->
     <footer class="footer-section">
-        <!-- Newsletter Section -->
+        <!-- Enhanced Newsletter Section -->
         <section class="newsletter-section">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
                         <div class="newsletter-content">
                             <h3 class="newsletter-title">
                                 <i class="bi bi-envelope-heart me-2"></i>
-                                Stay Connected with MrCream
+                                Join the MrCream Family
                             </h3>
                             <p class="newsletter-subtitle">
-                                Get exclusive offers, new product launches, and exciting updates delivered to your inbox!
+                                Subscribe now and be the first to know about new flavors, exclusive offers,
+                                water park events, and special promotions!
                             </p>
+
+                            <!-- Newsletter Benefits -->
+                            <div class="newsletter-benefits mt-4">
+                                <div class="benefit-item">
+                                    <i class="bi bi-gift-fill text-warning"></i>
+                                    <span>Exclusive subscriber-only discounts</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-lightning-fill text-primary"></i>
+                                    <span>Early access to new products</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-calendar-event-fill text-success"></i>
+                                    <span>VIP invites to special events</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-star-fill text-danger"></i>
+                                    <span>Weekly recipes & tips</span>
+                                </div>
+                            </div>
+
+                            <!-- Social Proof -->
+                            <div class="newsletter-social-proof mt-3">
+                                <small class="text-muted">
+                                    <i class="bi bi-people-fill me-1"></i>
+                                    Join 50,000+ happy subscribers
+                                </small>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <form class="newsletter-form" id="newsletterForm">
-                            <div class="input-group">
-                                <input type="email" class="form-control newsletter-input" placeholder="Enter your email address" required>
-                                <button class="btn btn-newsletter" type="submit">
-                                    <i class="bi bi-send-fill me-2"></i>
-                                    Subscribe
+                    <div class="col-lg-7">
+                        <form class="newsletter-form enhanced-form" id="newsletterForm" novalidate>
+                            <div class="input-group enhanced-input-group">
+                                <div class="form-field-wrapper">
+                                    <input type="email"
+                                           class="form-control newsletter-input enhanced-input"
+                                           id="newsletterEmail"
+                                           name="email"
+                                           placeholder="Enter your email address"
+                                           required
+                                           autocomplete="email"
+                                           aria-describedby="newsletter-error newsletter-help">
+                                    <label class="floating-label" for="newsletterEmail">Email Address</label>
+                                    <div class="input-indicator" aria-hidden="true"></div>
+                                </div>
+                                <button class="btn btn-newsletter enhanced-submit-btn" type="submit" aria-describedby="submit-
+                                help">
+                                    <span class="btn-text">
+                                        <i class="bi bi-send-fill me-2" aria-hidden="true"></i>
+                                        Subscribe Now
+                                    </span>
+                                    <!-- <span class="btn-loading" aria-hidden="true">
+                                        <i class="bi bi-arrow-repeat me-2 rotating"></i>
+                                        Subscribing...
+                                    </span> -->
                                 </button>
                             </div>
-                            <small class="newsletter-privacy">
-                                <i class="bi bi-shield-check me-1"></i>
-                                We respect your privacy. Unsubscribe anytime.
-                            </small>
+                            <div class="form-feedback">
+                                <div id="newsletter-error" class="error-message" role="alert" aria-live="polite"></div>
+                                <div id="newsletter-success" class="success-message" role="alert" aria-live="polite"></div>
+                                <small id="newsletter-help" class="newsletter-privacy">
+                                    <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+                                    We respect your privacy. Unsubscribe anytime. No spam, ever.
+                                </small>
+                            </div>
+
+                            <!-- Additional Newsletter Options -->
+                            <div class="newsletter-preferences mt-3">
+                                <p class="mb-2 text-muted small">
+                                    <i class="bi bi-sliders me-1"></i>
+                                    What are you interested in?
+                                </p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <label class="preference-chip">
+                                        <input type="checkbox" name="interest" value="yoghurt" checked>
+                                        <span><i class="bi bi-cup-straw me-1"></i>Yoghurt</span>
+                                    </label>
+                                    <label class="preference-chip">
+                                        <input type="checkbox" name="interest" value="waterpark" checked>
+                                        <span><i class="bi bi-water me-1"></i>Water Park</span>
+                                    </label>
+                                    <label class="preference-chip">
+                                        <input type="checkbox" name="interest" value="liqueur">
+                                        <span><i class="bi bi-cup me-1"></i>Liqueur 18+</span>
+                                    </label>
+                                    <label class="preference-chip">
+                                        <input type="checkbox" name="interest" value="events" checked>
+                                        <span><i class="bi bi-calendar-event me-1"></i>Events</span>
+                                    </label>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -737,7 +934,52 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Neural Network UI System (Temporarily Disabled for Display Fix) -->
+    <!-- <script src="js/neural-ui-system.js" defer></script> -->
+    <!-- Smart Preloading System (Temporarily Disabled for Display Fix) -->
+    <!-- <script src="js/smart-preloader.js" defer></script> -->
+    <!-- Micro-Interactions System (Temporarily Disabled for Display Fix) -->
+    <!-- <script src="js/micro-interactions.js" defer></script> -->
+
+    <!-- Simple Hero Enhancement JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure all hero content is visible (simple check)
+            const heroElements = document.querySelectorAll('.hero-swiper .hero-content, .hero-swiper .product-showcase');
+            heroElements.forEach(el => {
+                el.style.opacity = '1';
+                el.style.visibility = 'visible';
+            });
+
+            // Close any stuck modals
+            const openModals = document.querySelectorAll('.modal.show');
+            openModals.forEach(modal => {
+                const modalInstance = bootstrap?.Modal?.getInstance(modal);
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
+            });
+
+            // Remove any stuck backdrops
+            document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+
+            console.log('✅ Clean hero redesign loaded successfully');
+        });
+    </script>
+
+    <!-- Progressive Enhancement (Temporarily Simplified) -->
+    <!-- <script src="js/progressive-enhancement.js"></script> -->
+
+    <!-- Hero UX Analytics (Temporarily Disabled) -->
+    <!-- <script src="js/hero-ux-analytics.js"></script> -->
+
+    <!-- Accessibility Enhancements (Temporarily Disabled) -->
+    <!-- <script src="js/accessibility-enhancements.js"></script> -->
+
     <!-- Custom JS -->
+    <script src="js/enhanced-navigation.js"></script>
     <script src="js/main.js"></script>
     <script src="js/footer.js"></script>
     

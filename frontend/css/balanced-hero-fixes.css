@@ -1,0 +1,186 @@
+/* Balanced Hero Section Fixes - Restore Images & Essential Animations */
+
+/* ========================================
+   CRITICAL: Keep content visible while restoring functionality
+======================================== */
+
+/* Ensure hero content remains visible */
+.hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.hero-content > * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Restore floating element positioning and animations */
+.floating-element {
+    position: absolute !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    /* Restore gentle floating animation */
+    animation: gentleFloat 6s ease-in-out infinite !important;
+}
+
+/* Restore floating animation - but gentler */
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Restore product images */
+.product-image-full {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Restore floating element positioning */
+.hero-visual {
+    position: relative !important;
+    height: 500px !important;
+    display: block !important;
+}
+
+/* Specific positioning for each floating element */
+.floating-element.element-1 {
+    top: 20px !important;
+    right: 50px !important;
+    width: 180px !important;
+    height: 180px !important;
+    z-index: 3 !important;
+}
+
+.floating-element.element-2 {
+    top: 200px !important;
+    left: 30px !important;
+    width: 160px !important;
+    height: 160px !important;
+    z-index: 2 !important;
+}
+
+.floating-element.element-3 {
+    bottom: 30px !important;
+    right: 20px !important;
+    width: 140px !important;
+    height: 140px !important;
+    z-index: 1 !important;
+}
+
+/* Ensure swiper slides are visible */
+.swiper-slide {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.swiper-slide-active {
+    opacity: 1 !important;
+}
+
+/* Keep text content visible */
+.hero-title,
+.hero-description,
+.hero-badge,
+.hero-benefits,
+.hero-stats,
+.hero-cta {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Restore button visibility and functionality */
+.btn-hero-primary,
+.btn-hero-secondary,
+.btn-hero-tertiary {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    pointer-events: auto !important;
+}
+
+/* Mobile responsive fixes for floating elements */
+@media (max-width: 768px) {
+    .hero-visual {
+        height: 300px !important;
+        margin-top: 2rem !important;
+    }
+
+    .floating-element.element-1 {
+        top: 10px !important;
+        right: 20px !important;
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .floating-element.element-2 {
+        top: 140px !important;
+        left: 10px !important;
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .floating-element.element-3 {
+        bottom: 10px !important;
+        right: 10px !important;
+        width: 90px !important;
+        height: 90px !important;
+    }
+}
+
+/* Remove conflicting emergency overrides that break images */
+.floating-element {
+    transform: none !important; /* Remove this override to allow positioning */
+    animation: gentleFloat 6s ease-in-out infinite !important; /* Restore animation */
+}
+
+/* Ensure proper display hierarchy */
+.hero-content {
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+.hero-visual {
+    z-index: 5 !important;
+    position: relative !important;
+}
+
+/* Force images to load and display */
+img.product-image-full {
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100px !important;
+    background: #f0f0f0 !important;
+}
+
+/* Remove any conflicting animation overrides from emergency CSS */
+.floating-element {
+    animation: gentleFloat 6s ease-in-out infinite !important;
+    transform: initial !important; /* Allow CSS transforms for positioning */
+}
+
+/* Override any animation: none from emergency CSS */
+.floating-element.element-1,
+.floating-element.element-2,
+.floating-element.element-3 {
+    animation: gentleFloat 6s ease-in-out infinite !important;
+}
