@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MrCream Premium Yoghurt Drinks - Delicious and refreshing">
+    <title>MrCream - Yoghurt Drinks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Yoghurt Page Specific Styles */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+        }
+
+        /* Gradient overlays for sections */
+        .hero-yoghurt {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #FF6B9D 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-yoghurt::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-yoghurt::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Product card hover effects */
+        .product-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-yoghurt {
+                padding: 80px 0 60px !important;
+            }
+
+            h1 {
+                font-size: var(--font-size-3xl) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" style="background: linear-gradient(to right, white 0%, rgba(45, 91, 166, 0.02) 100%); box-shadow: 0 2px 20px rgba(0,0,0,0.08);">
+        <nav class="navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.3s ease;">
+                <img src="images/logo/Logo.png" alt="MrCream Logo" style="height: 45px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));">
+                <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        MrCream
+                    </span>
+                    <span style="font-size: 0.65rem; color: var(--gray-500); font-weight: 500; letter-spacing: 1px; text-transform: uppercase;">
+                        Premium Quality
+                    </span>
+                </div>
+            </a>
+
+            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
+                <li><a href="index.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
+                <li><a href="waterpark.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
+                <li><a href="yoghurt.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
+                <li><a href="liqueur.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
+                <li><button onclick="openQuoteModal()" class="btn btn-primary" style="margin-left: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="section hero-yoghurt" style="color: white; padding: 120px 0 80px;">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-3xl); flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; text-align: left;">
+                        <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.95); font-weight: 500; margin-bottom: var(--spacing-md);">
+                            Introducing
+                        </p>
+                        <h1 style="color: white; font-size: var(--font-size-5xl); line-height: 1.1;">
+                            MrCream Flavoured Yoghurt Drink
+                        </h1>
+                        <p style="font-size: var(--font-size-2xl); color: rgba(255,255,255,0.95); margin-top: var(--spacing-lg); font-weight: 600; line-height: 1.3;">
+                            A Smooth, Creamy Delight for Every Moment
+                        </p>
+                        <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.9); margin-top: var(--spacing-lg); line-height: 1.7;">
+                            In a world that moves fast, refreshment should be more than just hydration — it should be an experience. That's where MrCream Flavoured Yoghurt Drink comes in. Smooth, tasty, and bursting with goodness, MrCream is the perfect blend of delicious flavour, natural yoghurt, and essential nutrients designed to refresh your body and satisfy your taste buds.
+                        </p>
+                        <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.9); margin-top: var(--spacing-md); line-height: 1.7;">
+                            Whether you're on the go, relaxing at home, or packing something nutritious for the kids, MrCream is your everyday companion for health, flavour, and fun.
+                        </p>
+                    </div>
+                    <div style="flex: 0 0 280px;">
+                        <img src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Yoghurt" style="max-width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 3s ease-in-out infinite;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOGHURT FLAVOURS -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--secondary-color); font-size: var(--font-size-4xl);">
+                    <i class="bi bi-cup-straw" style="color: var(--primary-light);"></i> Explore Our Flavours
+                </h2>
+                <p style="text-align: center; font-size: var(--font-size-xl); color: var(--gray-700); max-width: 800px; margin: 0 auto var(--spacing-2xl); line-height: 1.7;">
+                    From classic favorites to elegant twists, each flavor is crafted to delight your palate with the perfect balance of creamy yoghurt and natural fruit essence.
+                </p>
+                <div id="flavours-list" class="grid grid-2" style="max-width: 1000px; margin: 0 auto; gap: var(--spacing-3xl);">
+                    <p class="text-muted">Loading flavours...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORDER FORM -->
+        <section class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title">Request a Quote</h2>
+                <p style="text-align: center; margin-bottom: var(--spacing-xl); color: var(--gray-600);">
+                    <i class="bi bi-building"></i> For bulk orders and distribution inquiries
+                </p>
+                <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                    <div class="card">
+                        <i class="bi bi-clipboard-check" style="font-size: 4rem; color: var(--secondary-color); margin-bottom: var(--spacing-lg);"></i>
+                        <h3>Get Pricing for Your Business</h3>
+                        <p style="color: var(--gray-600); margin: var(--spacing-md) 0;">
+                            Whether you're a distributor, wholesaler, or retailer, we offer competitive pricing for bulk orders.
+                        </p>
+                        <button onclick="openQuoteModal('yoghurt')" class="btn btn-primary btn-lg" style="margin-top: var(--spacing-lg);">
+                            <i class="bi bi-clipboard-check"></i> Request Quote Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hidden form for potential future use -->
+                <div class="card" style="max-width: 600px; margin: var(--spacing-3xl) auto 0; display: none;">
+                    <form id="order-form">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" name="phone" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Flavour</label>
+                            <select name="flavourId" class="form-select" required>
+                                <option value="">Select a flavour</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Quantity</label>
+                            <input type="number" name="quantity" class="form-input" min="1" value="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Delivery Address</label>
+                            <textarea name="address" class="form-textarea" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Special Instructions (Optional)</label>
+                            <textarea name="notes" class="form-textarea" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE MRCREAM PROMISE -->
+        <section class="section" style="background: linear-gradient(to bottom, white, var(--gray-50));">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--secondary-color); font-size: var(--font-size-4xl);">
+                    <i class="bi bi-heart-fill" style="color: var(--coral);"></i> Who We Are – The MrCream Promise
+                </h2>
+                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: var(--font-size-xl); color: var(--gray-700); line-height: 1.8; margin-bottom: var(--spacing-xl);">
+                        At MrCream, we believe that yoghurt shouldn't be boring. It should be <strong>full of life</strong> — creamy, tangy, flavourful, and made for enjoyment. That's why we've created a drink that goes beyond the ordinary.
+                    </p>
+                    <p style="font-size: var(--font-size-lg); color: var(--gray-700); line-height: 1.8; margin-bottom: var(--spacing-xl);">
+                        Our yoghurt drinks are made with <strong>high-quality cultured milk</strong>, carefully blended with exciting natural and nature-identical flavours, and enriched with essential nutrients to support your daily lifestyle.
+                    </p>
+                    <div style="background: linear-gradient(135deg, var(--secondary-color), var(--coral)); padding: var(--spacing-2xl); border-radius: var(--radius-xl); color: white; box-shadow: var(--shadow-xl);">
+                        <p style="font-size: var(--font-size-2xl); font-weight: 600; margin: 0; line-height: 1.4;">
+                            We're not just making drinks — we're crafting a culture of smart snacking, healthy living, and delicious indulgence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US -->
+        <section class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title">Why Choose MrCream Yoghurt?</h2>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <i class="bi bi-droplet-fill" style="font-size: 3rem; color: var(--primary-light);"></i>
+                        <h3 class="card-title">Made with Real Cultured Milk</h3>
+                        <p class="card-text">Each bottle is packed with the rich, creamy goodness of real yoghurt — not watered-down formulas. You get authentic dairy taste and the natural benefits of probiotic-rich yoghurt cultures.</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="bi bi-star-fill" style="font-size: 3rem; color: var(--secondary-color);"></i>
+                        <h3 class="card-title">Bursting with Flavour</h3>
+                        <p class="card-text">From classic strawberry to vanilla — our flavours are crafted to delight every palate. Sweet, fruity, and satisfyingly smooth.</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="bi bi-heart-pulse" style="font-size: 3rem; color: var(--coral);"></i>
+                        <h3 class="card-title">Nutritious & Energizing</h3>
+                        <p class="card-text">MrCream yoghurt is more than just a treat — it's a smart choice. Fortified with calcium, vitamins, and protein, it supports healthy bones, digestion, and energy throughout your day.</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="bi bi-shield-check" style="font-size: 3rem; color: var(--success-color);"></i>
+                        <h3 class="card-title">No Artificial Preservatives</h3>
+                        <p class="card-text">We keep it real. MrCream yoghurt contains no harmful preservatives, and our recipe is carefully balanced to maintain freshness, taste, and nutritional value.</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="bi bi-people-fill" style="font-size: 3rem; color: var(--accent-color);"></i>
+                        <h3 class="card-title">Perfect for All Ages</h3>
+                        <p class="card-text">Loved by kids, trusted by parents, and enjoyed by adults — MrCream yoghurt is a family favourite that fits into school lunches, fitness routines, and daily refreshment.</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="bi bi-award-fill" style="font-size: 3rem; color: var(--cream);"></i>
+                        <h3 class="card-title">Made with Care</h3>
+                        <p class="card-text">Our state-of-the-art production facility follows the highest standards of hygiene, safety, and quality control. Every bottle undergoes rigorous checks to ensure excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW TO ENJOY -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--secondary-color); font-size: var(--font-size-4xl);">
+                    <i class="bi bi-emoji-smile" style="color: var(--accent-color);"></i> How to Enjoy MrCream
+                </h2>
+                <div class="grid grid-4">
+                    <div class="card text-center" style="border-top: 4px solid var(--primary-light);">
+                        <i class="bi bi-snow" style="font-size: 3rem; color: var(--primary-light); margin-bottom: var(--spacing-md);"></i>
+                        <h3 class="card-title">Serve Chilled</h3>
+                        <p class="card-text">Best enjoyed cold for a refreshing and creamy feel.</p>
+                    </div>
+
+                    <div class="card text-center" style="border-top: 4px solid var(--secondary-color);">
+                        <i class="bi bi-cup-straw" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: var(--spacing-md);"></i>
+                        <h3 class="card-title">Pair with Snacks or Meals</h3>
+                        <p class="card-text">Great with pastries, sandwiches, fruits, or traditional meals.</p>
+                    </div>
+
+                    <div class="card text-center" style="border-top: 4px solid var(--accent-color);">
+                        <i class="bi bi-backpack" style="font-size: 3rem; color: var(--accent-color); margin-bottom: var(--spacing-md);"></i>
+                        <h3 class="card-title">Grab & Go</h3>
+                        <p class="card-text">Perfect for school bags, gym bags, or office fridges.</p>
+                    </div>
+
+                    <div class="card text-center" style="border-top: 4px solid var(--coral);">
+                        <i class="bi bi-balloon-heart" style="font-size: 3rem; color: var(--coral); margin-bottom: var(--spacing-md);"></i>
+                        <h3 class="card-title">Serve at Parties</h3>
+                        <p class="card-text">A favourite for kids' parties and family gatherings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MADE WITH CARE -->
+        <section class="section" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white;">
+            <div class="container">
+                <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                    <i class="bi bi-award-fill" style="font-size: 4rem; margin-bottom: var(--spacing-lg); display: block;"></i>
+                    <h2 style="color: white; font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg);">
+                        Made with Care. Delivered with Pride.
+                    </h2>
+                    <p style="font-size: var(--font-size-xl); color: rgba(255,255,255,0.95); line-height: 1.8;">
+                        Our state-of-the-art production facility follows the highest standards of hygiene, safety, and quality control. Every bottle of MrCream yoghurt undergoes rigorous checks to ensure it meets our promise of excellence — because your health and satisfaction matter.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--primary-color); font-size: var(--font-size-4xl);">
+                    <i class="bi bi-chat-dots" style="color: var(--secondary-color);"></i> Contact Us
+                </h2>
+                <p style="text-align: center; font-size: var(--font-size-xl); color: var(--gray-700); margin-bottom: var(--spacing-2xl);">
+                    Have questions, suggestions, or feedback? We'd love to hear from you.
+                </p>
+                <div class="grid grid-3" style="max-width: 1000px; margin: 0 auto;">
+                    <div class="card" style="text-align: center; background: linear-gradient(to bottom, white, var(--gray-50));">
+                        <i class="bi bi-telephone-fill" style="font-size: 3rem; color: var(--success-color); margin-bottom: var(--spacing-md);"></i>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Customer Care</h3>
+                        <p style="font-size: var(--font-size-xl); font-weight: 600; color: var(--gray-800);">
+                            +234 803 2354 952
+                        </p>
+                        <a href="tel:+2348032354952" class="btn btn-outline" style="margin-top: var(--spacing-md);">
+                            <i class="bi bi-telephone"></i> Call Now
+                        </a>
+                    </div>
+
+                    <div class="card" style="text-align: center; background: linear-gradient(to bottom, white, var(--gray-50));">
+                        <i class="bi bi-envelope-fill" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: var(--spacing-md);"></i>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Email</h3>
+                        <p style="font-size: var(--font-size-lg); font-weight: 600; color: var(--gray-800);">
+                            info@mrcream.com
+                        </p>
+                        <a href="mailto:info@mrcream.com" class="btn btn-outline" style="margin-top: var(--spacing-md);">
+                            <i class="bi bi-envelope"></i> Send Email
+                        </a>
+                    </div>
+
+                    <div class="card" style="text-align: center; background: linear-gradient(to bottom, white, var(--gray-50));">
+                        <i class="bi bi-geo-alt-fill" style="font-size: 3rem; color: var(--primary-light); margin-bottom: var(--spacing-md);"></i>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Head Office</h3>
+                        <p style="font-size: var(--font-size-base); color: var(--gray-700); line-height: 1.7;">
+                            18-26 Dauda Ayorinde Street<br>
+                            Adaloko, Afromedia<br>
+                            Off Badagry Expressway<br>
+                            Lagos State, Nigeria
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MrCream</h3>
+                    <p>Premium quality products and unforgettable experiences.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="waterpark.html">Water Park</a>
+                    <a href="yoghurt.html">Yoghurt</a>
+                    <a href="liqueur.html">Liqueur</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>
+                        <i class="bi bi-envelope"></i> info@mrcream.com<br>
+                        <i class="bi bi-telephone"></i> +234 803 2354 952<br>
+                        <i class="bi bi-geo-alt"></i> 18-26 Dauda Ayorinde Street,<br>
+                        Adaloko, Afromedia, Off Badagry Expressway,<br>
+                        Lagos State, Nigeria
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div style="display: flex; gap: var(--spacing-md); font-size: var(--font-size-2xl);">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MrCream. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/quote-modal.js"></script>
+    <script>
+        let allFlavours = [];
+
+        // Load yoghurt data from backend
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Try to load flavours from API
+                allFlavours = await window.MrCreamAPI.yoghurt.getFlavours();
+                displayFlavours(allFlavours);
+            } catch (error) {
+                console.error('Error loading yoghurt data:', error);
+                // Show default products if API is unavailable
+                displayFlavours(null);
+            }
+        });
+
+        function displayFlavours(flavours) {
+            const container = document.getElementById('flavours-list');
+            const select = document.querySelector('select[name="flavourId"]');
+
+            // Product images mapping
+            const productImages = {
+                'Strawberry': 'images/yoghurt/MRCREAM-STRAWBERRY.png',
+                'Vanilla': 'images/yoghurt/MRCREAM-VANILLA.png'
+            };
+
+            if (!flavours || flavours.length === 0) {
+                // Show default products if API doesn't return data
+                const defaultProducts = [
+                    {
+                        id: 1,
+                        name: 'Strawberry',
+                        fullName: 'MrCream Strawberry Flavoured Sweetened Yoghurt',
+                        description: 'Sweet, creamy, and timeless. Our strawberry yoghurt drink is a classic favorite, with just the right blend of tang and berry-rich flavor.'
+                    },
+                    {
+                        id: 2,
+                        name: 'Vanilla',
+                        fullName: 'MrCream Vanilla Flavoured Sweetened Yoghurt',
+                        description: 'Mellow, smooth, and aromatic. Vanilla lovers will enjoy this elegant twist on creamy indulgence — perfect chilled!'
+                    }
+                ];
+                flavours = defaultProducts;
+            }
+
+            container.innerHTML = flavours.map(flavour => {
+                const imagePath = productImages[flavour.name] || 'images/yoghurt/MRCREAM-STRAWBERRY.png';
+                const bgGradient = flavour.name === 'Strawberry'
+                    ? 'linear-gradient(135deg, #FFE5F0 0%, #FFF0F5 100%)'
+                    : 'linear-gradient(135deg, #FFF8DC 0%, #FFFACD 100%)';
+                const borderColor = flavour.name === 'Strawberry' ? 'var(--secondary-color)' : 'var(--cream)';
+
+                return `
+                    <div class="card product-card" style="text-align: center; border: 3px solid ${borderColor}; box-shadow: var(--shadow-xl);">
+                        <div style="height: 320px; background: ${bgGradient};
+                                    border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg);
+                                    display: flex; align-items: center; justify-content: center; padding: var(--spacing-lg);
+                                    position: relative; overflow: hidden;">
+                            <img src="${imagePath}" alt="${flavour.fullName || flavour.name + ' Yoghurt'}"
+                                 style="max-height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2)); position: relative; z-index: 1;">
+                        </div>
+                        <h3 style="color: var(--primary-color); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md);">
+                            ${flavour.fullName || flavour.name + ' Yoghurt'}
+                        </h3>
+                        <p style="font-size: var(--font-size-lg); color: var(--gray-700); line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                            ${flavour.description || 'Delicious yoghurt drink'}
+                        </p>
+                        <button class="btn btn-lg" style="background-color: ${borderColor}; color: white; width: 100%;" onclick="openQuoteModal('yoghurt')">
+                            <i class="bi bi-clipboard-check"></i> Request Quote
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            // Populate select dropdown if it exists
+            if (select) {
+                select.innerHTML = '<option value="">Select a flavour</option>' +
+                    flavours.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
+            }
+        }
+
+        function selectFlavour(flavourId) {
+            const select = document.querySelector('select[name="flavourId"]');
+            if (select) {
+                select.value = flavourId;
+
+                // Scroll to order form
+                const form = document.getElementById('order-form');
+                if (form) {
+                    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Highlight the select
+                    select.classList.add('is-valid');
+                    setTimeout(() => select.classList.remove('is-valid'), 2000);
+                }
+            }
+        }
+
+        // Handle order form submission
+        document.getElementById('order-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const orderData = Object.fromEntries(formData.entries());
+
+            // Convert flavourId to number
+            orderData.flavourId = parseInt(orderData.flavourId);
+            orderData.quantity = parseInt(orderData.quantity);
+
+            // Find selected flavour name for confirmation
+            const selectedFlavour = allFlavours.find(f => f.id === orderData.flavourId);
+
+            try {
+                showLoading();
+                const result = await window.MrCreamAPI.yoghurt.order(orderData);
+                hideLoading();
+
+                showSuccess(`Order placed successfully! We'll deliver your ${selectedFlavour?.name || 'yoghurt'} soon.`);
+                e.target.reset();
+            } catch (error) {
+                hideLoading();
+                showError('Order failed. Please try again or contact us directly.');
+                console.error('Order error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,5 +1,11 @@
 /* Updated Main Section Styles - Cosmic Theme with Perfect UI/UX */
 
+/* DISABLE ALL ANIMATIONS */
+* {
+    animation: none !important;
+    transition: none !important;
+}
+
 /* UI/UX Optimized Cosmic Palette - Unique & Accessible */
 :root {
     /* Primary Colors - Balanced darkness with vibrancy */

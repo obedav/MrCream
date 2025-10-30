@@ -1,5 +1,11 @@
 /* Enhanced Navigation UI/UX - Best Practices Implementation */
 
+/* DISABLE ALL ANIMATIONS */
+* {
+    animation: none !important;
+    transition: none !important;
+}
+
 /* ===============================================
    ENHANCED NAVIGATION STYLES WITH ACCESSIBILITY
 =============================================== */

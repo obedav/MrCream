@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MrCream - Premium Yoghurt, Water Park, and Liqueur">
+    <title>MrCream - Home</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons (optional - for icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* Homepage Specific Styles */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-home {
+            background: linear-gradient(135deg, #2D5BA6 0%, #4A9FD8 50%, #E91E63 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+        }
+
+        .hero-home::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-home::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .product-card-home {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .product-card-home:hover::before {
+            left: 100%;
+        }
+
+        .product-card-home:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-home {
+                min-height: auto;
+                padding: 80px 0 60px !important;
+            }
+
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .stats-number {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: var(--font-size-3xl) !important;
+            }
+
+            h2 {
+                font-size: var(--font-size-2xl) !important;
+            }
+
+            /* Hide product image composition on mobile */
+            .hero-home > div > div > div:last-child {
+                display: none;
+            }
+
+            /* Adjust card padding on mobile */
+            .card {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-lg {
+                width: 100%;
+                padding: var(--spacing-md) var(--spacing-lg) !important;
+                font-size: var(--font-size-base) !important;
+            }
+
+            .section {
+                padding: var(--spacing-2xl) 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header" style="background: linear-gradient(to right, white 0%, rgba(45, 91, 166, 0.02) 100%); box-shadow: 0 2px 20px rgba(0,0,0,0.08);">
+        <nav class="navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.3s ease;">
+                <img src="images/logo/Logo.png" alt="MrCream Logo" style="height: 45px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));">
+                <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        MrCream
+                    </span>
+                    <span style="font-size: 0.65rem; color: var(--gray-500); font-weight: 500; letter-spacing: 1px; text-transform: uppercase;">
+                        Premium Quality
+                    </span>
+                </div>
+            </a>
+
+            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
+                <li><a href="index.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
+                <li><a href="waterpark.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
+                <li><a href="yoghurt.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
+                <li><a href="liqueur.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
+                <li><button onclick="openQuoteModal()" class="btn btn-primary" style="margin-left: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="section hero-home" style="padding: 120px 0; display: flex; align-items: center;">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-3xl); flex-wrap: wrap;">
+                    <!-- Left Content -->
+                    <div style="flex: 1; min-width: 300px; max-width: 650px;">
+                        <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                            <p style="color: white; font-weight: 600; margin: 0; font-size: var(--font-size-sm);">
+                                <i class="bi bi-star-fill"></i> PREMIUM QUALITY SINCE INCEPTION
+                            </p>
+                        </div>
+                        <h1 style="color: white; font-size: var(--font-size-5xl); line-height: 1.1; margin-bottom: var(--spacing-lg); animation: fadeInUp 0.8s ease-out;">
+                            Crafting Joy, One Product at a Time
+                        </h1>
+                        <p style="font-size: var(--font-size-xl); color: rgba(255,255,255,0.95); line-height: 1.7; margin-bottom: var(--spacing-xl); animation: fadeInUp 0.8s ease-out 0.2s; animation-fill-mode: both;">
+                            From refreshing yoghurt drinks to thrilling water park adventures and premium liqueurs — MrCream brings excellence, flavor, and fun to life.
+                        </p>
+
+                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-bottom: var(--spacing-2xl); animation: fadeInUp 0.8s ease-out 0.4s; animation-fill-mode: both;">
+                            <a href="#products" class="btn btn-lg" style="background: white; color: var(--primary-color); padding: var(--spacing-md) var(--spacing-2xl); font-size: var(--font-size-lg);">
+                                <i class="bi bi-grid-3x3-gap"></i> Explore Products
+                            </a>
+                            <button onclick="openQuoteModal()" class="btn btn-lg" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: var(--spacing-md) var(--spacing-2xl); font-size: var(--font-size-lg); backdrop-filter: blur(10px);">
+                                <i class="bi bi-clipboard-check"></i> Get Quote
+                            </button>
+                        </div>
+
+                        <div style="display: flex; gap: var(--spacing-2xl); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
+                            <div>
+                                <p style="color: white; font-size: var(--font-size-3xl); font-weight: 700; margin: 0; line-height: 1;">
+                                    <i class="bi bi-award-fill" style="color: #FFD700;"></i> 100%
+                                </p>
+                                <p style="color: rgba(255,255,255,0.85); font-size: var(--font-size-sm); margin: var(--spacing-xs) 0 0;">Quality Assured</p>
+                            </div>
+                            <div>
+                                <p style="color: white; font-size: var(--font-size-3xl); font-weight: 700; margin: 0; line-height: 1;">
+                                    <i class="bi bi-people-fill" style="color: #FFD700;"></i> 1000+
+                                </p>
+                                <p style="color: rgba(255,255,255,0.85); font-size: var(--font-size-sm); margin: var(--spacing-xs) 0 0;">Happy Customers</p>
+                            </div>
+                            <div>
+                                <p style="color: white; font-size: var(--font-size-3xl); font-weight: 700; margin: 0; line-height: 1;">
+                                    <i class="bi bi-globe" style="color: #FFD700;"></i> 24/7
+                                </p>
+                                <p style="color: rgba(255,255,255,0.85); font-size: var(--font-size-sm); margin: var(--spacing-xs) 0 0;">Support Available</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Content - Product Images -->
+                    <div style="flex: 0 0 400px; position: relative; height: 500px; animation: scaleIn 1s ease-out;">
+                        <img src="images/logo/Logo.png" alt="MrCream"
+                             style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 3s ease-in-out infinite;">
+                        <img src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Yoghurt"
+                             style="position: absolute; bottom: 0; left: 0; width: 180px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 4s ease-in-out infinite 0.5s;">
+                        <img src="images/liqueur/Turbo-Cream-Liqueur.png" alt="Turbo Cream Liqueur"
+                             style="position: absolute; bottom: 0; right: 0; width: 180px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 5s ease-in-out infinite 1s;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS SECTION -->
+        <section class="section" id="products" style="padding: var(--spacing-3xl) 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                    <p style="color: var(--primary-light); font-weight: 600; font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--spacing-md);">
+                        <i class="bi bi-star-fill"></i> OUR PRODUCTS
+                    </p>
+                    <h2 style="color: var(--primary-color); font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg);">
+                        Excellence in Every Category
+                    </h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--gray-600); font-size: var(--font-size-xl); line-height: 1.7;">
+                        From refreshing beverages to unforgettable experiences, discover what makes MrCream the preferred choice
+                    </p>
+                </div>
+
+                <div class="grid grid-4" style="gap: var(--spacing-2xl);">
+                    <!-- Yoghurt Card -->
+                    <div class="card product-card-home" style="text-align: center; border: none; box-shadow: var(--shadow-xl);">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FFE5F0 0%, #FFF0F5 100%); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); padding: var(--spacing-lg); position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: var(--spacing-md); right: var(--spacing-md); background: var(--secondary-color); color: white; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 600;">
+                                NEW
+                            </div>
+                            <img src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Yoghurt" style="max-height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));">
+                        </div>
+                        <h3 style="color: var(--secondary-color); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm);">
+                            <i class="bi bi-cup-straw"></i> Premium Yoghurt
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: var(--font-size-base); line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                            Smooth, creamy, and bursting with flavor. Made with real cultured milk and enriched with essential nutrients.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Strawberry</span>
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Vanilla</span>
+                        </div>
+                        <a href="yoghurt.html" class="btn btn-lg" style="background-color: var(--secondary-color); color: white; width: 100%;">
+                            <i class="bi bi-arrow-right-circle"></i> Explore Yoghurt
+                        </a>
+                    </div>
+
+                    <!-- Water Park Card -->
+                    <div class="card product-card-home" style="text-align: center; border: none; box-shadow: var(--shadow-xl);">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); padding: var(--spacing-lg); position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: var(--spacing-md); right: var(--spacing-md); background: var(--primary-light); color: white; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 600;">
+                                POPULAR
+                            </div>
+                            <img src="images/waterpark/MrCream FunPark New Logo-02.png" alt="MrCream Fun Park" style="max-height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));">
+                        </div>
+                        <h3 style="color: var(--primary-light); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm);">
+                            <i class="bi bi-water"></i> MrCream Fun Park
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: var(--font-size-base); line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                            Where every drop is a splash of joy! Thrilling attractions, safe environment, and unforgettable family fun.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Water Slides</span>
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Pool</span>
+                        </div>
+                        <a href="waterpark.html" class="btn btn-lg" style="background-color: var(--primary-light); color: white; width: 100%;">
+                            <i class="bi bi-arrow-right-circle"></i> Visit Water Park
+                        </a>
+                    </div>
+
+                    <!-- Turbo Cream Liqueur Card -->
+                    <div class="card product-card-home" style="text-align: center; border: none; box-shadow: var(--shadow-xl);">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); padding: var(--spacing-lg); position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: var(--spacing-md); right: var(--spacing-md); background: var(--cream); color: white; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 600;">
+                                18+
+                            </div>
+                            <img src="images/liqueur/Turbo-Cream-Liqueur.png" alt="Turbo Cream Liqueur" style="max-height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));">
+                        </div>
+                        <h3 style="color: var(--cream); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm);">
+                            <i class="bi bi-cup-hot"></i> Turbo Cream Liqueur
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: var(--font-size-base); line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                            Velvety smooth and indulgent. Perfect for elegant occasions and sophisticated cocktails.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Premium</span>
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Smooth</span>
+                        </div>
+                        <a href="liqueur.html" class="btn btn-lg" style="background-color: var(--cream); color: var(--white); width: 100%;">
+                            <i class="bi bi-arrow-right-circle"></i> View Liqueur (18+)
+                        </a>
+                    </div>
+
+                    <!-- MrCream Gin Card -->
+                    <div class="card product-card-home" style="text-align: center; border: none; box-shadow: var(--shadow-xl);">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); padding: var(--spacing-lg); position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: var(--spacing-md); right: var(--spacing-md); background: #2E7D32; color: white; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 600;">
+                                18+
+                            </div>
+                            <img src="images/liqueur/MrReam-GIn.png" alt="MrCream Gin" style="max-height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));">
+                        </div>
+                        <h3 style="color: #2E7D32; font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm);">
+                            <i class="bi bi-droplet-half"></i> MrCream Gin
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: var(--font-size-base); line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                            Premium crafted gin with a unique twist. Crisp, refreshing, and perfectly balanced for discerning tastes.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Craft Gin</span>
+                            <span style="background: var(--gray-100); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-md); font-size: var(--font-size-sm);">Bold</span>
+                        </div>
+                        <a href="liqueur.html" class="btn btn-lg" style="background-color: #2E7D32; color: var(--white); width: 100%;">
+                            <i class="bi bi-arrow-right-circle"></i> View Gin (18+)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US -->
+        <section class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                    <p style="color: var(--primary-light); font-weight: 600; font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--spacing-md);">
+                        <i class="bi bi-trophy-fill"></i> WHY CHOOSE US
+                    </p>
+                    <h2 style="color: var(--primary-color); font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg);">
+                        The MrCream Difference
+                    </h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--gray-600); font-size: var(--font-size-lg); line-height: 1.7;">
+                        We're committed to delivering exceptional quality and unforgettable experiences in everything we do
+                    </p>
+                </div>
+
+                <div class="grid grid-3" style="gap: var(--spacing-2xl);">
+                    <div class="card" style="text-align: center; border-top: 4px solid var(--secondary-color);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--secondary-color), #FF6B9D); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);">
+                            <i class="bi bi-award-fill" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Premium Quality</h3>
+                        <p style="color: var(--gray-600); line-height: 1.7;">
+                            Made with the finest ingredients and highest production standards. Every product undergoes rigorous quality checks.
+                        </p>
+                    </div>
+
+                    <div class="card" style="text-align: center; border-top: 4px solid var(--primary-light);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-light), var(--primary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); box-shadow: 0 10px 30px rgba(74, 159, 216, 0.3);">
+                            <i class="bi bi-heart-pulse-fill" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Health & Safety First</h3>
+                        <p style="color: var(--gray-600); line-height: 1.7;">
+                            State-of-the-art facilities with strict hygiene protocols. Your health and safety are our top priority.
+                        </p>
+                    </div>
+
+                    <div class="card" style="text-align: center; border-top: 4px solid var(--accent-color);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-color), #FFB84D); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);">
+                            <i class="bi bi-lightning-charge-fill" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Innovation & Excellence</h3>
+                        <p style="color: var(--gray-600); line-height: 1.7;">
+                            Constantly evolving and improving. We bring fresh ideas and exciting flavors to the market.
+                        </p>
+                    </div>
+
+                    <div class="card" style="text-align: center; border-top: 4px solid var(--success-color);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-color), #34D399); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);">
+                            <i class="bi bi-recycle" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Sustainable Practices</h3>
+                        <p style="color: var(--gray-600); line-height: 1.7;">
+                            Environmentally conscious manufacturing. We care about our planet and future generations.
+                        </p>
+                    </div>
+
+                    <div class="card" style="text-align: center; border-top: 4px solid var(--coral);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--coral), #FF8787); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); box-shadow: 0 10px 30px rgba(255, 87, 87, 0.3);">
+                            <i class="bi bi-people-fill" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Family Values</h3>
+                        <p style="color: var(--gray-600); line-height: 1.7;">
+                            Products and experiences designed for families. Creating memories and bringing people together.
+                        </p>
+                    </div>
+
+                    <div class="card" style="text-align: center; border-top: 4px solid var(--cream);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--cream), #E0C097); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);">
+                            <i class="bi bi-truck" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Reliable Distribution</h3>
+                        <p style="color: var(--gray-600); line-height: 1.7;">
+                            Efficient logistics and timely delivery. Partner with us for consistent supply and support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); align-items: center;">
+                    <div>
+                        <p style="color: var(--primary-light); font-weight: 600; font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--spacing-md);">
+                            <i class="bi bi-building"></i> ABOUT US
+                        </p>
+                        <h2 style="color: var(--primary-color); font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg);">
+                            Welcome to MrCream
+                        </h2>
+                        <p style="font-size: var(--font-size-xl); line-height: 1.8; color: var(--gray-700); margin-bottom: var(--spacing-lg);">
+                            MrCream is your destination for premium yoghurt drinks, thrilling water park experiences, and smooth cream liqueurs. We combine <strong>quality, innovation, and fun</strong> to create unforgettable moments.
+                        </p>
+                        <p style="font-size: var(--font-size-lg); line-height: 1.8; color: var(--gray-600); margin-bottom: var(--spacing-xl);">
+                            From refreshing beverages to exciting adventures, we deliver excellence in every product and experience. Our state-of-the-art production facility and commitment to quality ensure that every MrCream product meets the highest standards.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+                            <button onclick="openQuoteModal()" class="btn btn-primary btn-lg">
+                                <i class="bi bi-clipboard-check"></i> Request Quote
+                            </button>
+                            <a href="quote.html" class="btn btn-outline btn-lg" style="border-color: var(--primary-color); color: var(--primary-color);">
+                                <i class="bi bi-info-circle"></i> Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); position: relative;">
+                        <img src="images/MrCream-Sampling-stand-06_08_25-v2.jpg" alt="MrCream Stand" style="width: 100%; height: 500px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: var(--spacing-xl); color: white;">
+                            <p style="font-size: var(--font-size-2xl); font-weight: 700; margin: 0;">
+                                <i class="bi bi-geo-alt-fill"></i> Visit Us Today!
+                            </p>
+                            <p style="font-size: var(--font-size-base); margin: var(--spacing-sm) 0 0; color: rgba(255,255,255,0.9);">
+                                18-26 Dauda Ayorinde Street, Lagos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+
+            <div class="container" style="position: relative; z-index: 1; text-align: center;">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                        <p style="color: white; font-weight: 600; margin: 0; font-size: var(--font-size-sm);">
+                            <i class="bi bi-handshake-fill"></i> BUSINESS PARTNERSHIPS
+                        </p>
+                    </div>
+                    <h2 style="color: white; font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg);">
+                        Ready to Partner with MrCream?
+                    </h2>
+                    <p style="font-size: var(--font-size-xl); color: rgba(255,255,255,0.95); max-width: 800px; margin: 0 auto var(--spacing-2xl); line-height: 1.7;">
+                        Join our network of distributors, wholesalers, and retailers. Whether you need bulk orders or want to explore partnership opportunities, we're here to help your business grow.
+                    </p>
+
+                    <div class="grid grid-3" style="gap: var(--spacing-xl); margin-bottom: var(--spacing-3xl); max-width: 800px; margin-left: auto; margin-right: auto;">
+                        <div style="background: rgba(255,255,255,0.15); padding: var(--spacing-xl); border-radius: var(--radius-lg); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                            <i class="bi bi-truck" style="font-size: 3rem; margin-bottom: var(--spacing-md); color: white;"></i>
+                            <h4 style="color: white; font-size: var(--font-size-lg); font-weight: 600; margin: 0;">Bulk Orders</h4>
+                            <p style="color: rgba(255,255,255,0.85); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">Competitive pricing for large quantities</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); padding: var(--spacing-xl); border-radius: var(--radius-lg); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                            <i class="bi bi-shop" style="font-size: 3rem; margin-bottom: var(--spacing-md); color: white;"></i>
+                            <h4 style="color: white; font-size: var(--font-size-lg); font-weight: 600; margin: 0;">Distribution</h4>
+                            <p style="color: rgba(255,255,255,0.85); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">Become an authorized distributor</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); padding: var(--spacing-xl); border-radius: var(--radius-lg); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                            <i class="bi bi-people" style="font-size: 3rem; margin-bottom: var(--spacing-md); color: white;"></i>
+                            <h4 style="color: white; font-size: var(--font-size-lg); font-weight: 600; margin: 0;">Partnerships</h4>
+                            <p style="color: rgba(255,255,255,0.85); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">Custom collaboration opportunities</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                        <button onclick="openQuoteModal()" class="btn btn-lg" style="background: white; color: var(--primary-color); padding: var(--spacing-lg) var(--spacing-3xl); font-size: var(--font-size-xl); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                            <i class="bi bi-clipboard-check"></i> Request Quote Now
+                        </button>
+                        <a href="tel:+2348032354952" class="btn btn-lg" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: var(--spacing-lg) var(--spacing-2xl); font-size: var(--font-size-lg); backdrop-filter: blur(10px);">
+                            <i class="bi bi-telephone-fill"></i> Call Us
+                        </a>
+                    </div>
+
+                    <p style="color: rgba(255,255,255,0.85); margin-top: var(--spacing-xl); font-size: var(--font-size-lg);">
+                        <i class="bi bi-envelope-fill"></i> info@mrcream.com | <i class="bi bi-telephone-fill"></i> +234 803 2354 952
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MrCream</h3>
+                    <p>Premium quality products and unforgettable experiences.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="waterpark.html">Water Park</a>
+                    <a href="yoghurt.html">Yoghurt</a>
+                    <a href="liqueur.html">Liqueur</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>
+                        <i class="bi bi-envelope"></i> info@mrcream.com<br>
+                        <i class="bi bi-telephone"></i> +234 803 2354 952<br>
+                        <i class="bi bi-geo-alt"></i> 18-26 Dauda Ayorinde Street,<br>
+                        Adaloko, Afromedia, Off Badagry Expressway,<br>
+                        Lagos State, Nigeria
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div style="display: flex; gap: var(--spacing-md); font-size: var(--font-size-2xl);">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MrCream. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <!-- Load API first, then main.js, then quote modal -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/quote-modal.js"></script>
+
+    <!-- Example: Load data on page load -->
+    <script>
+        // Example of using the API when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // You can fetch data from your backend here
+                // const attractions = await window.MrCreamAPI.waterpark.getAttractions();
+                // const flavours = await window.MrCreamAPI.yoghurt.getFlavours();
+
+                console.log('Page loaded successfully');
+                console.log('API is ready:', window.MrCreamAPI);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        });
+    </script>
+</body>
+</html>

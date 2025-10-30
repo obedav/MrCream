@@ -1,5 +1,11 @@
 /* Enhanced Forms UI/UX - Best Practice Implementation */
 
+/* DISABLE ALL ANIMATIONS */
+* {
+    animation: none !important;
+    transition: none !important;
+}
+
 /* ===============================================
    ENHANCED FORM STYLING WITH ACCESSIBILITY
 =============================================== */

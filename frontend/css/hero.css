@@ -1,5 +1,11 @@
 /* Enhanced Hero Section Styles - Unique Modern Design */
 
+/* DISABLE ALL ANIMATIONS */
+* {
+    animation: none !important;
+    transition: none !important;
+}
+
 /* Advanced Cosmic Palette with Dynamic Color System */
 :root {
     /* Primary Dynamic Colors */
