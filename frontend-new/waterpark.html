@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MrCream Water Park - Thrilling attractions and family fun">
     <title>MrCream - Water Park</title>
+    <link rel="icon" type="image/png" href="images/logo/Logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +14,53 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* Water Park Page Specific Styles */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-waterpark {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+        }
+
+        .hero-waterpark::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-waterpark::after {
+            content: '';
+            position: absolute;
+            bottom: -25%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
         @media (max-width: 768px) {
             /* Hero section adjustments */
             .section {
@@ -139,19 +187,50 @@
 
     <main>
         <!-- HERO -->
-        <section class="section" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%); color: white; text-align: center; padding: 120px 0 80px;">
-            <div class="container">
-                <img src="images/waterpark/MrCream FunPark New Logo-02.png" alt="MrCream Fun Park"
-                     style="max-width: 500px; width: 100%; margin-bottom: var(--spacing-xl); filter: drop-shadow(0 15px 35px rgba(0,0,0,0.3));">
-                <h1 style="color: white; font-size: var(--font-size-4xl); margin-bottom: var(--spacing-md);">
-                    Where Every Drop is a Splash of Joy!
-                </h1>
-                <p style="font-size: var(--font-size-xl); color: rgba(255,255,255,0.95); max-width: 900px; margin: 0 auto; line-height: 1.6;">
-                    Step into a world of adventure, excitement, and non-stop fun at MrCream Water Park — the ultimate destination for families, friends, and thrill-seekers of all ages!
-                </p>
-                <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.9); margin-top: var(--spacing-lg); margin-bottom: 0;">
-                    Designed with the perfect blend of refreshing water attractions, vibrant scenery, and the unmistakable spirit of the MrCream brand, our water park is more than just a place to cool off — it's a celebration of joy, laughter, and unforgettable moments.
-                </p>
+        <section class="section hero-waterpark" style="color: white; padding: 60px 0 40px; display: flex; align-items: center;">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-3xl); flex-wrap: wrap;">
+                    <!-- Left Content -->
+                    <div style="flex: 1; min-width: 300px; max-width: 650px;">
+                        <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                            <p style="color: white; font-weight: 600; margin: 0; font-size: var(--font-size-sm);">
+                                <i class="bi bi-star-fill"></i> MRCREAM FUN PARK
+                            </p>
+                        </div>
+                        <h1 style="color: white; font-size: var(--font-size-5xl); line-height: 1.1; margin-bottom: var(--spacing-lg); animation: fadeInUp 0.8s ease-out;">
+                            Where Every Drop is a Splash of Joy!
+                        </h1>
+                        <p style="font-size: var(--font-size-xl); color: rgba(255,255,255,0.95); line-height: 1.7; margin-bottom: var(--spacing-xl); animation: fadeInUp 0.8s ease-out 0.2s; animation-fill-mode: both;">
+                            Step into a world of adventure, excitement, and non-stop fun at MrCream Water Park — the ultimate destination for families, friends, and thrill-seekers of all ages!
+                        </p>
+                        <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: var(--spacing-xl); animation: fadeInUp 0.8s ease-out 0.4s; animation-fill-mode: both;">
+                            Designed with the perfect blend of refreshing water attractions, vibrant scenery, and the unmistakable spirit of the MrCream brand. A celebration of joy, laughter, and unforgettable moments.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
+                            <button onclick="openBookingModal()" class="btn btn-lg" style="background: white; color: var(--primary-color); padding: var(--spacing-md) var(--spacing-2xl); font-size: var(--font-size-lg);">
+                                <i class="bi bi-calendar-check"></i> Book Your Visit
+                            </button>
+                            <a href="#attractions" class="btn btn-lg" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: var(--spacing-md) var(--spacing-xl); font-size: var(--font-size-lg); backdrop-filter: blur(10px);">
+                                <i class="bi bi-stars"></i> View Attractions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Content - Waterpark Images -->
+                    <div style="flex: 0 0 500px; position: relative; height: 500px; animation: fadeInUp 1s ease-out;">
+                        <div style="position: absolute; top: 0; left: 0; width: 240px; height: 240px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: float 5s ease-in-out infinite;">
+                            <img src="images/waterpark/73246478_104007104386836_1240328753414930432_n.jpg" alt="Water Park Fun" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="position: absolute; top: 20px; right: 40px; width: 280px; height: 200px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: float 6s ease-in-out infinite 0.5s; z-index: 2;">
+                            <img src="images/waterpark/74912312_104007021053511_9020939207308214272_n.jpg" alt="Pool Activities" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="position: absolute; bottom: 30px; left: 50px; width: 200px; height: 180px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: float 7s ease-in-out infinite 1s;">
+                            <img src="images/waterpark/75464257_104007194386827_994170184677720064_n.jpg" alt="Family Fun" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <img src="images/waterpark/MrCream FunPark New Logo-02.png" alt="MrCream Fun Park Logo"
+                             style="position: absolute; bottom: 0; right: 0; width: 180px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4)); animation: float 4s ease-in-out infinite 0.3s; z-index: 3;">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -175,63 +254,138 @@
             </div>
         </section>
 
+        <!-- PHOTO GALLERY -->
+        <section class="section" style="background: linear-gradient(to bottom, white, var(--gray-50)); padding: var(--spacing-3xl) 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                    <p style="color: var(--primary-light); font-weight: 600; font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--spacing-md);">
+                        <i class="bi bi-images"></i> GALLERY
+                    </p>
+                    <h2 style="color: var(--primary-color); font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg);">
+                        Experience the Fun & Excitement
+                    </h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--gray-600); font-size: var(--font-size-lg);">
+                        Get a glimpse of the unforgettable memories waiting for you
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg);">
+                    <div style="position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="images/waterpark/Image_fx(11).jpg" alt="Water Park Activities" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: var(--spacing-xl); color: white;">
+                            <h4 style="color: white; font-size: var(--font-size-xl); margin: 0;">Family Fun</h4>
+                        </div>
+                    </div>
+                    <div style="position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="images/waterpark/Image_fx(12).jpg" alt="Pool Activities" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: var(--spacing-xl); color: white;">
+                            <h4 style="color: white; font-size: var(--font-size-xl); margin: 0;">Splash Zone</h4>
+                        </div>
+                    </div>
+                    <div style="position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="images/waterpark/portrait-overweight-woman-world-traveling-vacation.jpg" alt="Swimming Pool" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: var(--spacing-xl); color: white;">
+                            <h4 style="color: white; font-size: var(--font-size-xl); margin: 0;">Pool Paradise</h4>
+                        </div>
+                    </div>
+                    <div style="position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="images/waterpark/Image_fx(14).jpg" alt="Kids Area" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: var(--spacing-xl); color: white;">
+                            <h4 style="color: white; font-size: var(--font-size-xl); margin: 0;">Kids Adventure</h4>
+                        </div>
+                    </div>
+                    <div style="position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="images/waterpark/Image_fx(15).jpg" alt="Park Facilities" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: var(--spacing-xl); color: white;">
+                            <h4 style="color: white; font-size: var(--font-size-xl); margin: 0;">Premium Facilities</h4>
+                        </div>
+                    </div>
+                    <div style="position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="images/waterpark/475231304_631194725971867_2588176303745868985_n.jpg" alt="Group Activities" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: var(--spacing-xl); color: white;">
+                            <h4 style="color: white; font-size: var(--font-size-xl); margin: 0;">Group Fun</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- TOP ATTRACTIONS -->
-        <section class="section bg-gray">
+        <section id="attractions" class="section bg-gray">
             <div class="container">
                 <h2 class="section-title" style="color: var(--primary-color); font-size: var(--font-size-4xl);">
                     <i class="bi bi-stars" style="color: var(--accent-color);"></i> Top Attractions at MrCream Water Park
                 </h2>
                 <div class="grid grid-2" style="gap: var(--spacing-2xl);">
                     <!-- Adult Swimming Pool -->
-                    <div class="card" style="background: linear-gradient(135deg, rgba(74, 159, 216, 0.1) 0%, rgba(45, 91, 166, 0.05) 100%); border: 2px solid var(--primary-light);">
-                        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
-                            <i class="bi bi-water" style="font-size: 4rem; color: var(--primary-light);"></i>
+                    <div class="card" style="background: white; border: none; box-shadow: var(--shadow-xl); overflow: hidden; padding: 0;">
+                        <div style="position: relative; height: 280px; overflow: hidden;">
+                            <img src="images/waterpark/img1.jpg" alt="Adult Swimming Pool" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: var(--spacing-lg); right: var(--spacing-lg); background: var(--primary-light); color: white; padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); font-weight: 600;">
+                                <i class="bi bi-water"></i> Popular
+                            </div>
                         </div>
-                        <h3 style="color: var(--primary-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
-                            Adult Swimming Pool
-                        </h3>
-                        <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
-                            Feel the rhythm of the ocean with powerful, timed waves that rise and fall — just like the tide! It's perfect for those who want the beach vibes without leaving the city.
-                        </p>
+                        <div style="padding: var(--spacing-xl);">
+                            <h3 style="color: var(--primary-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
+                                Adult Swimming Pool
+                            </h3>
+                            <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
+                                Feel the rhythm of the ocean with powerful, timed waves that rise and fall — just like the tide! It's perfect for those who want the beach vibes without leaving the city.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- VIP Adult Swimming Pool -->
-                    <div class="card" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.1) 0%, rgba(233, 30, 99, 0.05) 100%); border: 2px solid var(--secondary-color);">
-                        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
-                            <i class="bi bi-gem" style="font-size: 4rem; color: var(--secondary-color);"></i>
+                    <div class="card" style="background: white; border: none; box-shadow: var(--shadow-xl); overflow: hidden; padding: 0;">
+                        <div style="position: relative; height: 280px; overflow: hidden;">
+                            <img src="images/waterpark/unnamed.jpg" alt="VIP Swimming Pool" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: var(--spacing-lg); right: var(--spacing-lg); background: var(--secondary-color); color: white; padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); font-weight: 600;">
+                                <i class="bi bi-gem"></i> VIP
+                            </div>
                         </div>
-                        <h3 style="color: var(--secondary-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
-                            VIP Adult Swimming Pool
-                        </h3>
-                        <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
-                            Just like it sounds! Our private pool can be used for a pool party with limited people access, for just you and yours.
-                        </p>
+                        <div style="padding: var(--spacing-xl);">
+                            <h3 style="color: var(--secondary-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
+                                VIP Adult Swimming Pool
+                            </h3>
+                            <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
+                                Just like it sounds! Our private pool can be used for a pool party with limited people access, for just you and yours.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Merry-go-round -->
-                    <div class="card" style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%); border: 2px solid var(--accent-color);">
-                        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
-                            <i class="bi bi-arrow-repeat" style="font-size: 4rem; color: var(--accent-color);"></i>
+                    <div class="card" style="background: white; border: none; box-shadow: var(--shadow-xl); overflow: hidden; padding: 0;">
+                        <div style="position: relative; height: 280px; overflow: hidden;">
+                            <img src="images/waterpark/74912312_104007021053511_9020939207308214272_n.jpg" alt="Merry-go-round" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: var(--spacing-lg); right: var(--spacing-lg); background: var(--accent-color); color: white; padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); font-weight: 600;">
+                                <i class="bi bi-stars"></i> Exciting
+                            </div>
                         </div>
-                        <h3 style="color: var(--accent-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
-                            Merry-go-round
-                        </h3>
-                        <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
-                            Fast, winding, and full of adrenaline, our Turbo Twist Slides are for thrill-seekers who love speed, spirals, and splashes.
-                        </p>
+                        <div style="padding: var(--spacing-xl);">
+                            <h3 style="color: var(--accent-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
+                                Merry-go-round
+                            </h3>
+                            <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
+                                Fast, winding, and full of adrenaline, our Turbo Twist Slides are for thrill-seekers who love speed, spirals, and splashes.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Kids Splash Zone -->
-                    <div class="card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid var(--success-color);">
-                        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
-                            <i class="bi bi-emoji-smile-fill" style="font-size: 4rem; color: var(--success-color);"></i>
+                    <div class="card" style="background: white; border: none; box-shadow: var(--shadow-xl); overflow: hidden; padding: 0;">
+                        <div style="position: relative; height: 280px; overflow: hidden;">
+                            <img src="images/waterpark/Image_fx(12).jpg" alt="Kids Splash Zone" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: var(--spacing-lg); right: var(--spacing-lg); background: var(--success-color); color: white; padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); font-weight: 600;">
+                                <i class="bi bi-heart-fill"></i> Kids Safe
+                            </div>
                         </div>
-                        <h3 style="color: var(--success-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
-                            Swimming Splash Zone (Kids Area)
-                        </h3>
-                        <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
-                            A colourful and fully supervised water playground designed for toddlers and young children. Think mini slides, sprinklers, tipping buckets, and loads of fun!
-                        </p>
+                        <div style="padding: var(--spacing-xl);">
+                            <h3 style="color: var(--success-color); font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-md);">
+                                Swimming Splash Zone (Kids Area)
+                            </h3>
+                            <p style="font-size: var(--font-size-lg); line-height: 1.7; text-align: center; color: var(--gray-700);">
+                                A colourful and fully supervised water playground designed for toddlers and young children. Think mini slides, sprinklers, tipping buckets, and loads of fun!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -554,6 +708,34 @@
     <script src="js/main.js"></script>
     <script src="js/quote-modal.js"></script>
     <script>
+        // Open booking modal
+        function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Close booking modal
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('booking-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+            }
+        });
+
         // Handle booking form submission
         document.getElementById('booking-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -571,10 +753,12 @@
 
                 showSuccess('Thank you for your booking request! We will contact you within 24 hours to confirm your visit.');
                 e.target.reset();
+                closeBookingModal(); // Close modal after successful submission
             } catch (error) {
                 hideLoading();
                 showSuccess('Thank you for your booking request! We will contact you within 24 hours to confirm your visit.');
                 e.target.reset();
+                closeBookingModal(); // Close modal after submission
                 console.log('Booking submitted:', bookingData);
             }
         });
