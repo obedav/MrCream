@@ -4,12 +4,22 @@
  */
 
 // API Configuration
+// Automatically detects environment and uses the appropriate API URL
 const API_CONFIG = {
-    // Development URL - change this to your production URL when deploying to SolidCP
-    baseUrl: 'https://localhost:7001/api',
+    // Auto-detect environment
+    baseUrl: (() => {
+        const hostname = window.location.hostname;
 
-    // Production URL (uncomment when deploying)
-    // baseUrl: 'https://yourdomain.com/api',
+        // If running on localhost, use development API
+        if (hostname === 'localhost' || hostname === '127.0.0.1') {
+            return 'https://localhost:7001/api';
+        }
+
+        // For production, use the same domain with /api path
+        // This assumes your API is hosted at yourdomain.com/api
+        const protocol = window.location.protocol;
+        return `${protocol}//${hostname}/api`;
+    })(),
 
     headers: {
         'Content-Type': 'application/json'

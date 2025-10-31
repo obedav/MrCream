@@ -10,28 +10,51 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "MrCream API", Version = "v1" });
+    c.SwaggerDoc("v1", new() {
+        Title = "MrCream API",
+        Version = "v1",
+        Description = "API for MrCream products - Yoghurt, Water Park, and Liqueur"
+    });
+
     c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme.",
+        Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
         Name = "Authorization",
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
         Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
+
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
 });
 
-// CORS Configuration for Frontend Development
+// CORS Configuration
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins(
+        var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
+            ?? new[] {
                 "http://localhost:3000",    // Webpack dev server
                 "http://127.0.0.1:5500",   // Live Server
                 "http://localhost:5173",   // Vite
                 "https://localhost:7001"   // Self-reference for testing
-            )
+            };
+
+        policy.WithOrigins(allowedOrigins)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -70,15 +93,14 @@ builder.Services.AddSignalR();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
+// Enable Swagger in all environments
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MrCream API V1");
-        c.RoutePrefix = "swagger";
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MrCream API V1");
+    c.RoutePrefix = "swagger";
+    c.DocumentTitle = "MrCream API Documentation";
+});
 
 app.UseHttpsRedirection();
 
@@ -118,7 +140,10 @@ if (app.Environment.IsDevelopment())
     }
 }
 
-app.Run("https://localhost:7001");
+// Run the application
+// In production, IIS will handle the hosting, so we don't specify a URL
+// In development, use the URL from launchSettings.json
+app.Run();
 
 // Temporary DbContext - we'll move this to Infrastructure later
 public class ApplicationDbContext : DbContext
