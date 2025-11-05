@@ -24,3 +24,22 @@ packages/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Sensitive Configuration Files - SECURITY
+appsettings.Production.json
+appsettings.Staging.json
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+!appsettings.*.TEMPLATE.json
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Secrets
+secrets.json
+*.pfx
+*.key
+*.pem
