@@ -429,13 +429,11 @@ This is proprietary software. Unauthorized copying, modification, or distributio
 
 - 🌐 Website: [https://mrcreamlimited.com](https://mrcreamlimited.com)
 - 📧 Email: info@mrcreamlimited.com
-- 📱 WhatsApp: [+234 803 2354 952](https://wa.me/2348032354952)
+- 📱 WhatsApp: 
 - 📍 Location: Lagos, Nigeria
 
 ### Business Inquiries
-- **Bulk Orders:** d.blessing@mrcreamlimited.com
-- **Partnerships:** partnerships@mrcreamlimited.com
-- **Water Park Events:** events@mrcreamlimited.com
+
 
 ---
 
