@@ -33,20 +33,45 @@ async function apiRequest(endpoint, options = {}) {
     try {
         const url = `${API_CONFIG.baseUrl}${endpoint}`;
         const config = {
-            headers: API_CONFIG.headers,
+            headers: { ...API_CONFIG.headers },
             ...options
         };
+
+        // Merge custom headers with default headers
+        if (options.headers) {
+            config.headers = { ...config.headers, ...options.headers };
+        }
 
         const response = await fetch(url, config);
 
         if (!response.ok) {
-            throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+            // Log detailed error for debugging (server-side should also log)
+            console.error('[API Error]', {
+                endpoint,
+                status: response.status,
+                statusText: response.statusText,
+                timestamp: new Date().toISOString()
+            });
+
+            // Throw user-friendly error
+            const errorMessage = response.status >= 500
+                ? 'Server error. Please try again later.'
+                : response.status === 404
+                ? 'Resource not found.'
+                : response.status === 401 || response.status === 403
+                ? 'Authentication required.'
+                : 'Request failed. Please try again.';
+
+            throw new Error(errorMessage);
         }
 
         return await response.json();
     } catch (error) {
-        console.error('API Request Failed:', error);
-        throw error;
+        // Don't expose internal error details to user
+        if (error.message && !error.message.includes('fetch')) {
+            throw error;
+        }
+        throw new Error('Unable to connect. Please check your internet connection.');
     }
 }
 
@@ -167,7 +192,6 @@ async function verifyAge(ageData) {
 async function getLiqueurProducts(token) {
     return await apiRequest('/liqueur/products', {
         headers: {
-            ...API_CONFIG.headers,
             'Authorization': `Bearer ${token}`
         }
     });
@@ -180,7 +204,6 @@ async function getLiqueurProducts(token) {
 async function getLiqueurCocktails(token) {
     return await apiRequest('/liqueur/cocktails', {
         headers: {
-            ...API_CONFIG.headers,
             'Authorization': `Bearer ${token}`
         }
     });
@@ -193,7 +216,6 @@ async function getLiqueurCocktails(token) {
 async function getLiqueurServingGuide(token) {
     return await apiRequest('/liqueur/serving-guide', {
         headers: {
-            ...API_CONFIG.headers,
             'Authorization': `Bearer ${token}`
         }
     });
@@ -205,27 +227,47 @@ async function getLiqueurServingGuide(token) {
  * @param {string} token - Age verification token
  */
 async function orderLiqueur(orderData, token) {
+    // Include VerificationToken in the request body
+    const orderWithToken = {
+        ...orderData,
+        VerificationToken: token
+    };
+
     return await apiRequest('/liqueur/order', {
         method: 'POST',
-        body: JSON.stringify(orderData),
-        headers: {
-            ...API_CONFIG.headers,
-            'Authorization': `Bearer ${token}`
-        }
+        body: JSON.stringify(orderWithToken)
     });
 }
 
 /**
  * Get responsible drinking information
- * @param {string} token - Age verification token
+ * Note: This endpoint does not require age verification
  */
-async function getResponsibleDrinking(token) {
-    return await apiRequest('/liqueur/responsible-drinking', {
-        headers: {
-            ...API_CONFIG.headers,
-            'Authorization': `Bearer ${token}`
-        }
+async function getResponsibleDrinking() {
+    return await apiRequest('/liqueur/responsible-drinking');
+}
+
+// ============================================
+// QUOTES API
+// ============================================
+
+/**
+ * Submit a quote request
+ * @param {Object} quoteData - Quote request data
+ */
+async function submitQuote(quoteData) {
+    return await apiRequest('/quotes', {
+        method: 'POST',
+        body: JSON.stringify(quoteData)
     });
+}
+
+/**
+ * Get quote status by ID
+ * @param {string} quoteId - Quote ID
+ */
+async function getQuoteStatus(quoteId) {
+    return await apiRequest(`/quotes/${quoteId}`);
 }
 
 // ============================================
@@ -293,6 +335,12 @@ window.MrCreamAPI = {
         getServingGuide: getLiqueurServingGuide,
         order: orderLiqueur,
         getResponsibleDrinking: getResponsibleDrinking
+    },
+
+    // Quotes
+    quotes: {
+        submit: submitQuote,
+        getStatus: getQuoteStatus
     },
 
     // Utilities

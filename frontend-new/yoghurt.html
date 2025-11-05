@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MrCream Premium Yoghurt Drinks - Delicious and refreshing">
     <title>MrCream - Yoghurt Drinks</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()")
     <link rel="icon" type="image/png" href="images/logo/Logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,6 +95,44 @@
             left: 100%;
         }
 
+        /* Tablet Landscape (1024px - 1366px) */
+        @media (max-width: 1366px) {
+            .hero-yoghurt {
+                min-height: 55vh;
+            }
+
+            .hero-yoghurt .yoghurt-images {
+                flex: 0 0 420px !important;
+                height: 420px !important;
+            }
+
+            .hero-yoghurt .yoghurt-images img {
+                transform: scale(0.9);
+            }
+        }
+
+        /* Tablet Portrait (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-yoghurt {
+                min-height: auto;
+                padding: 60px 0 50px !important;
+            }
+
+            .hero-yoghurt .yoghurt-images {
+                flex: 0 0 380px !important;
+                height: 380px !important;
+            }
+
+            .hero-yoghurt .yoghurt-images img {
+                transform: scale(0.85);
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Mobile (768px and below) */
         @media (max-width: 768px) {
             .grid-2, .grid-3, .grid-4 {
                 grid-template-columns: 1fr !important;
@@ -98,8 +142,72 @@
                 padding: 80px 0 60px !important;
             }
 
+            /* Yoghurt bottles on mobile - spread horizontally */
+            .hero-yoghurt .yoghurt-images {
+                flex: 1 1 100% !important;
+                height: 320px !important;
+                margin-top: var(--spacing-xl);
+                display: flex !important;
+                align-items: flex-end !important;
+                justify-content: center !important;
+                gap: var(--spacing-lg) !important;
+                padding: 0 var(--spacing-md);
+            }
+
+            .hero-yoghurt .yoghurt-images .yoghurt-bottle {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                transform: none !important;
+                width: auto !important;
+                max-width: 45% !important;
+                height: auto !important;
+                max-height: 280px !important;
+                object-fit: contain !important;
+            }
+
+            .hero-yoghurt .yoghurt-images .yoghurt-bottle.strawberry {
+                max-height: 280px !important;
+            }
+
+            .hero-yoghurt .yoghurt-images .yoghurt-bottle.vanilla {
+                max-height: 300px !important;
+            }
+
             h1 {
                 font-size: var(--font-size-3xl) !important;
+            }
+
+            /* Stack buttons vertically */
+            .hero-yoghurt .button-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-yoghurt .button-group .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-yoghurt .yoghurt-images {
+                height: 260px !important;
+                gap: var(--spacing-md) !important;
+                padding: 0 var(--spacing-sm);
+            }
+
+            .hero-yoghurt .yoghurt-images .yoghurt-bottle {
+                max-width: 46% !important;
+                max-height: 220px !important;
+            }
+
+            .hero-yoghurt .yoghurt-images .yoghurt-bottle.strawberry {
+                max-height: 220px !important;
+            }
+
+            .hero-yoghurt .yoghurt-images .yoghurt-bottle.vanilla {
+                max-height: 240px !important;
             }
         }
     </style>
@@ -119,12 +227,12 @@
                 </div>
             </a>
 
-            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
-                <li><a href="index.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
-                <li><a href="waterpark.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
-                <li><a href="yoghurt.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
-                <li><a href="liqueur.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
-                <li><button onclick="openQuoteModal()" class="btn btn-primary" style="margin-left: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="waterpark.html">Water Park</a></li>
+                <li><a href="yoghurt.html" class="active">Yoghurt</a></li>
+                <li><a href="liqueur.html">Liqueur <span class="badge-18">18+</span></a></li>
+                <li><button onclick="openQuoteModal()" class="btn btn-primary nav-cta-btn"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
             </ul>
 
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -157,13 +265,13 @@
                             Whether you're on the go, relaxing at home, or packing something nutritious for the kids, MrCream is your everyday companion for health, flavour, and fun.
                         </p>
                     </div>
-                    <div style="flex: 0 0 500px; position: relative; height: 500px;">
-                        <img src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Strawberry Yoghurt"
+                    <div class="yoghurt-images" style="flex: 0 0 500px; position: relative; height: 500px;">
+                        <img class="yoghurt-bottle strawberry" src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Strawberry Yoghurt"
                              style="position: absolute; top: 20%; left: 10%; transform: translate(-50%, -50%);
                                     width: 280px; max-width: 100%;
                                     filter: drop-shadow(0 25px 50px rgba(255, 107, 157, 0.4));
                                     animation: float 4s ease-in-out infinite;">
-                        <img src="images/yoghurt/MRCREAM-VANILLA.png" alt="MrCream Vanilla Yoghurt"
+                        <img class="yoghurt-bottle vanilla" src="images/yoghurt/MRCREAM-VANILLA.png" alt="MrCream Vanilla Yoghurt"
                              style="position: absolute; top: 20%; right: 0; transform: translate(-50%, -50%);
                                     width: 300px; max-width: 100%;
                                     filter: drop-shadow(0 25px 50px rgba(255, 215, 0, 0.3));
@@ -561,21 +669,32 @@
             e.preventDefault();
 
             const formData = new FormData(e.target);
-            const orderData = Object.fromEntries(formData.entries());
 
-            // Convert flavourId to number
-            orderData.flavourId = parseInt(orderData.flavourId);
-            orderData.quantity = parseInt(orderData.quantity);
+            // Structure data to match backend API format
+            const orderData = {
+                Items: [{
+                    FlavourId: parseInt(formData.get('flavourId')),
+                    Quantity: parseInt(formData.get('quantity'))
+                }],
+                DeliveryAddress: formData.get('address'),
+                CustomerInfo: {
+                    Name: formData.get('name'),
+                    Email: formData.get('email'),
+                    Phone: formData.get('phone')
+                },
+                DeliveryOption: 'home',
+                SpecialInstructions: formData.get('notes') || ''
+            };
 
             // Find selected flavour name for confirmation
-            const selectedFlavour = allFlavours.find(f => f.id === orderData.flavourId);
+            const selectedFlavour = allFlavours.find(f => f.Id === orderData.Items[0].FlavourId);
 
             try {
                 showLoading();
                 const result = await window.MrCreamAPI.yoghurt.order(orderData);
                 hideLoading();
 
-                showSuccess(`Order placed successfully! We'll deliver your ${selectedFlavour?.name || 'yoghurt'} soon.`);
+                showSuccess(`Order placed successfully! We'll deliver your ${selectedFlavour?.Name || 'yoghurt'} soon. Order ID: ${result.OrderId}`);
                 e.target.reset();
             } catch (error) {
                 hideLoading();
@@ -584,5 +703,14 @@
             }
         });
     </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348032354952?text=Hello%20MrCream!%20I%27d%20like%20to%20order%20some%20yoghurt%20drinks."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
 </body>
 </html>

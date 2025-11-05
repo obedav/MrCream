@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrCream API Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .api-url-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .endpoints {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .endpoint-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .endpoint-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .endpoint-btn.post {
+            background: #48bb78;
+        }
+
+        .endpoint-btn.post:hover {
+            background: #38a169;
+        }
+
+        .method {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .response-container {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .status.success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status.error {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .status.pending {
+            background: #feebc8;
+            color: #7c2d12;
+        }
+
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .loading {
+            text-align: center;
+            color: #667eea;
+            font-size: 18px;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 MrCream API Test</h1>
+        <p class="subtitle">Test your PHP API endpoints</p>
+
+        <input
+            type="text"
+            id="apiUrl"
+            class="api-url-input"
+            placeholder="API Base URL (e.g., https://mrcreamlimited.com/api)"
+            value="http://localhost:8000/api"
+        >
+
+        <div class="endpoints">
+            <button class="endpoint-btn" onclick="testEndpoint('/health', 'GET')">
+                <span class="method">GET</span>/health
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/waterpark/attractions', 'GET')">
+                <span class="method">GET</span>/waterpark/attractions
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/waterpark/tickets', 'GET')">
+                <span class="method">GET</span>/waterpark/tickets
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/waterpark/info', 'GET')">
+                <span class="method">GET</span>/waterpark/info
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/waterpark/events', 'GET')">
+                <span class="method">GET</span>/waterpark/events
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/waterpark/capacity', 'GET')">
+                <span class="method">GET</span>/waterpark/capacity
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/yoghurt/flavours', 'GET')">
+                <span class="method">GET</span>/yoghurt/flavours
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/yoghurt/stores', 'GET')">
+                <span class="method">GET</span>/yoghurt/stores
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/yoghurt/nutrition', 'GET')">
+                <span class="method">GET</span>/yoghurt/nutrition
+            </button>
+
+            <button class="endpoint-btn" onclick="testEndpoint('/liqueur/responsible-drinking', 'GET')">
+                <span class="method">GET</span>/liqueur/responsible-drinking
+            </button>
+
+            <button class="endpoint-btn post" onclick="testAgeVerification()">
+                <span class="method">POST</span>/liqueur/verify-age
+            </button>
+
+            <button class="endpoint-btn post" onclick="testWaterParkBooking()">
+                <span class="method">POST</span>/waterpark/book
+            </button>
+        </div>
+
+        <div class="response-container">
+            <div class="response-header">
+                <h3>Response</h3>
+                <span id="statusBadge" class="status pending">Waiting...</span>
+            </div>
+            <div id="responseContent">
+                <p style="color: #718096;">Click any endpoint to test the API</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function testEndpoint(endpoint, method = 'GET', body = null) {
+            const baseUrl = document.getElementById('apiUrl').value.replace(/\/$/, '');
+            const url = baseUrl + endpoint;
+
+            document.getElementById('statusBadge').className = 'status pending';
+            document.getElementById('statusBadge').textContent = 'Loading...';
+            document.getElementById('responseContent').innerHTML = '<div class="loading">⏳ Fetching data...</div>';
+
+            try {
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+
+                if (body) {
+                    options.body = JSON.stringify(body);
+                }
+
+                const response = await fetch(url, options);
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('statusBadge').className = 'status success';
+                    document.getElementById('statusBadge').textContent = `${response.status} Success`;
+                } else {
+                    document.getElementById('statusBadge').className = 'status error';
+                    document.getElementById('statusBadge').textContent = `${response.status} Error`;
+                }
+
+                document.getElementById('responseContent').innerHTML =
+                    `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+
+            } catch (error) {
+                document.getElementById('statusBadge').className = 'status error';
+                document.getElementById('statusBadge').textContent = 'Network Error';
+                document.getElementById('responseContent').innerHTML =
+                    `<pre style="background: #742a2a; color: white;">${error.message}</pre>`;
+            }
+        }
+
+        function testAgeVerification() {
+            const body = {
+                DateOfBirth: '1990-01-01'
+            };
+            testEndpoint('/liqueur/verify-age', 'POST', body);
+        }
+
+        function testWaterParkBooking() {
+            const body = {
+                Tickets: [
+                    { TicketTypeId: 1, Quantity: 2 },
+                    { TicketTypeId: 2, Quantity: 1 }
+                ],
+                VisitDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+                CustomerInfo: {
+                    FirstName: 'John',
+                    LastName: 'Doe',
+                    Email: 'john@example.com',
+                    Phone: '+234 800 000 0000'
+                },
+                PaymentMethod: 'Card'
+            };
+            testEndpoint('/waterpark/book', 'POST', body);
+        }
+    </script>
+</body>
+</html>

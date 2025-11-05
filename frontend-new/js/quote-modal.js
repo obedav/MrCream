@@ -21,28 +21,28 @@ function createQuoteModal() {
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
                             <div class="form-group">
                                 <label class="form-label">First Name *</label>
-                                <input type="text" name="firstName" class="form-input" required>
+                                <input type="text" name="firstName" class="form-input" required maxlength="50" minlength="2">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Last Name *</label>
-                                <input type="text" name="lastName" class="form-input" required>
+                                <input type="text" name="lastName" class="form-input" required maxlength="50" minlength="2">
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
                             <div class="form-group">
                                 <label class="form-label">Email *</label>
-                                <input type="email" name="email" class="form-input" required>
+                                <input type="email" name="email" class="form-input" required maxlength="100">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Phone *</label>
-                                <input type="tel" name="phone" class="form-input" required>
+                                <input type="tel" name="phone" class="form-input" required maxlength="20" minlength="10">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Company/Organization</label>
-                            <input type="text" name="company" class="form-input" placeholder="Your business name">
+                            <input type="text" name="company" class="form-input" placeholder="Your business name" maxlength="100">
                         </div>
 
                         <div class="form-group">
@@ -84,7 +84,7 @@ function createQuoteModal() {
 
                         <div class="form-group">
                             <label class="form-label">Message *</label>
-                            <textarea name="message" class="form-textarea" rows="4" required
+                            <textarea name="message" class="form-textarea" rows="4" required maxlength="1000" minlength="10"
                                       placeholder="Tell us about your business and requirements..."></textarea>
                         </div>
 
@@ -127,6 +127,12 @@ function attachModalEventListeners() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Check rate limit (max 3 submissions per 5 minutes)
+        if (!RateLimiter.canProceed('quote_submit', 3, 300000)) {
+            showError('Too many quote requests. Please wait 5 minutes before trying again.');
+            return;
+        }
+
         const formData = new FormData(form);
         const quoteData = Object.fromEntries(formData.entries());
 
@@ -145,26 +151,47 @@ function attachModalEventListeners() {
         try {
             showLoading();
 
-            // Send to analytics/backend
-            window.MrCreamAPI?.sendAnalytics({
-                type: 'quote_request',
-                data: quoteData,
-                timestamp: new Date().toISOString()
+            // Sanitize all inputs to prevent XSS
+            const sanitizedData = sanitizeObject(quoteData);
+
+            // Prepare quote data for API
+            const quotePayload = {
+                Name: `${sanitizedData.firstName} ${sanitizedData.lastName}`,
+                Email: sanitizedData.email,
+                Phone: sanitizedData.phone,
+                Company: sanitizedData.company || '',
+                ProductCategory: sanitizedData.productInterest || '',
+                Quantity: 0,
+                Message: `Business Type: ${sanitizedData.businessType}\nProduct Interest: ${sanitizedData.productInterest}\nVolume: ${sanitizedData.volume || 'Not specified'}\n\nMessage:\n${sanitizedData.message}`
+            };
+
+            // Submit to backend API
+            const response = await fetch(`${window.MrCreamAPI.config.baseUrl}/quotes`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(quotePayload)
             });
 
-            // In production, send to your backend endpoint
-            // await fetch(`${window.MrCreamAPI.config.baseUrl}/contact/quote`, {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(quoteData)
-            // });
+            const result = await response.json();
 
             hideLoading();
-            showSuccess('Thank you! Your quote request has been submitted. We\'ll contact you within 24 hours.');
 
-            // Reset form and close modal
-            form.reset();
-            setTimeout(() => closeQuoteModal(), 2000);
+            if (response.ok && result.Id) {
+                showSuccess('Thank you! Your quote request has been submitted. We\'ll contact you within 24 hours.');
+
+                // Send analytics
+                window.MrCreamAPI?.sendAnalytics({
+                    type: 'quote_request',
+                    quote_id: result.Id,
+                    timestamp: new Date().toISOString()
+                });
+
+                // Reset form and close modal
+                form.reset();
+                setTimeout(() => closeQuoteModal(), 2000);
+            } else {
+                throw new Error('Failed to submit quote');
+            }
 
         } catch (error) {
             hideLoading();

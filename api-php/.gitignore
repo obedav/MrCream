@@ -1,0 +1,26 @@
+# MrCream API - Git Ignore
+
+# IMPORTANT: Protect sensitive configuration
+config.php
+
+# Logs (contain sensitive data)
+logs/
+*.log
+
+# Database test files (contain credentials)
+test-db-connection.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.bak
+*~

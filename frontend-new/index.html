@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MrCream - Premium Yoghurt, Water Park, and Liqueur">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
     <title>MrCream - Home</title>
     <link rel="icon" type="image/png" href="images/logo/Logo.png">
 
@@ -112,6 +119,58 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Tablet Landscape (1024px - 1366px) */
+        @media (max-width: 1366px) {
+            .hero-home {
+                min-height: 55vh;
+            }
+
+            .hero-home .product-images {
+                flex: 0 0 450px !important;
+                height: 420px !important;
+            }
+
+            .hero-home .product-images img {
+                transform: scale(0.9);
+            }
+        }
+
+        /* Tablet Portrait (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-home {
+                min-height: auto;
+                padding: 60px 0 50px !important;
+            }
+
+            .hero-home .product-images {
+                flex: 0 0 400px !important;
+                height: 380px !important;
+            }
+
+            .hero-home .product-images img {
+                transform: scale(0.85);
+            }
+
+            h1 {
+                font-size: var(--font-size-4xl) !important;
+            }
+
+            h2 {
+                font-size: var(--font-size-3xl) !important;
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: var(--spacing-xl);
+            }
+
+            .btn-lg {
+                padding: var(--spacing-sm) var(--spacing-xl) !important;
+                font-size: var(--font-size-base) !important;
+            }
+        }
+
+        /* Mobile (768px and below) */
         @media (max-width: 768px) {
             .hero-home {
                 min-height: auto;
@@ -134,18 +193,109 @@
                 font-size: var(--font-size-2xl) !important;
             }
 
-            /* Hide product image composition on mobile */
-            .hero-home > div > div > div:last-child {
-                display: none;
+            /* Scale down product image composition on mobile instead of hiding */
+            .hero-home .product-images {
+                flex: 1 1 100% !important;
+                height: 320px !important;
+                margin-top: var(--spacing-xl);
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-around;
+                padding: 0 var(--spacing-md);
+            }
+
+            /* Hide logo on mobile */
+            .hero-home .product-images .hero-logo {
+                display: none !important;
+            }
+
+            /* Spread bottles with better spacing on mobile */
+            .hero-home .product-images .product-bottle {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: auto !important;
+                max-width: 24% !important;
+                height: auto !important;
+                max-height: 260px !important;
+                object-fit: contain !important;
+                margin: 0 var(--spacing-xs) !important;
+            }
+
+            .hero-home .product-images .product-bottle.strawberry {
+                max-height: 280px !important;
+            }
+
+            .hero-home .product-images .product-bottle.vanilla {
+                max-height: 280px !important;
+            }
+
+            .hero-home .product-images .product-bottle.gin {
+                max-height: 140px !important;
+            }
+
+            .hero-home .product-images .product-bottle.liqueur {
+                max-height: 260px !important;
             }
 
             /* Adjust card padding on mobile */
             .card {
                 padding: var(--spacing-lg);
             }
+
+            /* Stack buttons vertically with better spacing */
+            .hero-home .button-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-home .button-group .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Center text content on mobile */
+            .hero-home > .container > div {
+                justify-content: center !important;
+                text-align: center;
+            }
+
+            .hero-home > .container > div > div:first-child {
+                text-align: center;
+                margin: 0 auto;
+            }
         }
 
         @media (max-width: 480px) {
+            .hero-home .product-images {
+                height: 260px !important;
+                padding: 0 var(--spacing-xs);
+            }
+
+            /* Bottles on small mobile */
+            .hero-home .product-images .product-bottle {
+                max-width: 24% !important;
+                max-height: 200px !important;
+                margin: 0 2px !important;
+            }
+
+            .hero-home .product-images .product-bottle.strawberry {
+                max-height: 220px !important;
+            }
+
+            .hero-home .product-images .product-bottle.vanilla {
+                max-height: 220px !important;
+            }
+
+            .hero-home .product-images .product-bottle.gin {
+                max-height: 110px !important;
+            }
+
+            .hero-home .product-images .product-bottle.liqueur {
+                max-height: 200px !important;
+            }
+
             .btn-lg {
                 width: 100%;
                 padding: var(--spacing-md) var(--spacing-lg) !important;
@@ -154,6 +304,17 @@
 
             .section {
                 padding: var(--spacing-2xl) 0;
+            }
+
+            /* Adjust stats to stack better */
+            .hero-home .stats-container {
+                flex-direction: column;
+                gap: var(--spacing-md) !important;
+                align-items: flex-start !important;
+            }
+
+            .hero-home .stats-container > div {
+                width: 100%;
             }
         }
     </style>
@@ -174,12 +335,12 @@
                 </div>
             </a>
 
-            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
-                <li><a href="index.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
-                <li><a href="waterpark.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
-                <li><a href="yoghurt.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
-                <li><a href="liqueur.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
-                <li><button onclick="openQuoteModal()" class="btn btn-primary" style="margin-left: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="waterpark.html">Water Park</a></li>
+                <li><a href="yoghurt.html">Yoghurt</a></li>
+                <li><a href="liqueur.html">Liqueur <span class="badge-18">18+</span></a></li>
+                <li><button onclick="openQuoteModal()" class="btn btn-primary nav-cta-btn"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
             </ul>
 
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -193,9 +354,9 @@
     <!-- MAIN CONTENT -->
     <main>
         <!-- HERO SECTION -->
-        <section class="section hero-home" style="padding: 80px 0 60px; display: flex; align-items: center;">
+        <section class="section hero-home" style="padding: 80px 0 60px; display: flex; align-items: center; justify-content: center;">
             <div class="container" style="position: relative; z-index: 1;">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-3xl); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-3xl); flex-wrap: wrap;">
                     <!-- Left Content -->
                     <div style="flex: 1; min-width: 300px; max-width: 650px;">
                         <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
@@ -210,7 +371,7 @@
                             From refreshing yoghurt drinks to thrilling water park adventures and premium liqueurs — MrCream brings excellence, flavor, and fun to life.
                         </p>
 
-                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-bottom: var(--spacing-2xl); animation: fadeInUp 0.8s ease-out 0.4s; animation-fill-mode: both;">
+                        <div class="button-group" style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-bottom: var(--spacing-2xl); animation: fadeInUp 0.8s ease-out 0.4s; animation-fill-mode: both;">
                             <a href="#products" class="btn btn-lg" style="background: white; color: var(--primary-color); padding: var(--spacing-md) var(--spacing-2xl); font-size: var(--font-size-lg);">
                                 <i class="bi bi-grid-3x3-gap"></i> Explore Products
                             </a>
@@ -219,7 +380,7 @@
                             </button>
                         </div>
 
-                        <div style="display: flex; gap: var(--spacing-2xl); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
+                        <div class="stats-container" style="display: flex; gap: var(--spacing-2xl); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
                             <div>
                                 <p style="color: white; font-size: var(--font-size-3xl); font-weight: 700; margin: 0; line-height: 1;">
                                     <i class="bi bi-award-fill" style="color: #FFD700;"></i> 100%
@@ -242,16 +403,16 @@
                     </div>
 
                     <!-- Right Content - Product Images -->
-                    <div style="flex: 0 0 550px; position: relative; height: 500px; animation: scaleIn 1s ease-out;">
-                        <img src="images/logo/Logo.png" alt="MrCream"
+                    <div class="product-images" style="flex: 0 0 550px; position: relative; height: 500px; animation: scaleIn 1s ease-out;">
+                        <img class="hero-logo" src="images/logo/Logo.png" alt="MrCream"
                              style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 3s ease-in-out infinite; z-index: 5;">
-                        <img src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Strawberry Yoghurt"
+                        <img class="product-bottle strawberry" src="images/yoghurt/MRCREAM-STRAWBERRY.png" alt="MrCream Strawberry Yoghurt"
                              style="position: absolute; bottom: 0; left: 0; width: 240px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 4s ease-in-out infinite 0.5s; z-index: 4;">
-                        <img src="images/yoghurt/MRCREAM-VANILLA.png" alt="MrCream Vanilla Yoghurt"
+                        <img class="product-bottle vanilla" src="images/yoghurt/MRCREAM-VANILLA.png" alt="MrCream Vanilla Yoghurt"
                              style="position: absolute; bottom: 0; left: 100px; width: 240px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 4.5s ease-in-out infinite 0.7s; z-index: 3;">
-                        <img src="images/liqueur/MrReam-GIn.png" alt="MrCream Gin"
+                        <img class="product-bottle gin" src="images/liqueur/MrReam-GIn.png" alt="MrCream Gin"
                              style="position: absolute; bottom: 0; right: 100px; width: 160px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 5s ease-in-out infinite 1s; z-index: 2;">
-                        <img src="images/liqueur/Turbo-Cream-Liqueur.png" alt="Turbo Cream Liqueur"
+                        <img class="product-bottle liqueur" src="images/liqueur/Turbo-Cream-Liqueur.png" alt="Turbo Cream Liqueur"
                              style="position: absolute; bottom: 0; right: 0; width: 200px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); animation: float 5.5s ease-in-out infinite 1.2s; z-index: 1;">
                     </div>
                 </div>
@@ -451,7 +612,7 @@
         <!-- ABOUT SECTION -->
         <section class="section">
             <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); align-items: center;">
+                <div class="grid grid-2" style="gap: var(--spacing-3xl); align-items: center;">
                     <div>
                         <p style="color: var(--primary-light); font-weight: 600; font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--spacing-md);">
                             <i class="bi bi-building"></i> ABOUT US
@@ -609,5 +770,14 @@
             }
         });
     </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348032354952?text=Hello%20MrCream!%20I%27d%20like%20to%20know%20more%20about%20your%20products."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
 </body>
 </html>

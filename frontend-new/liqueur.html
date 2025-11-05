@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MrCream Premium Cream Liqueur - For adults 18+">
     <title>MrCream - Cream Liqueur (18+)</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()")
     <link rel="icon" type="image/png" href="images/logo/Logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +115,44 @@
             background: rgba(0,0,0,0.96) !important;
         }
 
+        /* Tablet Landscape (1024px - 1366px) */
+        @media (max-width: 1366px) {
+            .hero-liqueur {
+                min-height: 55vh;
+            }
+
+            .hero-liqueur .liqueur-images {
+                flex: 0 0 420px !important;
+                height: 420px !important;
+            }
+
+            .hero-liqueur .liqueur-images img {
+                transform: scale(0.9);
+            }
+        }
+
+        /* Tablet Portrait (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-liqueur {
+                min-height: auto;
+                padding: 60px 0 50px !important;
+            }
+
+            .hero-liqueur .liqueur-images {
+                flex: 0 0 380px !important;
+                height: 380px !important;
+            }
+
+            .hero-liqueur .liqueur-images img {
+                transform: scale(0.85);
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Mobile (768px and below) */
         @media (max-width: 768px) {
             .hero-liqueur {
                 min-height: auto;
@@ -117,6 +161,41 @@
 
             .grid-2, .grid-3 {
                 grid-template-columns: 1fr !important;
+            }
+
+            /* Scale down liqueur images on mobile */
+            .hero-liqueur .liqueur-images {
+                flex: 1 1 100% !important;
+                height: 280px !important;
+                margin-top: var(--spacing-xl);
+            }
+
+            .hero-liqueur .liqueur-images img {
+                transform: scale(0.65);
+            }
+
+            h1 {
+                font-size: var(--font-size-3xl) !important;
+            }
+
+            /* Stack buttons vertically */
+            .hero-liqueur .button-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-liqueur .button-group .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-liqueur .liqueur-images {
+                height: 220px !important;
+            }
+
+            .hero-liqueur .liqueur-images img {
+                transform: scale(0.5);
             }
         }
     </style>
@@ -136,12 +215,12 @@
                 </div>
             </a>
 
-            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
-                <li><a href="index.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
-                <li><a href="waterpark.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
-                <li><a href="yoghurt.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
-                <li><a href="liqueur.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
-                <li><button onclick="openQuoteModal()" class="btn btn-primary" style="margin-left: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="waterpark.html">Water Park</a></li>
+                <li><a href="yoghurt.html">Yoghurt</a></li>
+                <li><a href="liqueur.html" class="active">Liqueur <span class="badge-18">18+</span></a></li>
+                <li><button onclick="openQuoteModal()" class="btn btn-primary nav-cta-btn"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
             </ul>
 
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -187,9 +266,9 @@
         <!-- MAIN CONTENT (Hidden until age verified) -->
         <div id="main-content" class="hidden">
             <!-- HERO -->
-            <section class="section hero-liqueur" style="padding: 40px 0 20px; display: flex; align-items: center;">
+            <section class="section hero-liqueur" style="padding: 40px 0 20px; display: flex; align-items: center; justify-content: center;">
                 <div class="container" style="position: relative; z-index: 1;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-3xl); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-3xl); flex-wrap: wrap;">
                         <div style="flex: 1; min-width: 300px; max-width: 650px;">
                             <div style="display: inline-block; background: rgba(255,215,0,0.15); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); border: 1px solid rgba(255,215,0,0.3);">
                                 <p style="color: #FFD700; font-weight: 600; margin: 0; font-size: var(--font-size-sm); letter-spacing: 1px;">
@@ -205,7 +284,7 @@
                             <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: var(--spacing-xl); animation: fadeInUp 0.8s ease-out 0.4s; animation-fill-mode: both;">
                                 Discover our exquisite collection: <span style="color: #FFD700;">Premium Cream Liqueur</span> – a luxurious blend of rich dairy cream and the finest spirits, masterfully crafted for an irresistibly smooth and velvety experience. Plus our <span style="color: #FFD700;">Blended Gin (Blackcurrant flavour)</span> – a sophisticated spirit with bold botanical notes and a refreshing blackcurrant twist, perfect for classic cocktails and modern mixology.
                             </p>
-                            <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
+                            <div class="button-group" style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
                                 <button onclick="openQuoteModal('liqueur')" class="btn btn-lg" style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #1a1a1a; font-weight: 600; padding: var(--spacing-md) var(--spacing-2xl); box-shadow: 0 10px 30px rgba(255,215,0,0.3);">
                                     <i class="bi bi-clipboard-check"></i> Request Quote
                                 </button>
@@ -217,7 +296,7 @@
                                 <i class="bi bi-info-circle"></i> Please drink responsibly • Must be 18 years or older
                             </p>
                         </div>
-                        <div style="flex: 0 0 500px; position: relative; height: 500px; animation: fadeInUp 1s ease-out;">
+                        <div class="liqueur-images" style="flex: 0 0 500px; position: relative; height: 500px; animation: fadeInUp 1s ease-out;">
                             <img src="images/liqueur/Turbo-Cream-Liqueur.png" alt="Turbo Cream Liqueur"
                                  style="position: absolute; top: 20%; left: 10%; transform: translate(-50%, -50%); width: 260px; filter: drop-shadow(0 30px 60px rgba(255,215,0,0.4)); animation: float 5s ease-in-out infinite;">
                             <img src="images/liqueur/MrReam-GIn.png" alt="MrCream Gin - Blackcurrant"
@@ -720,5 +799,14 @@
             `;
         }
     </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348032354952?text=Hello%20MrCream!%20I%27d%20like%20to%20inquire%20about%20your%20premium%20liqueur%20collection."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
 </body>
 </html>

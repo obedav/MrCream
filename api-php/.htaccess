@@ -1,0 +1,15 @@
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /api/
+
+# CORS Headers are now handled in config.php for better security
+# Removed duplicate headers to prevent conflicts
+
+# Handle OPTIONS requests (for CORS preflight)
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ index.php [R=200,L]
+
+# Route all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]

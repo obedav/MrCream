@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MrCream Water Park - Thrilling attractions and family fun">
     <title>MrCream - Water Park</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()")
     <link rel="icon" type="image/png" href="images/logo/Logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,10 +67,67 @@
             animation: float 10s ease-in-out infinite reverse;
         }
 
+        /* Tablet Landscape (1024px - 1366px) */
+        @media (max-width: 1366px) {
+            .hero-waterpark {
+                min-height: 55vh;
+            }
+
+            .hero-waterpark .waterpark-images {
+                flex: 0 0 420px !important;
+                height: 420px !important;
+            }
+
+            .hero-waterpark .waterpark-images > div,
+            .hero-waterpark .waterpark-images > img {
+                transform: scale(0.9);
+            }
+        }
+
+        /* Tablet Portrait (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-waterpark {
+                min-height: auto;
+                padding: 60px 0 50px !important;
+            }
+
+            .hero-waterpark .waterpark-images {
+                flex: 0 0 380px !important;
+                height: 380px !important;
+            }
+
+            .hero-waterpark .waterpark-images > div,
+            .hero-waterpark .waterpark-images > img {
+                transform: scale(0.85);
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Mobile (768px and below) */
         @media (max-width: 768px) {
+            .hero-waterpark {
+                min-height: auto;
+                padding: 80px 0 60px !important;
+            }
+
             /* Hero section adjustments */
             .section {
                 padding: var(--spacing-2xl) 0 !important;
+            }
+
+            /* Scale down waterpark images on mobile instead of hiding */
+            .hero-waterpark .waterpark-images {
+                flex: 1 1 100% !important;
+                height: 300px !important;
+                margin-top: var(--spacing-xl);
+            }
+
+            .hero-waterpark .waterpark-images > div,
+            .hero-waterpark .waterpark-images > img {
+                transform: scale(0.7);
             }
 
             /* Make all grids single column on mobile */
@@ -100,6 +163,16 @@
             #booking-form .grid-2 {
                 gap: var(--spacing-md) !important;
             }
+
+            /* Stack buttons vertically */
+            .hero-waterpark .button-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-waterpark .button-group .btn {
+                width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -120,6 +193,15 @@
             .btn-lg {
                 padding: var(--spacing-md) var(--spacing-lg) !important;
                 font-size: var(--font-size-lg) !important;
+            }
+
+            .hero-waterpark .waterpark-images {
+                height: 240px !important;
+            }
+
+            .hero-waterpark .waterpark-images > div,
+            .hero-waterpark .waterpark-images > img {
+                transform: scale(0.55);
             }
         }
 
@@ -169,12 +251,12 @@
                 </div>
             </a>
 
-            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
-                <li><a href="index.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
-                <li><a href="waterpark.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
-                <li><a href="yoghurt.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
-                <li><a href="liqueur.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
-                <li><button onclick="openQuoteModal()" class="btn btn-primary" style="margin-left: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="waterpark.html" class="active">Water Park</a></li>
+                <li><a href="yoghurt.html">Yoghurt</a></li>
+                <li><a href="liqueur.html">Liqueur <span class="badge-18">18+</span></a></li>
+                <li><button onclick="openQuoteModal()" class="btn btn-primary nav-cta-btn"><i class="bi bi-clipboard-check"></i> Get Quote</button></li>
             </ul>
 
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -187,9 +269,9 @@
 
     <main>
         <!-- HERO -->
-        <section class="section hero-waterpark" style="color: white; padding: 60px 0 40px; display: flex; align-items: center;">
+        <section class="section hero-waterpark" style="color: white; padding: 60px 0 40px; display: flex; align-items: center; justify-content: center;">
             <div class="container" style="position: relative; z-index: 1;">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-3xl); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-3xl); flex-wrap: wrap;">
                     <!-- Left Content -->
                     <div style="flex: 1; min-width: 300px; max-width: 650px;">
                         <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
@@ -206,7 +288,7 @@
                         <p style="font-size: var(--font-size-lg); color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: var(--spacing-xl); animation: fadeInUp 0.8s ease-out 0.4s; animation-fill-mode: both;">
                             Designed with the perfect blend of refreshing water attractions, vibrant scenery, and the unmistakable spirit of the MrCream brand. A celebration of joy, laughter, and unforgettable moments.
                         </p>
-                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
+                        <div class="button-group" style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.6s; animation-fill-mode: both;">
                             <button onclick="openBookingModal()" class="btn btn-lg" style="background: white; color: var(--primary-color); padding: var(--spacing-md) var(--spacing-2xl); font-size: var(--font-size-lg);">
                                 <i class="bi bi-calendar-check"></i> Book Your Visit
                             </button>
@@ -217,7 +299,7 @@
                     </div>
 
                     <!-- Right Content - Waterpark Images -->
-                    <div style="flex: 0 0 500px; position: relative; height: 500px; animation: fadeInUp 1s ease-out;">
+                    <div class="waterpark-images" style="flex: 0 0 500px; position: relative; height: 500px; animation: fadeInUp 1s ease-out;">
                         <div style="position: absolute; top: 0; left: 0; width: 240px; height: 240px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: float 5s ease-in-out infinite;">
                             <img src="images/waterpark/73246478_104007104386836_1240328753414930432_n.jpg" alt="Water Park Fun" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
@@ -768,13 +850,41 @@
             e.preventDefault();
 
             const formData = new FormData(e.target);
-            const bookingData = Object.fromEntries(formData.entries());
+
+            // Map ticket type values to API TicketTypeIds
+            const ticketTypeMap = {
+                'child': 1,    // Daily Entry Pass - Child
+                'adult': 2,    // Daily Entry Pass - Adult
+                'vip': 3,      // VIP Pass
+                'family': 4,   // Family Package
+                'group': 4     // Use Family Package for groups
+            };
+
+            const ticketType = formData.get('ticketType');
+            const ticketTypeId = ticketTypeMap[ticketType] || 2; // Default to adult
+
+            // Structure data to match backend API format
+            const bookingData = {
+                Tickets: [{
+                    TicketTypeId: ticketTypeId,
+                    Quantity: parseInt(formData.get('guests')) || 1
+                }],
+                VisitDate: formData.get('date'),
+                CustomerInfo: {
+                    Name: formData.get('name'),
+                    Email: formData.get('email'),
+                    Phone: formData.get('phone')
+                },
+                PaymentMethod: 'Card',
+                SpecialRequests: formData.get('message') || ''
+            };
 
             try {
                 showLoading();
                 // Try to use the API if available
                 if (window.MrCreamAPI && window.MrCreamAPI.waterpark) {
                     const result = await window.MrCreamAPI.waterpark.book(bookingData);
+                    console.log('Booking result:', result);
                 }
                 hideLoading();
 
@@ -783,6 +893,7 @@
                 closeBookingModal(); // Close modal after successful submission
             } catch (error) {
                 hideLoading();
+                console.error('Booking error:', error);
                 showSuccess('Thank you for your booking request! We will contact you within 24 hours to confirm your visit.');
                 e.target.reset();
                 closeBookingModal(); // Close modal after submission
@@ -801,5 +912,14 @@
             });
         });
     </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348032354952?text=Hello%20MrCream!%20I%27d%20like%20to%20book%20a%20visit%20to%20the%20Water%20Park."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
 </body>
 </html>

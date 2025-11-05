@@ -58,8 +58,32 @@ const App = {
     setupEventListeners() {
         // Mobile menu toggle
         document.addEventListener('click', (e) => {
-            if (e.target.matches('.mobile-menu-toggle')) {
-                this.toggleMobileMenu();
+            if (e.target.matches('.mobile-menu-toggle') || e.target.closest('.mobile-menu-toggle')) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMobileMenu();
+            }
+        });
+
+        // Close mobile menu when clicking nav links
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.nav-menu a')) {
+                const menu = document.querySelector('.nav-menu');
+                if (menu && menu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.nav-menu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+
+            if (menu && menu.classList.contains('active')) {
+                if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                    toggleMobileMenu();
+                }
             }
         });
 
@@ -225,6 +249,90 @@ function throttle(func, limit) {
 }
 
 // ============================================
+// SECURITY UTILITIES
+// ============================================
+
+/**
+ * Sanitize user input to prevent XSS attacks
+ * @param {string} input - User input to sanitize
+ * @returns {string} Sanitized input
+ */
+function sanitizeInput(input) {
+    if (typeof input !== 'string') return input;
+
+    return input
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;')
+        .replace(/\//g, '&#x2F;');
+}
+
+/**
+ * Sanitize object with all string properties
+ * @param {Object} obj - Object to sanitize
+ * @returns {Object} Sanitized object
+ */
+function sanitizeObject(obj) {
+    const sanitized = {};
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            sanitized[key] = typeof obj[key] === 'string'
+                ? sanitizeInput(obj[key])
+                : obj[key];
+        }
+    }
+    return sanitized;
+}
+
+/**
+ * Rate limiter to prevent API abuse
+ */
+const RateLimiter = {
+    attempts: {},
+
+    /**
+     * Check if action can proceed based on rate limits
+     * @param {string} action - Action identifier
+     * @param {number} maxAttempts - Maximum attempts allowed
+     * @param {number} timeWindow - Time window in milliseconds
+     * @returns {boolean} Whether action can proceed
+     */
+    canProceed(action, maxAttempts = 5, timeWindow = 60000) {
+        const now = Date.now();
+        const key = action;
+
+        if (!this.attempts[key]) {
+            this.attempts[key] = [];
+        }
+
+        // Remove old attempts outside time window
+        this.attempts[key] = this.attempts[key].filter(
+            time => now - time < timeWindow
+        );
+
+        if (this.attempts[key].length >= maxAttempts) {
+            const oldestAttempt = Math.min(...this.attempts[key]);
+            const waitTime = Math.ceil((timeWindow - (now - oldestAttempt)) / 1000);
+            console.warn(`Rate limit exceeded. Please wait ${waitTime} seconds.`);
+            return false;
+        }
+
+        this.attempts[key].push(now);
+        return true;
+    },
+
+    /**
+     * Clear rate limit for an action
+     * @param {string} action - Action identifier
+     */
+    clear(action) {
+        delete this.attempts[action];
+    }
+};
+
+// ============================================
 // FORM UTILITIES
 // ============================================
 
@@ -273,14 +381,44 @@ function resetForm(formElement) {
 // ============================================
 
 function toggleMobileMenu() {
-    const menu = document.querySelector('.mobile-menu');
+    const menu = document.querySelector('.nav-menu');
     const toggle = document.querySelector('.mobile-menu-toggle');
+    const body = document.body;
+
+    console.log('Toggle menu clicked!', { menu, toggle });
 
     if (menu) {
-        menu.classList.toggle('active');
+        const isActive = menu.classList.toggle('active');
         toggle?.classList.toggle('active');
+
+        console.log('Menu toggled:', isActive);
+
+        // Prevent body scroll when menu is open
+        if (isActive) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    } else {
+        console.error('Nav menu not found!');
     }
 }
+
+// Direct event listener for hamburger menu (backup)
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    if (toggle) {
+        console.log('Hamburger button found, attaching click listener');
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Hamburger clicked directly');
+            toggleMobileMenu();
+        });
+    } else {
+        console.error('Hamburger button not found!');
+    }
+});
 
 // ============================================
 // SCROLL UTILITIES

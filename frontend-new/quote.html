@@ -6,6 +6,12 @@
     <meta name="description" content="Get a quote or contact MrCream">
     <title>MrCream - Get a Quote</title>
 
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,12 +33,12 @@
                 </div>
             </a>
 
-            <ul class="nav-menu" style="display: flex; gap: 0.5rem; list-style: none; align-items: center;">
-                <li><a href="index.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Home</a></li>
-                <li><a href="waterpark.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Water Park</a></li>
-                <li><a href="yoghurt.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Yoghurt</a></li>
-                <li><a href="liqueur.html" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Liqueur <span style="font-size: 0.7rem; background: var(--coral); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 4px;">18+</span></a></li>
-                <li><a href="quote.html" class="active" style="padding: 0.5rem 1rem; border-radius: var(--radius-md); transition: all 0.3s ease; font-weight: 500;">Get Quote</a></li>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="waterpark.html">Water Park</a></li>
+                <li><a href="yoghurt.html">Yoghurt</a></li>
+                <li><a href="liqueur.html">Liqueur <span class="badge-18">18+</span></a></li>
+                <li><a href="quote.html" class="active">Get Quote</a></li>
             </ul>
 
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -294,25 +300,41 @@
             try {
                 showLoading();
 
-                // You can send this to a contact/quote endpoint
-                // For now, we'll simulate sending analytics
-                window.MrCreamAPI.sendAnalytics({
-                    type: 'quote_request',
-                    data: quoteData,
-                    timestamp: new Date().toISOString()
+                // Prepare quote data for API
+                const quotePayload = {
+                    Name: `${quoteData.firstName} ${quoteData.lastName}`,
+                    Email: quoteData.email,
+                    Phone: quoteData.phone,
+                    Company: quoteData.company || '',
+                    ProductCategory: quoteData.interest || '',
+                    Quantity: 0, // Can be derived from volume if needed
+                    Message: `Business Type: ${quoteData.businessType}\nInterest: ${quoteData.interest}\nVolume: ${quoteData.volume || 'Not specified'}\nBudget: ${quoteData.budget || 'Not specified'}\nPreferred Date: ${quoteData.preferredDate || 'Not specified'}\n\nMessage:\n${quoteData.message}`
+                };
+
+                // Submit to API
+                const response = await fetch('https://mrcreamlimited.com/api/quotes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(quotePayload)
                 });
 
-                // In production, you'd call a proper endpoint:
-                // await fetch(`${window.MrCreamAPI.config.baseUrl}/contact/quote`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(quoteData)
-                // });
+                const result = await response.json();
 
                 hideLoading();
 
-                showSuccess('Thank you! Your quote request has been submitted. We will contact you within 24 hours.');
-                e.target.reset();
+                if (response.ok && result.Id) {
+                    showSuccess('Thank you! Your quote request has been submitted. We will contact you within 24 hours.');
+                    e.target.reset();
+
+                    // Also send analytics
+                    window.MrCreamAPI.sendAnalytics({
+                        type: 'quote_request',
+                        quote_id: result.Id,
+                        timestamp: new Date().toISOString()
+                    });
+                } else {
+                    throw new Error('Failed to submit quote');
+                }
 
             } catch (error) {
                 hideLoading();
@@ -346,5 +368,14 @@
             }
         });
     </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348032354952?text=Hello%20MrCream!%20I%27d%20like%20to%20request%20a%20quote%20for%20your%20products."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
 </body>
 </html>
